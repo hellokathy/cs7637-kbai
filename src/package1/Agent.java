@@ -51,6 +51,6 @@ public class Agent {
      * @return your Agent's answer to this problem
      */
     public String Solve(RavensProblem problem) {
-        return "1";
+        return "0";
     }
 }
