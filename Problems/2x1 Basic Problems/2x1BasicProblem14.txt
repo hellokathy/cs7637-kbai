@@ -1,0 +1,93 @@
+2x1 Basic Problem 14
+2x1
+3
+A
+	Z
+		shape:circle
+		left-of:Y
+		fill:no
+		size:medium
+	Y
+		shape:square
+		fill:no
+		size:medium
+B
+	Z
+		shape:circle
+		left-of:Y
+		size:medium
+		fill:no
+	Y
+		shape:triangle
+		size:medium
+		fill:no
+C
+	Z
+		shape:square
+		above:Y
+		size:medium
+		fill:no
+	Y
+		shape:circle
+		size:medium
+		fill:no
+1
+	Z
+		shape:circle
+		above:Y
+		size:medium
+		fill:no
+	Y
+		shape:circle
+		size:medium
+		fill:no
+2
+	Z
+		shape:circle
+		above:Y
+		size:medium
+		fill:no
+	Y
+		shape:square
+		size:medium
+		fill:no
+3
+	Z
+		shape:triangle
+		above:Y
+		size:medium
+		fill:no
+	Y
+		shape:circle
+		size:medium
+		fill:no
+4
+	Z
+		shape:circle
+		above:Y
+		size:medium
+		fill:no
+	Y
+		shape:triangle
+		size:medium
+		fill:no
+5
+	Z
+		shape:square
+		above:Y
+		size:medium
+		fill:no
+	Y
+		shape:circle
+		size:medium
+		fill:no
+6
+	Z
+		shape:triangle
+		above:Y
+		size:medium
+		fill:no
+	Y
+		shape:square
+		size:medium
+		fill:no

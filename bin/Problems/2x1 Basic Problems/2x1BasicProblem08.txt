@@ -1,0 +1,115 @@
+2x1 Basic Problem 08
+2x1
+1
+A
+	Z
+		shape:circle
+		size:large
+	Y
+		shape:circle
+		size:medium
+		inside:Z
+	X
+		shape:circle
+		size:small
+		inside:Z,Y
+B
+	Z
+		shape:circle
+		size:large
+	Y
+		shape:circle
+		size:medium
+		above:Z
+		left-of:X
+	X
+		shape:circle
+		size:small
+		above:Z
+C
+	Z
+		shape:square
+		size:large
+	Y
+		shape:square
+		size:medium
+		inside:Z
+	X
+		shape:square
+		size:small
+		inside:Z,Y
+1
+	Z
+		shape:square
+		size:medium
+		above:X
+		left-of:Y
+	Y
+		shape:square
+		size:small
+		above:X
+	X
+		shape:square
+		size:large
+2
+	Z
+		shape:square
+		size:large
+	Y
+		shape:square
+		size:medium
+		inside:Z
+	X
+		shape:square
+		size:small
+		above:Z,Y
+3
+	Z
+		shape:circle
+		size:large
+	Y
+		shape:circle
+		size:medium
+		above:Z
+		left-of:X
+	X
+		shape:circle
+		size:small
+		above:Z
+4
+	Z
+		shape:square
+		size:large
+	Y
+		shape:square
+		size:medium
+		inside:Z
+	X
+		shape:square
+		size:small
+		inside:Z,Y
+5
+	Z
+		shape:square
+		size:medium
+		above:Y,X
+	Y
+		shape:square
+		size:large
+	X
+		shape:square
+		size:small
+		inside:Y
+6
+	Z
+		shape:square
+		size:medium
+		above:X
+	Y
+		shape:square
+		size:small
+		inside:Z
+		above:X
+	X
+		shape:square
+		size:large
