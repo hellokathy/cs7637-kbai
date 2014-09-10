@@ -1,5 +1,9 @@
 package package1;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
 /**
  * Your Agent for solving Raven's Progressive Matrices. You MUST modify this
  * file.
@@ -22,8 +26,12 @@ public class Agent {
      * main().
      * 
      */
+	private OntologySet ontologies = null; 
+	
     public Agent() {
         
+    	loadOntologies();
+    	
     }
     /**
      * The primary method for solving incoming Raven's Progressive Matrices.
@@ -52,5 +60,28 @@ public class Agent {
      */
     public String Solve(RavensProblem problem) {
         return "0";
+    }
+    
+    private boolean loadOntologies(){
+    	// load from file
+    	String fileName = "ontologies.txt";
+    	String line = "";
+    	String splitChar = ",";
+    	BufferedReader br = null;
+    	
+    	try {
+    		br = new BufferedReader(new FileReader(fileName));
+    		
+    		// 
+    		while((line = br.readLine()) != null) {
+    			String[] contents = line.split(splitChar);
+    			
+    		}
+    	} catch (Exception e){
+    		System.out.println("Please provide ontologies.txt file in program directory.");
+    		System.exit(0);
+    	}
+    	
+    	return true;
     }
 }

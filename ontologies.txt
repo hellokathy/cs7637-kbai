@@ -17,7 +17,14 @@ shape,arrow,15
 shape,half-arrow,16
 shape,plus,17
 
-fill,
-
-
+fill,bottom-half,12
+fill,bottom-left,5
+fill,bottom-right,7
+fill,left-half,6
+fill,no,0
+fill,right-half,10
+fill,top-half,4
+fill,top-left,1
+fill,top-right,3
+fill,yes,16
 

@@ -39,6 +39,7 @@ public class OntologySet {
 		Ontology o = ontologySet.get(attributeName);
 		
 		if (o == null) {
+			// create new ontology and add to set
 			o = new Ontology();
 			ontologySet.put(attributeName, o);
 		}
