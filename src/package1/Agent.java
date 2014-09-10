@@ -26,7 +26,7 @@ public class Agent {
      * main().
      * 
      */
-	private OntologySet ontologies = null; 
+	private KnnOntologySet ontologies = null; 
 	
     public Agent() {
         
@@ -72,7 +72,7 @@ public class Agent {
     	try {
     		br = new BufferedReader(new FileReader(fileName));
     		
-    		// 
+    		// populate ontologyset
     		while((line = br.readLine()) != null) {
     			String[] contents = line.split(splitChar);
     			

@@ -21,14 +21,14 @@ class Ontology {
 	}
 }
 
-public class OntologySet {
+public class KnnOntologySet {
 
 	/* An list of ontologies keyed by attribute name
 	 * 
 	 */
 	private HashMap<String,Ontology> ontologySet;
 
-	public OntologySet() {
+	public KnnOntologySet() {
 		this.ontologySet = new HashMap<String,Ontology>();
 	}
 
