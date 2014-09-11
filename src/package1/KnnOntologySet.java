@@ -78,4 +78,17 @@ public class KnnOntologySet {
     	
     	return true;
     }
+    
+    public Integer GetSimilarityWeight(RavensAttribute ra){
+    	/* returns a similarity weight for a given Raven's object
+    	 * 
+    	 */
+    	switch (ra.getName()) 
+    	{
+    	case "shape":
+    		// do a straightforward lookup on the ontologySet
+    	}
+    	
+    	return 0;
+    }
 }

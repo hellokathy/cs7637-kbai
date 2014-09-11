@@ -17,7 +17,8 @@ import java.io.FileReader;
  * These methods will be necessary for the project's main method to run.
  * 
  */
-public class Agent {
+public class Agent 
+{
     /**
      * The default constructor for your Agent. Make sure to execute any
      * processing necessary before your Agent starts solving problems here.
@@ -26,20 +27,23 @@ public class Agent {
      * main().
      * 
      */
-	private KnnOntologySet ontologies = null; 
+	private KnnOntologySet ontologySet = null; 
 	
-    public Agent() {
+    public Agent() 
+    {
         
     	// ensure that ontologies.txt is present   
     	// and readable in the program directory
-    	try {
-			ontologies = new KnnOntologySet();
-		} catch (Exception e) {
+    	try 
+    	{
+			ontologySet = new KnnOntologySet();
+		} catch (Exception e) 
+    	{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-    	System.out.println("wait...");
+		}	
     }
+    
     /**
      * The primary method for solving incoming Raven's Progressive Matrices.
      * For each problem, your Agent's Solve() method will be called. At the
@@ -65,7 +69,28 @@ public class Agent {
      * @param problem the RavensProblem your agent should solve
      * @return your Agent's answer to this problem
      */
-    public String Solve(RavensProblem problem) {
+    public String Solve(RavensProblem problem) 
+    {
+       	// traverse RavensProblem - populate KnnSemanticNetwork
+    	
+    	KnnSemanticNet semanticNet = new KnnSemanticNet(problem.getProblemType());
+    	
+    	for ( RavensFigure rf : problem.getFigures().values()) 
+    	{
+    		for ( RavensObject ro : rf.getObjects())
+    		{
+    			Frame f = new Frame();
+    			for ( RavensAttribute ra : ro.getAttributes())
+    			{
+    				// read attribute, convert to simlarityWeight using ontology
+    				// and add to  frame
+    				f.addSlot(ra.getName(), ontologySet.GetSimilarityWeight(ra));
+    			}
+    		}
+    	}
+    	
+    	
+    	
         return "0";
     }
     
