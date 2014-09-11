@@ -30,8 +30,15 @@ public class Agent {
 	
     public Agent() {
         
-    	loadOntologies();
-    	
+    	// ensure that ontologies.txt is present   
+    	// and readable in the program directory
+    	try {
+			ontologies = new KnnOntologySet();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	System.out.println("wait...");
     }
     /**
      * The primary method for solving incoming Raven's Progressive Matrices.
@@ -62,26 +69,5 @@ public class Agent {
         return "0";
     }
     
-    private boolean loadOntologies(){
-    	// load from file
-    	String fileName = "ontologies.txt";
-    	String line = "";
-    	String splitChar = ",";
-    	BufferedReader br = null;
-    	
-    	try {
-    		br = new BufferedReader(new FileReader(fileName));
-    		
-    		// populate ontologyset
-    		while((line = br.readLine()) != null) {
-    			String[] contents = line.split(splitChar);
-    			
-    		}
-    	} catch (Exception e){
-    		System.out.println("Please provide ontologies.txt file in program directory.");
-    		System.exit(0);
-    	}
-    	
-    	return true;
-    }
+
 }
