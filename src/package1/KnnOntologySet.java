@@ -23,9 +23,40 @@ class Ontology {
 	
 	public int getValueMap(String _attributeValue)
 	{
+		// if _attributeValue is not present in Ontology then add it
+		// TODO: consider pulling this code out into an agent-learning module
+		
+		Integer nextSimilarityWeight = 0;		
+		
+		if (!ontology.containsKey(_attributeValue))
+		{
+			// _attributeValue is not present in Ontology so add it
+			// get next similarityWeight in the ontology map, increment current max by MIN_SIMILARITY_WEIGHT
+			
+			nextSimilarityWeight = findMaxValue() + Const.MIN_SIMILARITY_WEIGHT;
+			addValueMap(_attributeValue, nextSimilarityWeight);
+			
+		}
 		return this.ontology.get(_attributeValue);
+		
 	}
 	
+	public HashMap<String,Integer> getOntology()
+	{
+		return ontology;
+	}
+	
+    private int findMaxValue()
+    {
+    	/* iterates through an Ontology and returns the maximum value
+    	 * 
+    	 */
+    	int max = 0;
+   		for (int i : ontology.values())
+   			if(i > max) max = i;
+    	
+    	return max;
+    }
 }
 
 public class KnnOntologySet {
@@ -33,11 +64,13 @@ public class KnnOntologySet {
 	/* An list of ontologies keyed by attribute name
 	 * 
 	 */
+	
 	private HashMap<String,Ontology> ontologySet;
 	private ArrayList<NameValuePair> keyMap;
 	
 	// constructor
-	public KnnOntologySet() throws Exception {
+	public KnnOntologySet() throws Exception 
+	{
 		this.ontologySet = new HashMap<String,Ontology>();
 		this.keyMap = new ArrayList<NameValuePair>();
 
@@ -45,17 +78,16 @@ public class KnnOntologySet {
 	}
 	
 	// getters and setters
-	public void addSimilarityWeight(String _ontologyKeyName, String _attributeValue, Integer _similarityValue){
+	public void addSimilarityWeight(String _ontologyKeyName, String _attributeValue, Integer _similarityValue)
+	{
 		/* check ontologyList to see if ontology already exists for given attributeName
 		 * if not create new ontology and add to set
 		 */
 		Ontology o = this.ontologySet.get(_ontologyKeyName);
 		
-		if (o == null) {
+		if (o == null) 
 			// create new ontology and add to set
-			o = new Ontology();
-			ontologySet.put(_ontologyKeyName, o);
-		}
+			o = createNewOntologyInSet(_ontologyKeyName);
 			
 		o.addValueMap(_attributeValue, _similarityValue);	
 	}
@@ -68,18 +100,24 @@ public class KnnOntologySet {
 		
 		Ontology o = this.ontologySet.get(_ontologyKeyName);
 		
-		if (o != null)
-		{
-			return o.getValueMap(_attributeValue);
-		} else 
-		{
-			return 0;
-		}
-		
+		if (o == null)
+			// Ontology not present for _ontologyKeyName. Create one and add _attributeValue
+			// TODO: consider pulling this code out into an agent-learning module
+			addSimilarityWeight(_ontologyKeyName, _attributeValue, Const.MIN_SIMILARITY_WEIGHT);
+	
+		return o.getValueMap(_attributeValue); 
 		
 	}
 	
-    private boolean loadOntologies() throws Exception{
+	private Ontology createNewOntologyInSet(String _ontologyKeyName)
+	{
+		Ontology o = new Ontology();
+		ontologySet.put(_ontologyKeyName, o);
+		return o;
+	}
+	
+    private boolean loadOntologies() throws Exception
+    {
     	// load from file
     	String fileName = "ontologies.txt";
     	String line = "";
@@ -152,23 +190,54 @@ public class KnnOntologySet {
     	 *               fill-v | 4
     	 */       
     	
+    	ArrayList<String> attributeValueList = new ArrayList<String>(); // this is the list of attributes extracted 
+    																	// from ra.value
+    																	// In most cases this array will only
+    																	// have one element in it but for some attributes 
+    																	// which can have several values on the same line
+    																	// e.g. fill, inside etc, each value will be placed
+    																	// in a separate element
+    	
+    	// first check whether this attribute needs to be split into multiple entries
+    	// fill attributes can have multiple comma separated values so need to separate them out
+    	// e.g. fill:top-right,bottom-right,bottom-left
+    	String raValue = ra.getValue();
+    	String[] contents = raValue.split(",");
+    	
+    	if (contents.length > 0) 
+    	{
+    		// multiple comma-separated entries
+    		for (String s : contents) attributeValueList.add(s);
+    		
+    	} else
+    	{
+    		// just a single value present in ra.value
+    		attributeValueList.add(raValue);
+    	}
+    	
     	// first check to see whether ravens attribute name has any entries in keyMap
-    	Boolean bFound = false;
+    	Boolean bFoundInKeyMap = false;
     	ArrayList<NameValuePair> slots = new ArrayList<NameValuePair>();
     	
-    	for (NameValuePair k : keyMap) {
-    		if (k.name.equals(ra.getName())) 
+    	for (NameValuePair keyMapPair : keyMap) 
+    	{
+    		if (keyMapPair.name.equals(ra.getName())) 
     		{
-    			// attribute name found in keyMap, get corresponding ontology key name
-    			bFound = true;
-    			slots.add(new NameValuePair(k.value, this.getSimilarityWeight(k.value, ra.getValue())));
+    			// attribute name found in keyMap, so use corresponding ontology key name from keyMapPair.value
+    			// if mapping is found in keyMap then this attribute should already in the ontologySet
+    			// TODO: add check later on to validate whether ontologies file was correctly populated for key maps
+    			bFoundInKeyMap = true;
+    			for (String attrVal : attributeValueList) 
+    				slots.add(new NameValuePair(keyMapPair.value, this.getSimilarityWeight(keyMapPair.value, attrVal)));
+   
     		}
     	}
     	
-    	if (!bFound)
+    	if (!bFoundInKeyMap)
     	{
     		// use the ravens attribute name as the ontology key name
-    		slots.add(new NameValuePair(ra.getName(),this.getSimilarityWeight(ra.getName(), ra.getValue())));
+    		for (String attrVal : attributeValueList) 
+    			slots.add(new NameValuePair(ra.getName(),this.getSimilarityWeight(ra.getName(), attrVal)));
     	}
     	
     	return slots;

@@ -1,9 +1,16 @@
 package package1;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Your Agent for solving Raven's Progressive Matrices. You MUST modify this
@@ -28,11 +35,19 @@ public class Agent
      * main().
      * 
      */
+	
+	private static final Logger logger = Logger.getLogger("package1");
+
 	private KnnOntologySet ontologySet = null; 
 	
     public Agent() 
     {
-        
+    	try {
+    	    System.setOut(new PrintStream(new File("agent.log")));
+    	} catch (Exception e) {
+    	     e.printStackTrace();
+    	}
+    	
     	// ensure that ontologies.txt is present   
     	// and readable in the program directory
     	try 
@@ -72,6 +87,7 @@ public class Agent
      */
     public String Solve(RavensProblem problem) 
     {
+    	
        	// traverse RavensProblem - populate KnnSemanticNetwork
     	
     	KnnSemanticNet semanticNet = new KnnSemanticNet(problem.getProblemType());
@@ -91,7 +107,7 @@ public class Agent
     				slots = ontologySet.getSlots(ra);
     	
     				f.addSlots(slots);
-    				
+    				System.out.println("added slots to frame for problem " + problem.getName() + ", figure "+rf.getName() +", object " + ro.getName() + ", attribute " + ra.getName()  );
     			}
     		}
     	}

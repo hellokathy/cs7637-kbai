@@ -6,20 +6,20 @@ public class Node {
 	/* list of frames related to a single figure in an RPM
 	 */
 	
-	private KnnGlobals.FIGURE_LABEL figureLabel;
+	private FIGURE_LABEL figureLabel;
 	private ArrayList<Frame> frames = null;
 	private Node nextHorizontalNode = null;
 	private Node nextVerticalNode = null;
 	
 	// constructor
-	public Node(KnnGlobals.FIGURE_LABEL _figureLabel)
+	public Node(FIGURE_LABEL _figureLabel)
 	{
 		figureLabel = _figureLabel;
 		frames = new ArrayList<Frame>();
 	}
 	
 	// getters and setters
-	public KnnGlobals.FIGURE_LABEL getFigureLabel() 
+	public FIGURE_LABEL getFigureLabel() 
 	{
 		return figureLabel;
 	}

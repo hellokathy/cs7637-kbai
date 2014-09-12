@@ -17,7 +17,7 @@ public class NameValuePair
 			valueInt = Integer.parseInt(_value);
 		} else 
 		{
-			valueInt = -999999;
+			valueInt = Const.NEGATIVE_INFINITY;
 		}
 			
 	}
