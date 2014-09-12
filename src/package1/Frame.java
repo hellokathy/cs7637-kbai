@@ -1,5 +1,6 @@
 package package1;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Frame 
@@ -15,15 +16,17 @@ public class Frame
 		frame = new HashMap<String, Integer>();
 	}
 	
-	public void addSlot(String attributeName, Integer similarityWeight)
+	//public void addSlots(String attributeName, Integer similarityWeight)
+	public void addSlots(ArrayList<NameValuePair> slots)
 	{
-		/* add new slot and filler to the frame
+		/* add each new slot and filler to the frame
 		 * 
 		 */
-		if (attributeName.length()>0)
-		{
-			frame.put(attributeName, similarityWeight);
-		}
+		for (NameValuePair s : slots)
+			if (s.name.length()>0)
+			{
+				frame.put(s.name, s.valueInt);
+			}
 		
 	}
 	

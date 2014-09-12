@@ -3,6 +3,7 @@ package package1;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
 
 /**
  * Your Agent for solving Raven's Progressive Matrices. You MUST modify this
@@ -84,7 +85,13 @@ public class Agent
     			{
     				// read attribute, convert to simlarityWeight using ontology
     				// and add to  frame
-    				f.addSlot(ra.getName(), ontologySet.GetSimilarityWeight(ra));
+    				
+    				// get slots containing ontology keys and values for this attribute name
+    				ArrayList<NameValuePair> slots = new ArrayList<NameValuePair>();
+    				slots = ontologySet.getSlots(ra);
+    	
+    				f.addSlots(slots);
+    				
     			}
     		}
     	}
