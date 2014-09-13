@@ -26,13 +26,13 @@ class Ontology {
 		// if _attributeValue is not present in Ontology then add it
 		// TODO: consider pulling this code out into an agent-learning module
 		
-		Integer nextSimilarityWeight = 0;		
+		
 		
 		if (!ontology.containsKey(_attributeValue))
 		{
 			// _attributeValue is not present in Ontology so add it
 			// get next similarityWeight in the ontology map, increment current max by MIN_SIMILARITY_WEIGHT
-			
+			Integer nextSimilarityWeight = 0;		
 			nextSimilarityWeight = findMaxValue() + Const.MIN_SIMILARITY_WEIGHT;
 			addValueMap(_attributeValue, nextSimilarityWeight);
 			
@@ -100,11 +100,14 @@ public class KnnOntologySet {
 		
 		Ontology o = this.ontologySet.get(_ontologyKeyName);
 		
-		if (o == null)
+		if (o == null) {
 			// Ontology not present for _ontologyKeyName. Create one and add _attributeValue
 			// TODO: consider pulling this code out into an agent-learning module
-			addSimilarityWeight(_ontologyKeyName, _attributeValue, Const.MIN_SIMILARITY_WEIGHT);
-	
+			// create new ontology and add to set
+			o = createNewOntologyInSet(_ontologyKeyName);
+			o.addValueMap(_attributeValue, Const.MIN_SIMILARITY_WEIGHT);
+		}
+
 		return o.getValueMap(_attributeValue); 
 		
 	}
@@ -112,7 +115,7 @@ public class KnnOntologySet {
 	private Ontology createNewOntologyInSet(String _ontologyKeyName)
 	{
 		Ontology o = new Ontology();
-		ontologySet.put(_ontologyKeyName, o);
+		this.ontologySet.put(_ontologyKeyName, o);
 		return o;
 	}
 	
@@ -177,7 +180,7 @@ public class KnnOntologySet {
 		
 		for (NameValuePair k : this.keyMap) 
 		{
-			if (k.name.equals(_attributeKeyName)) retKeyMap.add(k);
+			if (k.getName().equals(_attributeKeyName)) retKeyMap.add(k);
 		}
 		
 		return retKeyMap;
@@ -204,16 +207,9 @@ public class KnnOntologySet {
     	String raValue = ra.getValue();
     	String[] contents = raValue.split(",");
     	
-    	if (contents.length > 0) 
-    	{
-    		// multiple comma-separated entries
-    		for (String s : contents) attributeValueList.add(s);
-    		
-    	} else
-    	{
-    		// just a single value present in ra.value
-    		attributeValueList.add(raValue);
-    	}
+    	// works for both single values and comma separated values
+    	for (String s : contents) 
+    		attributeValueList.add(s);
     	
     	// first check to see whether ravens attribute name has any entries in keyMap
     	Boolean bFoundInKeyMap = false;
@@ -221,15 +217,15 @@ public class KnnOntologySet {
     	
     	for (NameValuePair keyMapPair : keyMap) 
     	{
-    		if (keyMapPair.name.equals(ra.getName())) 
+    		if (keyMapPair.getName().equals(ra.getName())) 
     		{
     			// attribute name found in keyMap, so use corresponding ontology key name from keyMapPair.value
     			// if mapping is found in keyMap then this attribute should already in the ontologySet
     			// TODO: add check later on to validate whether ontologies file was correctly populated for key maps
     			bFoundInKeyMap = true;
-    			for (String attrVal : attributeValueList) 
-    				slots.add(new NameValuePair(keyMapPair.value, this.getSimilarityWeight(keyMapPair.value, attrVal)));
-   
+    			for (String attrVal : attributeValueList)
+    				addToSlots(slots, keyMapPair.getValue(), attrVal);
+
     		}
     	}
     	
@@ -237,10 +233,35 @@ public class KnnOntologySet {
     	{
     		// use the ravens attribute name as the ontology key name
     		for (String attrVal : attributeValueList) 
-    			slots.add(new NameValuePair(ra.getName(),this.getSimilarityWeight(ra.getName(), attrVal)));
+    			addToSlots(slots, ra.getName(), attrVal );
     	}
     	
     	return slots;
+    }
+    
+    private void addToSlots(ArrayList<NameValuePair> slots, String slotName, String slotFiller)
+    {	
+    		boolean bSlotAlreadyExists = false;
+   		
+    		if (slots.isEmpty())
+    		{
+    			slots.add(new NameValuePair(slotName, this.getSimilarityWeight(slotName, slotFiller) ));
+    		} else 
+    		{
+				for(NameValuePair p : slots) 
+				{
+					if (slotName.equals(p.getName()))
+					{
+						// add similarityWeight to existing slot
+						bSlotAlreadyExists = true;
+						p.setValueInt(p.getValueInt()+ this.getSimilarityWeight(slotName, slotFiller)) ;
+					}
+				}	
+				if (!bSlotAlreadyExists)
+					slots.add(new NameValuePair(slotName, this.getSimilarityWeight(slotName, slotFiller) ));
+    		}
+    		
+
     }
     
 

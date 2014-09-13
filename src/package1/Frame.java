@@ -9,7 +9,7 @@ public class Frame
 	 * for a single object in a figure
 	 */
 
-	private HashMap<String, Integer> frame = null;
+	public HashMap<String, Integer> frame = null;
 	
 	public Frame()
 	{
@@ -23,9 +23,9 @@ public class Frame
 		 * 
 		 */
 		for (NameValuePair s : slots)
-			if (s.name.length()>0)
+			if (s.getName().length()>0)
 			{
-				frame.put(s.name, s.valueInt);
+				frame.put(s.getName(), s.getValueInt());
 			}
 		
 	}

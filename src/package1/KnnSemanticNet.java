@@ -8,73 +8,73 @@ import java.util.Set;
 public class KnnSemanticNet 
 {
 	
-	public HashMap<FIGURE_LABEL,Node> nodes = null;
-	public HashMap<FIGURE_LABEL,Node> candidate_nodes = null;
+	public HashMap<String,Node> nodes = null;
+	public HashMap<String,Node> candidateNodes = null;
 	public String rpmType = null;
 	
 	public KnnSemanticNet(String _rpmType)
 	{
-		nodes = new HashMap<FIGURE_LABEL,Node>();
-		candidate_nodes = new HashMap<FIGURE_LABEL,Node>();
+		nodes = new HashMap<String,Node>();
+		candidateNodes = new HashMap<String,Node>();
 		rpmType = _rpmType;
 		
 		switch (rpmType) 
 		{
 			case "2x1":
-				FIGURE_LABEL[] labels_2x1 = {FIGURE_LABEL.A, FIGURE_LABEL.B, FIGURE_LABEL.C};
+				String[] labels_2x1 = {"A", "B", "C"};
 				createNodes(labels_2x1);
 
 				// link nodes
-				nodes.get(FIGURE_LABEL.A).setNextHorizontalNode(nodes.get(FIGURE_LABEL.B));
+				nodes.get("A").setNextHorizontalNode(nodes.get("B"));
 
 				break;
 			case "2x2":
 /*				
- 				FIGURE_LABEL[] labels_2x2 = 
+ 				String[] labels_2x2 = 
 			    {
-						FIGURE_LABEL.A, 
-						FIGURE_LABEL.B, 
-						FIGURE_LABEL.C
+						"A", 
+						"B", 
+						"C"
 				};
 				
 				createNodes(labels_2x2);
 				
 				// link nodes
-				nodes.get(FIGURE_LABEL.A).setNextHorizontalNode(nodes.get(FIGURE_LABEL.B));
-				nodes.get(FIGURE_LABEL.A).setNextVerticalNode(nodes.get(FIGURE_LABEL.C));
+				nodes.get("A").setNextHorizontalNode(nodes.get("B"));
+				nodes.get("A").setNextVerticalNode(nodes.get("C"));
 */				
 				throw new IllegalArgumentException(
 						"2x2 RPM problems not implemented yet");		
 				//break; uncomment when implemented
 			case "3x3":
 /*
-				KnnGlobals.FIGURE_LABEL[] labels_3x3 = 
+				KnnGlobals.String[] labels_3x3 = 
 			    {
-						FIGURE_LABEL.A,
-						FIGURE_LABEL.B, 
-						FIGURE_LABEL.C,
-						FIGURE_LABEL.D,
-						FIGURE_LABEL.E,
-						FIGURE_LABEL.F,
-						FIGURE_LABEL.G,
-						FIGURE_LABEL.H
+						"A",
+						"B", 
+						"C",
+						"D",
+						"E",
+						"F",
+						"G",
+						"H"
 				};
 				
 				
  				createNodes(labels_3x3);
 				
 				// link nodes
-				nodes.get(FIGURE_LABEL.A).setNextHorizontalNode(nodes.get(FIGURE_LABEL.B));
-				nodes.get(FIGURE_LABEL.B).setNextHorizontalNode(nodes.get(FIGURE_LABEL.C));
-				nodes.get(FIGURE_LABEL.D).setNextHorizontalNode(nodes.get(FIGURE_LABEL.E));
-				nodes.get(FIGURE_LABEL.E).setNextHorizontalNode(nodes.get(FIGURE_LABEL.F));
-				nodes.get(FIGURE_LABEL.G).setNextHorizontalNode(nodes.get(FIGURE_LABEL.H));
+				nodes.get("A").setNextHorizontalNode(nodes.get("B"));
+				nodes.get("B").setNextHorizontalNode(nodes.get("C"));
+				nodes.get("D").setNextHorizontalNode(nodes.get("E"));
+				nodes.get("E").setNextHorizontalNode(nodes.get("F"));
+				nodes.get("G").setNextHorizontalNode(nodes.get("H"));
 
-				nodes.get(FIGURE_LABEL.A).setNextVerticalNode(nodes.get(FIGURE_LABEL.D));
-				nodes.get(FIGURE_LABEL.D).setNextVerticalNode(nodes.get(FIGURE_LABEL.G));
-				nodes.get(FIGURE_LABEL.B).setNextVerticalNode(nodes.get(FIGURE_LABEL.E));
-				nodes.get(FIGURE_LABEL.E).setNextVerticalNode(nodes.get(FIGURE_LABEL.H));
-				nodes.get(FIGURE_LABEL.C).setNextVerticalNode(nodes.get(FIGURE_LABEL.F));
+				nodes.get("A").setNextVerticalNode(nodes.get("D"));
+				nodes.get("D").setNextVerticalNode(nodes.get("G"));
+				nodes.get("B").setNextVerticalNode(nodes.get("E"));
+				nodes.get("E").setNextVerticalNode(nodes.get("H"));
+				nodes.get("C").setNextVerticalNode(nodes.get("F"));
 */
 				throw new IllegalArgumentException(
 						"3x3 RPM problems not implemented yet");			
@@ -89,9 +89,11 @@ public class KnnSemanticNet
 		
 	}
 	
-	private void createNodes(FIGURE_LABEL[] _labels)
+	private void createNodes(String[] _labels)
 	{
-		for (FIGURE_LABEL label : _labels)
+		// these nodes are created and linked before traversing the 
+		// Ravens problem
+		for (String label : _labels)
 		{
 			Node node = new Node(label);
 			nodes.put(label,node);
@@ -99,22 +101,23 @@ public class KnnSemanticNet
 		
 	}
 	
-	public void addFrameToNode(Frame f, FIGURE_LABEL nodeLabel)
+	public void addFrameToNode(Frame f, String nodeLabel)
 	{
 		Node n = null;
 		if (f != null) {
 			// is it an answer node i.e. 1 to 6 ?
-			if (Util.isNumeric(nodeLabel.getValue()))
+			if (Util.isNumeric(nodeLabel))
 			{
-				// add to set of candidate nodes
-				n = candidate_nodes.get(nodeLabel);
+				// create candidate node and add to set of candidate nodes
+				n = new Node(nodeLabel);
+				candidateNodes.put(nodeLabel, n);
 			} else
 			{
 				// add to the set of nodes
 				n = nodes.get(nodeLabel);
 				
 			}
-			if (n != null) n.addFrame(f);
+			n.addFrame(f);
 		}
 		
 	}

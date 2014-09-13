@@ -6,20 +6,20 @@ public class Node {
 	/* list of frames related to a single figure in an RPM
 	 */
 	
-	private FIGURE_LABEL figureLabel;
-	private ArrayList<Frame> frames = null;
+	private String figureLabel;
+	public ArrayList<Frame> frames = null;
 	private Node nextHorizontalNode = null;
 	private Node nextVerticalNode = null;
 	
 	// constructor
-	public Node(FIGURE_LABEL _figureLabel)
+	public Node(String _figureLabel)
 	{
 		figureLabel = _figureLabel;
 		frames = new ArrayList<Frame>();
 	}
 	
 	// getters and setters
-	public FIGURE_LABEL getFigureLabel() 
+	public String getFigureLabel() 
 	{
 		return figureLabel;
 	}

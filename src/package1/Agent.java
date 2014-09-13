@@ -92,10 +92,15 @@ public class Agent
     	
     	KnnSemanticNet semanticNet = new KnnSemanticNet(problem.getProblemType());
     	
+    	System.out.println("..solving problem: "+problem.getName());
     	for ( RavensFigure rf : problem.getFigures().values()) 
     	{
+    		System.out.println("   >Figure: "+rf.getName());
     		for ( RavensObject ro : rf.getObjects())
     		{
+    			System.out.println("     >Object: "+ro.getName());
+    			System.out.println("         >slots | fillers:");
+    			
     			Frame f = new Frame();
     			for ( RavensAttribute ra : ro.getAttributes())
     			{
@@ -103,14 +108,24 @@ public class Agent
     				// and add to  frame
     				
     				// get slots containing ontology keys and values for this attribute name
-    				ArrayList<NameValuePair> slots = new ArrayList<NameValuePair>();
-    				slots = ontologySet.getSlots(ra);
-    	
-    				f.addSlots(slots);
-    				System.out.println("added slots to frame for problem " + problem.getName() + ", figure "+rf.getName() +", object " + ro.getName() + ", attribute " + ra.getName()  );
+    	    		ArrayList<NameValuePair> slots = ontologySet.getSlots(ra);
+    	    		// log slots
+    	    		    	    		
+    	    		for (NameValuePair p : slots)
+    	    			System.out.println("          "+p.getName()+" : "+p.getValue());
+    				
+    	    		f.addSlots(slots);
+    				//System.out.println("added slots to frame for problem " + problem.getName() + ", figure "+rf.getName() +", object " + ro.getName() + ", attribute " + ra.getName()  );
     			}
+    			// add frame to semantic network
+    			semanticNet.addFrameToNode(f, rf.getName() );
     		}
     	}
+    	
+    	// TODO: check integrity of semantic network at this point
+    	
+    	// create new solver - pass semantic network into constructor
+    	KnnSolver knnSolver = new KnnSolver(semanticNet);
     	
     	
     	

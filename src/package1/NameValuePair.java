@@ -3,9 +3,43 @@ package package1;
 public class NameValuePair 
 {
 
-	public String name;
-	public String value;
-	public int valueInt;
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String _name) {
+		this.name = _name;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String _value) {
+		this.value = _value;
+		
+		if (Util.isNumeric(_value))
+		{
+			valueInt = Integer.parseInt(_value);
+		} else 
+		{
+			valueInt = Const.NEGATIVE_INFINITY;
+		}
+	}
+
+	public int getValueInt() {
+		return valueInt;
+	}
+
+	public void setValueInt(int _valueInt) {
+		this.valueInt = _valueInt;
+		
+		value = String.valueOf(_valueInt);
+	}
+
+	private String name;
+	private String value;
+	private int valueInt;
 	
 	public NameValuePair(String _name, String _value)
 	{
