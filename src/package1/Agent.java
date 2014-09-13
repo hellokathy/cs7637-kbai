@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.TreeMap;
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
@@ -92,12 +93,21 @@ public class Agent
     	
     	KnnSemanticNet semanticNet = new KnnSemanticNet(problem.getProblemType());
     	
-    	System.out.println("..solving problem: "+problem.getName());
-    	for ( RavensFigure rf : problem.getFigures().values()) 
+    	System.out.println("------------------------------------------------------");
+    	System.out.println("\n..solving problem: "+problem.getName());
+    	
+    	TreeMap<String,RavensFigure> sortedFigures = new TreeMap<String,RavensFigure>();
+    	sortedFigures.putAll(problem.getFigures());
+    	
+    	for ( RavensFigure rf : sortedFigures.values()) 
     	{
     		System.out.println("   >Figure: "+rf.getName());
-    		for ( RavensObject ro : rf.getObjects())
+    		
+    		ArrayList<RavensObject> objects = rf.getObjects();
+    		for ( int i = 0; i < objects.size(); i++)
     		{
+    			RavensObject ro = objects.get(i);
+    			
     			System.out.println("     >Object: "+ro.getName());
     			System.out.println("         >slots | fillers:");
     			
@@ -115,21 +125,22 @@ public class Agent
     	    			System.out.println("          "+p.getName()+" : "+p.getValue());
     				
     	    		f.addSlots(slots);
-    				//System.out.println("added slots to frame for problem " + problem.getName() + ", figure "+rf.getName() +", object " + ro.getName() + ", attribute " + ra.getName()  );
     			}
     			// add frame to semantic network
-    			semanticNet.addFrameToNode(f, rf.getName() );
+    			semanticNet.addFrameToNode(f, rf.getName().trim() );
     		}
+    		
     	}
+    	//semanticNet.debugPrintNetwork();
     	
     	// TODO: check integrity of semantic network at this point
     	
     	// create new solver - pass semantic network into constructor
     	KnnSolver knnSolver = new KnnSolver(semanticNet);
     	
-    	
-    	
-        return "0";
+    	String answerCalculated = knnSolver.computeSolution();
+    	System.out.println("Correct answer : "+problem.checkAnswer(answerCalculated));
+        return answerCalculated;
     }
     
 

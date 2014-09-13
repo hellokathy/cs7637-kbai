@@ -2,6 +2,7 @@ package package1;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
 import java.util.Set;
 
 
@@ -17,6 +18,9 @@ public class KnnSemanticNet
 		nodes = new HashMap<String,Node>();
 		candidateNodes = new HashMap<String,Node>();
 		rpmType = _rpmType;
+		
+		String[] labels_candidate = {"1","2","3","4","5","6"};
+		createCandidateNodes(labels_candidate);
 		
 		switch (rpmType) 
 		{
@@ -101,6 +105,18 @@ public class KnnSemanticNet
 		
 	}
 	
+	private void createCandidateNodes(String[] _labels)
+	{
+		// these nodes are created and linked before traversing the 
+		// Ravens problem
+		for (String label : _labels)
+		{
+			Node node = new Node(label);
+			candidateNodes.put(label,node);
+		}
+		
+	}
+	
 	public void addFrameToNode(Frame f, String nodeLabel)
 	{
 		Node n = null;
@@ -108,9 +124,7 @@ public class KnnSemanticNet
 			// is it an answer node i.e. 1 to 6 ?
 			if (Util.isNumeric(nodeLabel))
 			{
-				// create candidate node and add to set of candidate nodes
-				n = new Node(nodeLabel);
-				candidateNodes.put(nodeLabel, n);
+				n = candidateNodes.get(nodeLabel);
 			} else
 			{
 				// add to the set of nodes
@@ -120,6 +134,49 @@ public class KnnSemanticNet
 			n.addFrame(f);
 		}
 		
+	}
+	
+	public void debugPrintNetwork()
+	{
+		
+		System.out.println("*******************************************");
+		System.out.println("Network dump:");
+		System.out.println("*******************************************");
+		System.out.println("Candidate Nodes:");
+		
+		for (Entry<String,Node> nodeEntry: this.candidateNodes.entrySet())
+		{
+			System.out.println("\nNode "+ nodeEntry.getKey());
+			
+			Node node = nodeEntry.getValue();
+			for (Frame f : node.frames){
+				System.out.println("\nframe:");
+				for (Entry<String,Integer> frameEntry : f.frame.entrySet()) 
+				{
+					System.out.println(frameEntry.getKey() + " -> " + frameEntry.getValue());
+				}
+			}
+			
+			
+		}
+
+		System.out.println("\nFixed Nodes:");
+		
+		for (Entry<String,Node> nodeEntry: this.nodes.entrySet())
+		{
+			System.out.println("\nNode "+ nodeEntry.getKey());
+			
+			Node node = nodeEntry.getValue();
+			for (Frame f : node.frames){
+				System.out.println("\nframe:");
+				for (Entry<String,Integer> frameEntry : f.frame.entrySet()) 
+				{
+					System.out.println(frameEntry.getKey() + " -> " + frameEntry.getValue());
+				}
+			}
+			
+			
+		}
 	}
 }
 	

@@ -40,11 +40,13 @@ public class NameValuePair
 	private String name;
 	private String value;
 	private int valueInt;
+	public String debug;
 	
 	public NameValuePair(String _name, String _value)
 	{
 		this.name = _name;
 		this.value = _value;
+		this.debug = "";
 		
 		if (Util.isNumeric(_value))
 		{
