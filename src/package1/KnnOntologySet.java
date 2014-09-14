@@ -78,7 +78,7 @@ public class KnnOntologySet {
 	}
 	
 	// getters and setters
-	public void addSimilarityWeight(String _ontologyKeyName, String _attributeValue, Integer _similarityValue)
+	public void addSimilarityValue(String _ontologyKeyName, String _attributeValue, Integer _similarityValue)
 	{
 		/* check ontologyList to see if ontology already exists for given attributeName
 		 * if not create new ontology and add to set
@@ -92,7 +92,7 @@ public class KnnOntologySet {
 		o.addValueMap(_attributeValue, _similarityValue);	
 	}
 	
-	public Integer getSimilarityWeight(String _ontologyKeyName, String _attributeValue)
+	public Integer getSimilarityValue(String _ontologyKeyName, String _attributeValue)
 	{
 		/* get similarityWeight mapped to _attributeValue in ontology keyed by _ontologyKeyName
 		 * 
@@ -149,7 +149,7 @@ public class KnnOntologySet {
     					// e.g. (fill-h,bottom-left,3)
     					if (contents.length == 3)
     					{
-    	    				this.addSimilarityWeight(contents[0], contents[1], Integer.parseInt(contents[2]));
+    	    				this.addSimilarityValue(contents[0], contents[1], Integer.parseInt(contents[2]));
 	
     					}
     				}
@@ -186,9 +186,9 @@ public class KnnOntologySet {
 		return retKeyMap;
 	}  
 	
-    public ArrayList<NameValuePair> getSlots(RavensAttribute ra)
+    public ArrayList<NameValuePair> getOntologyData(RavensAttribute ra)
     {
-    	/* returns a list of ontology key names and similarity weights for a given Raven's attribute
+    	/* returns a list of ontology key names and similarity values for a given Raven's attribute
     	 * e.g. fill ->  fill-h | 3
     	 *               fill-v | 4
     	 */       
@@ -213,7 +213,7 @@ public class KnnOntologySet {
     	
     	// first check to see whether ravens attribute name has any entries in keyMap
     	Boolean bFoundInKeyMap = false;
-    	ArrayList<NameValuePair> slots = new ArrayList<NameValuePair>();
+    	ArrayList<NameValuePair> dataReturned = new ArrayList<NameValuePair>();
     	
     	for (NameValuePair keyMapPair : keyMap) 
     	{
@@ -224,7 +224,7 @@ public class KnnOntologySet {
     			// TODO: add check later on to validate whether ontologies file was correctly populated for key maps
     			bFoundInKeyMap = true;
     			for (String attrVal : attributeValueList)
-    				addToSlots(slots, keyMapPair.getValue(), attrVal);
+    				addToDataReturnList(dataReturned, keyMapPair.getValue(), attrVal);
 
     		}
     	}
@@ -233,32 +233,35 @@ public class KnnOntologySet {
     	{
     		// use the ravens attribute name as the ontology key name
     		for (String attrVal : attributeValueList) 
-    			addToSlots(slots, ra.getName(), attrVal );
+    			addToDataReturnList(dataReturned, ra.getName(), attrVal );
     	}
     	
-    	return slots;
+    	return dataReturned;
     }
     
-    private void addToSlots(ArrayList<NameValuePair> slots, String slotName, String slotFiller)
+    private void addToDataReturnList(ArrayList<NameValuePair> slots, String slotName, String slotFiller)
     {	
+    	/* Used by getOntologyData to build the list of slot names and fillers to be returned
+    	 * 
+    	 */
     		boolean bSlotAlreadyExists = false;
    		
     		if (slots.isEmpty())
     		{
-    			slots.add(new NameValuePair(slotName, this.getSimilarityWeight(slotName, slotFiller) ));
+    			slots.add(new NameValuePair(slotName, this.getSimilarityValue(slotName, slotFiller) ));
     		} else 
     		{
 				for(NameValuePair p : slots) 
 				{
 					if (slotName.equals(p.getName()))
 					{
-						// add similarityWeight to existing slot
+						// add similarityValue to existing slot
 						bSlotAlreadyExists = true;
-						p.setValueInt(p.getValueInt()+ this.getSimilarityWeight(slotName, slotFiller)) ;
+						p.setValueInt(p.getValueInt()+ this.getSimilarityValue(slotName, slotFiller)) ;
 					}
 				}	
 				if (!bSlotAlreadyExists)
-					slots.add(new NameValuePair(slotName, this.getSimilarityWeight(slotName, slotFiller) ));
+					slots.add(new NameValuePair(slotName, this.getSimilarityValue(slotName, slotFiller) ));
     		}
     		
 

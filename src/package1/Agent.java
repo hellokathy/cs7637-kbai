@@ -37,8 +37,6 @@ public class Agent
      * 
      */
 	
-	private static final Logger logger = Logger.getLogger("package1");
-
 	private KnnOntologySet ontologySet = null; 
 	
     public Agent() 
@@ -118,7 +116,7 @@ public class Agent
     				// and add to  frame
     				
     				// get slots containing ontology keys and values for this attribute name
-    	    		ArrayList<NameValuePair> slots = ontologySet.getSlots(ra);
+    	    		ArrayList<NameValuePair> slots = ontologySet.getOntologyData(ra);
     	    		// log slots
     	    		    	    		
     	    		for (NameValuePair p : slots)
