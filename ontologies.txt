@@ -56,6 +56,7 @@ num-sides,half-arrow,5
 shape,plus,17
 num-sides,plus,11
 
+
 fill,fill-v
 fill,fill-h
 
@@ -162,3 +163,5 @@ overlaps,S,56
 overlaps,R,62
 overlaps,Q,68
 
+vertical-flip,yes,0
+vertical-flip,no,0

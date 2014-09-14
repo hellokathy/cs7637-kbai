@@ -6,14 +6,14 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 
-public class KnnSemanticNet 
+public class SemanticNet 
 {
 	
 	public HashMap<String,Node> nodes = null;
 	public HashMap<String,Node> candidateNodes = null;
 	public String rpmType = null;
 	
-	public KnnSemanticNet(String _rpmType)
+	public SemanticNet(String _rpmType)
 	{
 		nodes = new HashMap<String,Node>();
 		candidateNodes = new HashMap<String,Node>();
@@ -151,7 +151,7 @@ public class KnnSemanticNet
 			Node node = nodeEntry.getValue();
 			for (Frame f : node.frames){
 				System.out.println("\nframe:");
-				for (Entry<String,Integer> frameEntry : f.frame.entrySet()) 
+				for (Entry<String,Integer> frameEntry : f.slots.entrySet()) 
 				{
 					System.out.println(frameEntry.getKey() + " -> " + frameEntry.getValue());
 				}
@@ -169,7 +169,7 @@ public class KnnSemanticNet
 			Node node = nodeEntry.getValue();
 			for (Frame f : node.frames){
 				System.out.println("\nframe:");
-				for (Entry<String,Integer> frameEntry : f.frame.entrySet()) 
+				for (Entry<String,Integer> frameEntry : f.slots.entrySet()) 
 				{
 					System.out.println(frameEntry.getKey() + " -> " + frameEntry.getValue());
 				}

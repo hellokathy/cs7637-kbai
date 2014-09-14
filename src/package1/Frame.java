@@ -9,23 +9,23 @@ public class Frame
 	 * for a single object in a figure
 	 */
 
-	public HashMap<String, Integer> frame = null;
+	public HashMap<String, Integer> slots = null;
 	
 	public Frame()
 	{
-		frame = new HashMap<String, Integer>();
+		slots = new HashMap<String, Integer>();
 	}
 	
 	//public void addSlots(String attributeName, Integer similarityWeight)
-	public void addSlots(ArrayList<NameValuePair> slots)
+	public void addSlots(ArrayList<NameValuePair> pairs)
 	{
 		/* add each new slot and filler to the frame
 		 * 
 		 */
-		for (NameValuePair s : slots)
+		for (NameValuePair s : pairs)
 			if (s.getName().length()>0)
 			{
-				frame.put(s.getName(), s.getValueInt());
+				slots.put(s.getName(), s.getValueInt());
 			}
 		
 	}
@@ -35,7 +35,7 @@ public class Frame
 		/* get slot using attributeName as a key 
 		 * 
 		 */
-		Integer similarityValue = frame.get(attributeName);
+		Integer similarityValue = slots.get(attributeName);
 		if ( similarityValue != null) 
 		{
 			return similarityValue;

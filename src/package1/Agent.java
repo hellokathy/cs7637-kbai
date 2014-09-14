@@ -91,7 +91,7 @@ public class Agent
     	
        	// traverse RavensProblem - populate KnnSemanticNetwork
     	
-    	KnnSemanticNet semanticNet = new KnnSemanticNet(problem.getProblemType());
+    	SemanticNet semanticNet = new SemanticNet(problem.getProblemType());
     	
     	System.out.println("------------------------------------------------------");
     	System.out.println("\n..solving problem: "+problem.getName());
@@ -139,8 +139,10 @@ public class Agent
     	KnnSolver knnSolver = new KnnSolver(semanticNet);
     	
     	String answerCalculated = knnSolver.computeSolution();
-    	System.out.println("Correct answer : "+problem.checkAnswer(answerCalculated));
-        return answerCalculated;
+    	
+    	//System.out.println("Correct answer : "+problem.checkAnswer(answerCalculated));
+        
+    	return answerCalculated;
     }
     
 

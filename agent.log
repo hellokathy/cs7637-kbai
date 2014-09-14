@@ -1,0 +1,3649 @@
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 01
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          fill-v : 22
+          fill-h : 22
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          fill-v : 0
+          fill-h : 1
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 0
+          fill-h : 1
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          fill-v : 22
+          fill-h : 22
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 22
+          fill-h : 22
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          fill-v : 0
+          fill-h : 1
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          fill-v : 0
+          fill-h : 1
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          fill-v : 22
+          fill-h : 22
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 0
+          fill-h : 1
+
+added to case memory for T(A,B) :[925.0]
+
+calc test case value for T(C,3) :[0.0]
+calc test case value for T(C,2) :[5.0]
+calc test case value for T(C,1) :[957.0]
+calc test case value for T(C,6) :[32.0]
+calc test case value for T(C,5) :[925.0]
+calc test case value for T(C,4) :[930.0]
+Min diff calculated : 0.0
+Answer calculated : 5
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 02
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 1
+          fill-v : 0
+          fill-h : 1
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 3
+          fill-v : 0
+          fill-h : 1
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 0
+          fill-h : 1
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          fill-v : 0
+          fill-h : 1
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+          fill-v : 0
+          fill-h : 1
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+          fill-v : 0
+          fill-h : 1
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 0
+          fill-h : 1
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+          fill-v : 0
+          fill-h : 1
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          fill-v : 0
+          fill-h : 1
+
+added to case memory for T(A,B) :[4.0]
+
+calc test case value for T(C,3) :[32.0]
+calc test case value for T(C,2) :[9.0]
+calc test case value for T(C,1) :[5.0]
+calc test case value for T(C,6) :[4.0]
+calc test case value for T(C,5) :[36.0]
+calc test case value for T(C,4) :[0.0]
+Min diff calculated : 0.0
+Answer calculated : 6
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 03
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+          fill-v : 22
+          fill-h : 22
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 22
+          fill-h : 22
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 0
+          fill-h : 1
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          fill-v : 22
+          fill-h : 22
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+          fill-v : 0
+          fill-h : 1
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          fill-v : 0
+          fill-h : 1
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+          fill-v : 0
+          fill-h : 1
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 22
+          fill-h : 22
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+          fill-v : 0
+          fill-h : 1
+
+added to case memory for T(A,B) :[929.0]
+
+calc test case value for T(C,3) :[36.0]
+calc test case value for T(C,2) :[961.0]
+calc test case value for T(C,1) :[925.0]
+calc test case value for T(C,6) :[4.0]
+calc test case value for T(C,5) :[0.0]
+calc test case value for T(C,4) :[929.0]
+Min diff calculated : 0.0
+Answer calculated : 4
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 04
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          inside : 10
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          inside : 10
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          inside : 10
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          inside : 10
+
+added to case memory for T(A,B) :[0.0, 105.0]
+
+calc test case value for T(C,3) :[0.0, 153.0]
+calc test case value for T(C,2) :[36.0, 153.0]
+calc test case value for T(C,1) :[32.0, 153.0]
+calc test case value for T(C,6) :[32.0, 32.0]
+calc test case value for T(C,5) :[0.0, 0.0]
+calc test case value for T(C,4) :[4.0, 153.0]
+Min diff calculated : 48.0
+Answer calculated : 3
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 05
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 3
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+          fill-v : 0
+          fill-h : 1
+          above : 13
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 22
+          fill-h : 22
+          above : 13
+          inside : 16
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 3
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+          fill-v : 0
+          fill-h : 1
+          above : 13
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 3
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+          fill-v : 0
+          fill-h : 1
+          overlaps : 15
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 1
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+          fill-v : 0
+          fill-h : 1
+          above : 13
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 3
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          above : 13
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 3
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          inside : 10
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 7
+          size : 1
+          inside : 10
+          fill-v : 0
+          fill-h : 1
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 22
+          fill-h : 22
+          above : 32
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 7
+          size : 3
+          fill-v : 0
+          fill-h : 1
+          above : 13
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 3
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          inside : 10
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 22
+          fill-h : 22
+          above : 32
+
+added to case memory for T(A,B) :[0.0, 273.0, 1997.0]
+
+calc test case value for T(C,3) :[0.0, 329.0, 1997.0]
+calc test case value for T(C,2) :[0.0, 273.0, 1997.0]
+calc test case value for T(C,1) :[0.0, 273.0, 617.0]
+calc test case value for T(C,6) :[0.0, 0.0, 1997.0]
+calc test case value for T(C,5) :[0.0, 269.0, 1997.0]
+calc test case value for T(C,4) :[4.0, 273.0, 1997.0]
+Min diff calculated : 0.0
+Answer calculated : 2
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 06
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          angle : 1
+          above : 13
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 1
+          above : 13
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          angle : 1
+          above : 13
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 2
+     >Object: Y
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 2
+          above : 13
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          angle : 2
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          angle : 2
+          above : 13
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 5
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+          above : 13
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 1
+          above : 13
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 2
+     >Object: Y
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 2
+          above : 13
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          angle : 1
+          above : 13
+
+added to case memory for T(A,B) :[1.0, 1.0]
+
+calc test case value for T(C,3) :[0.0, 0.0]
+calc test case value for T(C,2) :[170.0, 170.0]
+calc test case value for T(C,1) :[32.0, 32.0]
+calc test case value for T(C,6) :[21.0, 5.0]
+calc test case value for T(C,5) :[1.0, 1.0]
+calc test case value for T(C,4) :[171.0, 171.0]
+Min diff calculated : 0.0
+Answer calculated : 5
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 07
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+          above : 13
+          left-of : 23
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 22
+          fill-h : 22
+          angle : 1
+          above : 13
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          angle : 5
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+          above : 13
+          left-of : 23
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 22
+          fill-h : 22
+          angle : 1
+          above : 13
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          angle : 5
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+          above : 13
+          left-of : 23
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 22
+          fill-h : 22
+          angle : 1
+          above : 13
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          angle : 5
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+          above : 13
+          left-of : 23
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+          above : 13
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+          above : 13
+          left-of : 23
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+          above : 13
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          angle : 5
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+          above : 13
+          left-of : 23
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+          above : 13
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+          above : 44
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+          left-of : 23
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          angle : 5
+          above : 44
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+          left-of : 23
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 22
+          fill-h : 22
+          angle : 1
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+          above : 13
+          left-of : 23
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+          above : 13
+
+added to case memory for T(A,B) :[16.0, 4.0, 925.0]
+
+calc test case value for T(C,3) :[16.0, 0.0, 925.0]
+calc test case value for T(C,2) :[16.0, 4.0, 925.0]
+calc test case value for T(C,1) :[0.0, 4.0, 925.0]
+calc test case value for T(C,6) :[16.0, 0.0, 0.0]
+calc test case value for T(C,5) :[0.0, 0.0, 0.0]
+calc test case value for T(C,4) :[16.0, 4.0, 0.0]
+Min diff calculated : 0.0
+Answer calculated : 2
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 08
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 2
+          above : 25
+          left-of : 17
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          above : 25
+     >Object: X
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 2
+          inside : 10
+     >Object: X
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          above : 32
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 2
+          above : 13
+          left-of : 23
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          above : 13
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 2
+          inside : 10
+     >Object: X
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          inside : 26
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 2
+          above : 44
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+     >Object: X
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          inside : 16
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 2
+          above : 25
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          inside : 10
+          above : 25
+     >Object: X
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 2
+          inside : 10
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          inside : 26
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 2
+          above : 13
+          left-of : 23
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          above : 13
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 2
+          inside : 10
+     >Object: X
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          inside : 26
+
+added to case memory for T(A,B) :[0.0, 798.0, 845.0]
+
+calc test case value for T(C,3) :[32.0, 830.0, 877.0]
+calc test case value for T(C,2) :[0.0, 0.0, 1700.0]
+calc test case value for T(C,1) :[915.0, 726.0, 680.0]
+calc test case value for T(C,6) :[626.0, 626.0, 680.0]
+calc test case value for T(C,5) :[1937.0, 101.0, 100.0]
+calc test case value for T(C,4) :[0.0, 0.0, 0.0]
+Min diff calculated : 96.0
+Answer calculated : 3
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 09
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 22
+          fill-h : 22
+          above : 13
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 0
+          fill-h : 1
+          above : 13
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 22
+          fill-h : 22
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 0
+          fill-h : 1
+          above : 13
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 22
+          fill-h : 22
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 22
+          fill-h : 22
+          above : 13
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 0
+          fill-h : 1
+          angle : 2
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 22
+          fill-h : 22
+          above : 13
+          angle : 2
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 22
+          fill-h : 22
+          angle : 2
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 0
+          fill-h : 1
+          angle : 2
+          above : 13
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          fill-v : 0
+          fill-h : 1
+          above : 13
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          fill-v : 22
+          fill-h : 22
+          above : 13
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 0
+          fill-h : 1
+          above : 13
+
+added to case memory for T(A,B) :[0.0, 925.0]
+
+calc test case value for T(C,3) :[925.0, 0.0]
+calc test case value for T(C,2) :[0.0, 0.0]
+calc test case value for T(C,1) :[0.0, 925.0]
+calc test case value for T(C,6) :[929.0, 4.0]
+calc test case value for T(C,5) :[4.0, 929.0]
+calc test case value for T(C,4) :[925.0, 925.0]
+Min diff calculated : 0.0
+Answer calculated : 1
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 10
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          fill-v : 0
+          fill-h : 1
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          fill-v : 10
+          fill-h : 11
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          fill-v : 11
+          fill-h : 12
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          fill-v : 11
+          fill-h : 10
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          fill-v : 12
+          fill-h : 11
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          fill-v : 22
+          fill-h : 22
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 0
+          fill-h : 1
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 11
+          fill-h : 10
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          fill-v : 0
+          fill-h : 1
+
+added to case memory for T(A,B) :[202.0]
+
+calc test case value for T(C,3) :[242.0]
+calc test case value for T(C,2) :[200.0]
+calc test case value for T(C,1) :[0.0]
+calc test case value for T(C,6) :[925.0]
+calc test case value for T(C,5) :[244.0]
+calc test case value for T(C,4) :[202.0]
+Min diff calculated : 0.0
+Answer calculated : 4
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 11
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 11
+          fill-h : 10
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 17
+          fill-h : 17
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 0
+          fill-h : 1
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 16
+          fill-h : 16
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 22
+          fill-h : 22
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 17
+          fill-h : 16
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 0
+          fill-h : 1
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 11
+          fill-h : 10
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 10
+          fill-h : 11
+
+added to case memory for T(A,B) :[202.0]
+
+calc test case value for T(C,3) :[200.0]
+calc test case value for T(C,2) :[85.0]
+calc test case value for T(C,1) :[2.0]
+calc test case value for T(C,6) :[74.0]
+calc test case value for T(C,5) :[265.0]
+calc test case value for T(C,4) :[61.0]
+Min diff calculated : 2.0
+Answer calculated : 3
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 12
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 2
+          inside : 10
+     >Object: X
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 1
+          inside : 26
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 2
+          inside : 10
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          inside : 26
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 2
+          inside : 10
+     >Object: X
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 1
+          inside : 26
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 2
+          inside : 10
+     >Object: X
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          inside : 26
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 2
+          inside : 10
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          inside : 26
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 2
+          inside : 10
+     >Object: X
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          inside : 26
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 2
+          inside : 10
+     >Object: X
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 1
+          inside : 26
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 2
+          inside : 10
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          inside : 26
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 2
+          inside : 10
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          inside : 26
+
+added to case memory for T(A,B) :[32.0, 5.0, 13.0]
+
+calc test case value for T(C,3) :[32.0, 5.0, 13.0]
+calc test case value for T(C,2) :[0.0, 0.0, 0.0]
+calc test case value for T(C,1) :[0.0, 13.0, 13.0]
+calc test case value for T(C,6) :[5.0, 13.0, 32.0]
+calc test case value for T(C,5) :[5.0, 5.0, 0.0]
+calc test case value for T(C,4) :[32.0, 0.0, 32.0]
+Min diff calculated : 0.0
+Answer calculated : 3
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 13
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 7
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 5
+          overlaps : 15
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 7
+          overlaps : 15
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 5
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 7
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+
+added to case memory for T(A,B) :[16.0]
+
+calc test case value for T(C,3) :[36.0]
+calc test case value for T(C,2) :[0.0]
+calc test case value for T(C,1) :[4.0]
+calc test case value for T(C,6) :[16.0]
+calc test case value for T(C,5) :[4.0, 299.0]
+calc test case value for T(C,4) :[0.0, 275.0]
+Min diff calculated : 0.0
+Answer calculated : 6
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 14
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          above : 19
+          size : 2
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 2
+          fill-v : 0
+          fill-h : 1
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          above : 19
+          size : 2
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 2
+          fill-v : 0
+          fill-h : 1
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          above : 19
+          size : 2
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 2
+          fill-v : 0
+          fill-h : 1
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          above : 19
+          size : 2
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 2
+          fill-v : 0
+          fill-h : 1
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          above : 19
+          size : 2
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 2
+          fill-v : 0
+          fill-h : 1
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          above : 19
+          size : 2
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 2
+          fill-v : 0
+          fill-h : 1
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          left-of : 17
+          fill-v : 0
+          fill-h : 1
+          size : 2
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          fill-v : 0
+          fill-h : 1
+          size : 2
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          left-of : 17
+          size : 2
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 2
+          fill-v : 0
+          fill-h : 1
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          above : 19
+          size : 2
+          fill-v : 0
+          fill-h : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 2
+          fill-v : 0
+          fill-h : 1
+
+added to case memory for T(A,B) :[0.0, 5.0]
+
+calc test case value for T(C,3) :[5.0, 0.0]
+calc test case value for T(C,2) :[32.0, 32.0]
+calc test case value for T(C,1) :[32.0, 0.0]
+calc test case value for T(C,6) :[5.0, 32.0]
+calc test case value for T(C,5) :[0.0, 0.0]
+calc test case value for T(C,4) :[32.0, 13.0]
+Min diff calculated : 5.0
+Answer calculated : 5
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 15
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+          left-of : 17
+          above : 93
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+          above : 93
+     >Object: X
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+          above : 68
+     >Object: W
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+          left-of : 35
+     >Object: V
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+          left-of : 17
+          above : 93
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+          above : 93
+     >Object: X
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+          above : 68
+     >Object: W
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+          left-of : 35
+     >Object: V
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 7
+          left-of : 17
+          above : 93
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 7
+          above : 93
+     >Object: X
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 7
+          above : 68
+     >Object: W
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 7
+          left-of : 35
+     >Object: V
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 7
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+          left-of : 17
+          above : 93
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 7
+          above : 93
+     >Object: X
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+          above : 68
+     >Object: W
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+          left-of : 35
+     >Object: V
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 7
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+          left-of : 17
+          above : 93
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+          above : 93
+     >Object: X
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+          above : 68
+     >Object: W
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+          left-of : 35
+     >Object: V
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+          left-of : 17
+          above : 93
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+          above : 93
+     >Object: X
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+          above : 68
+     >Object: W
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+          left-of : 35
+     >Object: V
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+          left-of : 17
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+          left-of : 17
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 3
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+          left-of : 17
+          above : 93
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+          above : 93
+     >Object: X
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+          above : 68
+     >Object: W
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+          left-of : 35
+     >Object: V
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+
+added to case memory for T(A,B) :[4.0, 4.0]
+
+calc test case value for T(C,3) :[36.0, 36.0, 36.0, 36.0, 36.0]
+calc test case value for T(C,2) :[4.0, 0.0, 4.0, 4.0, 0.0]
+calc test case value for T(C,1) :[4.0, 4.0, 0.0, 0.0, 0.0]
+calc test case value for T(C,6) :[4.0, 4.0, 4.0, 4.0, 4.0]
+calc test case value for T(C,5) :[4.0, 4.0, 0.0, 4.0, 0.0]
+calc test case value for T(C,4) :[4.0, 36.0, 0.0, 4.0, 36.0]
+Min diff calculated : 0.0
+Answer calculated : 1
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 16
+   >Figure: 1
+     >Object: X
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          inside : 22
+   >Figure: 2
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+   >Figure: 3
+     >Object: X
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 3
+   >Figure: 4
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 1
+          inside : 22
+   >Figure: 5
+     >Object: X
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 1
+          inside : 22
+   >Figure: 6
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+   >Figure: A
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 1
+          inside : 22
+   >Figure: B
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+   >Figure: C
+     >Object: X
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 1
+          inside : 22
+
+added to case memory for T(A,B) :[0.0, 489.0]
+
+calc test case value for T(C,3) :[5.0, 510.0]
+calc test case value for T(C,2) :[36.0, 510.0]
+calc test case value for T(C,1) :[0.0, 13.0]
+calc test case value for T(C,6) :[32.0, 510.0]
+calc test case value for T(C,5) :[0.0, 5.0]
+calc test case value for T(C,4) :[32.0, 0.0]
+Min diff calculated : 26.0
+Answer calculated : 3
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 17
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 8
+          angle : 8
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 8
+          angle : 2
+          above : 13
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 8
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 8
+          angle : 2
+          above : 13
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 8
+          angle : 8
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 8
+          angle : 1
+          above : 13
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 8
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 8
+          angle : 3
+          above : 13
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 8
+          angle : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 8
+          angle : 1
+          above : 13
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 8
+          angle : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 8
+          angle : 3
+          above : 13
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 1
+          above : 13
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 2
+     >Object: Y
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 2
+          above : 13
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 8
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 8
+          angle : 1
+          above : 13
+
+added to case memory for T(A,B) :[1.0, 1.0]
+
+calc test case value for T(C,3) :[49.0, 0.0]
+calc test case value for T(C,2) :[0.0, 1.0]
+calc test case value for T(C,1) :[49.0, 1.0]
+calc test case value for T(C,6) :[4.0, 4.0]
+calc test case value for T(C,5) :[4.0, 0.0]
+calc test case value for T(C,4) :[0.0, 4.0]
+Min diff calculated : 1.0
+Answer calculated : 2
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 18
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 5
+          shape : 16
+          angle : 1
+          vertical-flip : 0
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 5
+          shape : 16
+          angle : 5
+          vertical-flip : 0
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 5
+          shape : 16
+          angle : 1
+          vertical-flip : 0
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 5
+          shape : 16
+          angle : 5
+          vertical-flip : 0
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 7
+          shape : 15
+          angle : 1
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 7
+          shape : 15
+          angle : 5
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 7
+          shape : 15
+          angle : 1
+          fill-v : 0
+          fill-h : 1
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 7
+          shape : 15
+          angle : 5
+          fill-v : 0
+          fill-h : 1
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 5
+          shape : 16
+          angle : 1
+          vertical-flip : 0
+
+added to case memory for T(A,B) :[16.0]
+
+calc test case value for T(C,3) :[0.0]
+calc test case value for T(C,2) :[16.0]
+calc test case value for T(C,1) :[0.0]
+calc test case value for T(C,6) :[21.0]
+calc test case value for T(C,5) :[5.0]
+calc test case value for T(C,4) :[16.0]
+Min diff calculated : 0.0
+Answer calculated : 2
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 19
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          angle : 1
+          above : 13
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 1
+          above : 13
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          angle : 1
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 2
+     >Object: Y
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 2
+          above : 13
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          angle : 2
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          angle : 2
+          above : 13
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 5
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          angle : 1
+          above : 13
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 1
+          above : 13
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 2
+     >Object: Y
+         >slots | fillers:
+          num-sides : 11
+          shape : 17
+          angle : 2
+          above : 13
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          angle : 1
+          above : 13
+
+added to case memory for T(A,B) :[1.0, 1.0]
+
+calc test case value for T(C,3) :[32.0, 201.0]
+calc test case value for T(C,2) :[346.0, 346.0]
+calc test case value for T(C,1) :[0.0, 0.0]
+calc test case value for T(C,6) :[29.0, 13.0]
+calc test case value for T(C,5) :[33.0, 33.0]
+calc test case value for T(C,4) :[347.0, 347.0]
+Min diff calculated : 2.0
+Answer calculated : 1
+------------------------------------------------------
+
+..solving problem: 2x1 Basic Problem 20
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+          fill-v : 22
+          fill-h : 22
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 2
+          fill-v : 0
+          fill-h : 1
+          inside : 10
+          angle : 1
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          inside : 26
+          angle : 7
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+          fill-v : 22
+          fill-h : 22
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 2
+          fill-v : 0
+          fill-h : 1
+          inside : 10
+          angle : 1
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          size : 1
+          fill-v : 22
+          fill-h : 22
+          inside : 26
+          angle : 3
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 2
+          fill-v : 22
+          fill-h : 22
+          inside : 10
+          angle : 1
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          inside : 26
+          angle : 3
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 2
+          fill-v : 0
+          fill-h : 1
+          inside : 10
+          angle : 1
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          inside : 26
+          angle : 7
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+          fill-v : 22
+          fill-h : 22
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 2
+          fill-v : 0
+          fill-h : 1
+          inside : 10
+          angle : 1
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          inside : 26
+          angle : 3
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+          fill-v : 22
+          fill-h : 22
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 2
+          fill-v : 0
+          fill-h : 1
+          inside : 10
+          angle : 1
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          size : 1
+          fill-v : 22
+          fill-h : 22
+          inside : 26
+          angle : 7
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 2
+          fill-v : 0
+          fill-h : 1
+          inside : 10
+          angle : 1
+     >Object: X
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          inside : 26
+          angle : 1
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 3
+          fill-v : 22
+          fill-h : 22
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 2
+          fill-v : 0
+          fill-h : 1
+          inside : 10
+          angle : 1
+     >Object: X
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          inside : 26
+          angle : 5
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          size : 3
+          fill-v : 0
+          fill-h : 1
+          angle : 1
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          size : 2
+          fill-v : 0
+          fill-h : 1
+          inside : 10
+          angle : 1
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          size : 1
+          fill-v : 0
+          fill-h : 1
+          inside : 26
+          angle : 7
+
+added to case memory for T(A,B) :[925.0, 0.0, 16.0]
+
+calc test case value for T(C,3) :[0.0, 925.0, 16.0]
+calc test case value for T(C,2) :[925.0, 0.0, 941.0]
+calc test case value for T(C,1) :[925.0, 0.0, 0.0]
+calc test case value for T(C,6) :[925.0, 0.0, 925.0]
+calc test case value for T(C,5) :[925.0, 0.0, 16.0]
+calc test case value for T(C,4) :[0.0, 0.0, 0.0]
+Min diff calculated : 0.0
+Answer calculated : 5
+------------------------------------------------------
+
+..solving problem: 2x1 Challenge Problem 01
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 5
+          shape : 9
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 6
+          shape : 10
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 7
+          shape : 11
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 8
+          shape : 12
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 8
+          shape : 12
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 6
+          shape : 10
+
+added to case memory for T(A,B) :[52.0]
+
+calc test case value for T(C,3) :[2.0]
+calc test case value for T(C,2) :[20.0]
+calc test case value for T(C,1) :[45.0]
+calc test case value for T(C,6) :[8.0]
+calc test case value for T(C,5) :[2.0]
+calc test case value for T(C,4) :[0.0]
+Min diff calculated : 7.0
+Answer calculated : 1
+------------------------------------------------------
+
+..solving problem: 2x1 Challenge Problem 02
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 1
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 3
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 4
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 5
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 6
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 7
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 5
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 3
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 7
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 3
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 3
+
+added to case memory for T(A,B) :[4.0, 18.0]
+
+calc test case value for T(C,3) :[1.0, 18.0]
+calc test case value for T(C,2) :[0.0, 18.0]
+calc test case value for T(C,1) :[4.0, 18.0]
+calc test case value for T(C,6) :[16.0, 18.0]
+calc test case value for T(C,5) :[9.0, 18.0]
+calc test case value for T(C,4) :[4.0, 18.0]
+Min diff calculated : 0.0
+Answer calculated : 1
+------------------------------------------------------
+
+..solving problem: 2x1 Challenge Problem 03
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 3
+          above : 19
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 7
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 7
+          above : 19
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 7
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 1
+          above : 19
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 5
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 1
+          above : 19
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 1
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 5
+          above : 19
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 5
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 5
+          above : 19
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 1
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 7
+          left-of : 17
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 3
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 1
+          above : 19
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 5
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 3
+          left-of : 17
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 3
+          angle : 3
+
+added to case memory for T(A,B) :[686.0, 4.0]
+
+calc test case value for T(C,3) :[654.0, 4.0]
+calc test case value for T(C,2) :[666.0, 16.0]
+calc test case value for T(C,1) :[650.0, 16.0]
+calc test case value for T(C,6) :[654.0, 4.0]
+calc test case value for T(C,5) :[654.0, 4.0]
+calc test case value for T(C,4) :[654.0, 4.0]
+Min diff calculated : 32.0
+Answer calculated : 3
+------------------------------------------------------
+
+..solving problem: 2x1 Challenge Problem 04
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 5
+          shape : 9
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 6
+          shape : 10
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 7
+          shape : 11
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 8
+          shape : 12
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          left-of : 17
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 6
+          shape : 10
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          left-of : 17
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+
+added to case memory for T(A,B) :[334.0, 25.0]
+
+calc test case value for T(C,3) :[299.0, 52.0]
+calc test case value for T(C,2) :[289.0, 52.0]
+calc test case value for T(C,1) :[294.0, 52.0]
+calc test case value for T(C,6) :[341.0, 52.0]
+calc test case value for T(C,5) :[323.0, 52.0]
+calc test case value for T(C,4) :[309.0, 52.0]
+Min diff calculated : 34.0
+Answer calculated : 6
+------------------------------------------------------
+
+..solving problem: 2x1 Challenge Problem 05
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          left-of : 175
+          above : 19
+     >Object: Y
+         >slots | fillers:
+          num-sides : 6
+          shape : 10
+          left-of : 175
+     >Object: X
+         >slots | fillers:
+          num-sides : 7
+          shape : 11
+          left-of : 88
+          above : 68
+     >Object: W
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          left-of : 88
+          above : 37
+     >Object: V
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          left-of : 88
+     >Object: U
+         >slots | fillers:
+          num-sides : 5
+          shape : 9
+          above : 49
+     >Object: T
+         >slots | fillers:
+          num-sides : 8
+          shape : 12
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 5
+          shape : 9
+          left-of : 175
+          above : 19
+     >Object: Y
+         >slots | fillers:
+          num-sides : 8
+          shape : 12
+          left-of : 175
+     >Object: X
+         >slots | fillers:
+          num-sides : 7
+          shape : 11
+          left-of : 88
+          above : 68
+     >Object: W
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          left-of : 88
+          above : 37
+     >Object: V
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          left-of : 88
+     >Object: U
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          above : 49
+     >Object: T
+         >slots | fillers:
+          num-sides : 6
+          shape : 10
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 6
+          shape : 10
+          left-of : 175
+          above : 19
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          left-of : 175
+     >Object: X
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          left-of : 88
+          above : 68
+     >Object: W
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          left-of : 88
+          above : 37
+     >Object: V
+         >slots | fillers:
+          num-sides : 7
+          shape : 11
+          left-of : 88
+     >Object: U
+         >slots | fillers:
+          num-sides : 8
+          shape : 12
+          above : 49
+     >Object: T
+         >slots | fillers:
+          num-sides : 5
+          shape : 9
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 8
+          shape : 12
+          left-of : 175
+          above : 19
+     >Object: Y
+         >slots | fillers:
+          num-sides : 5
+          shape : 9
+          left-of : 175
+     >Object: X
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          left-of : 88
+          above : 68
+     >Object: W
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          left-of : 88
+          above : 37
+     >Object: V
+         >slots | fillers:
+          num-sides : 7
+          shape : 11
+          left-of : 88
+     >Object: U
+         >slots | fillers:
+          num-sides : 6
+          shape : 10
+          above : 49
+     >Object: T
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 6
+          shape : 10
+          left-of : 175
+          above : 19
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          left-of : 175
+     >Object: X
+         >slots | fillers:
+          num-sides : 7
+          shape : 11
+          left-of : 88
+          above : 68
+     >Object: W
+         >slots | fillers:
+          num-sides : 8
+          shape : 12
+          left-of : 88
+          above : 37
+     >Object: V
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          left-of : 88
+     >Object: U
+         >slots | fillers:
+          num-sides : 5
+          shape : 9
+          above : 49
+     >Object: T
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 8
+          shape : 12
+          left-of : 175
+          above : 19
+     >Object: Y
+         >slots | fillers:
+          num-sides : 6
+          shape : 10
+          left-of : 175
+     >Object: X
+         >slots | fillers:
+          num-sides : 7
+          shape : 11
+          left-of : 88
+          above : 68
+     >Object: W
+         >slots | fillers:
+          num-sides : 5
+          shape : 9
+          left-of : 88
+          above : 37
+     >Object: V
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          left-of : 88
+     >Object: U
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          above : 49
+     >Object: T
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 6
+          shape : 10
+          left-of : 175
+          above : 19
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          left-of : 175
+     >Object: X
+         >slots | fillers:
+          num-sides : 5
+          shape : 9
+          left-of : 88
+          above : 68
+     >Object: W
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          left-of : 88
+          above : 37
+     >Object: V
+         >slots | fillers:
+          num-sides : 8
+          shape : 12
+          left-of : 88
+     >Object: U
+         >slots | fillers:
+          num-sides : 7
+          shape : 11
+          above : 49
+     >Object: T
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          left-of : 175
+          above : 19
+     >Object: Y
+         >slots | fillers:
+          num-sides : 7
+          shape : 11
+          left-of : 175
+     >Object: X
+         >slots | fillers:
+          num-sides : 8
+          shape : 12
+          left-of : 88
+          above : 68
+     >Object: W
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          left-of : 88
+          above : 37
+     >Object: V
+         >slots | fillers:
+          num-sides : 5
+          shape : 9
+          left-of : 88
+     >Object: U
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          above : 49
+     >Object: T
+         >slots | fillers:
+          num-sides : 6
+          shape : 10
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          left-of : 175
+          above : 19
+     >Object: Y
+         >slots | fillers:
+          num-sides : 6
+          shape : 10
+          left-of : 175
+     >Object: X
+         >slots | fillers:
+          num-sides : 7
+          shape : 11
+          left-of : 88
+          above : 68
+     >Object: W
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          left-of : 88
+          above : 37
+     >Object: V
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          left-of : 88
+     >Object: U
+         >slots | fillers:
+          num-sides : 5
+          shape : 9
+          above : 49
+     >Object: T
+         >slots | fillers:
+          num-sides : 8
+          shape : 12
+
+added to case memory for T(A,B) :[45.0, 34.0, 18.0, 0.0, 18.0, 34.0, 45.0]
+
+calc test case value for T(C,3) :[20.0, 20.0, 65.0, 0.0, 65.0, 18.0, 18.0]
+calc test case value for T(C,2) :[10.0, 8.0, 0.0, 0.0, 0.0, 10.0, 8.0]
+calc test case value for T(C,1) :[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+calc test case value for T(C,6) :[52.0, 0.0, 0.0, 74.0, 0.0, 74.0, 52.0]
+calc test case value for T(C,5) :[20.0, 20.0, 0.0, 164.0, 0.0, 0.0, 164.0]
+calc test case value for T(C,4) :[52.0, 2.0, 65.0, 0.0, 65.0, 2.0, 52.0]
+Min diff calculated : 158.0
+Answer calculated : 2
+------------------------------------------------------
+
+..solving problem: 2x1 Classmates' Problem 01
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          inside : 16
+          left-of : 23
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          left-of : 23
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          left-of : 40
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          inside : 22
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          inside : 16
+          left-of : 23
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          left-of : 23
+     >Object: X
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          left-of : 40
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          inside : 22
+     >Object: X
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          inside : 38
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          overlaps : 27
+     >Object: X
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          left-of : 17
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          inside : 16
+          left-of : 23
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          left-of : 23
+     >Object: X
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          left-of : 40
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          inside : 22
+     >Object: X
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          inside : 16
+          left-of : 23
+     >Object: Y
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+          left-of : 23
+     >Object: X
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+
+added to case memory for T(A,B) :[558.0, 1026.0, 0.0]
+
+calc test case value for T(C,3) :[0.0, 32.0, 32.0]
+calc test case value for T(C,2) :[577.0, 1045.0, 0.0]
+calc test case value for T(C,1) :[0.0, 0.0, 0.0]
+calc test case value for T(C,6) :[324.0, 561.0, 4.0]
+calc test case value for T(C,5) :[1013.0, 1290.0, 32.0]
+calc test case value for T(C,4) :[545.0, 1045.0, 32.0]
+Min diff calculated : 38.0
+Answer calculated : 2
+------------------------------------------------------
+
+..solving problem: 2x1 Classmates' Problem 02
+   >Figure: 1
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+   >Figure: 2
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          inside : 10
+   >Figure: 3
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+   >Figure: 4
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+   >Figure: 5
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          inside : 10
+   >Figure: 6
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+     >Object: Y
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+          inside : 10
+     >Object: X
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          overlaps : 21
+          inside : 10
+   >Figure: A
+     >Object: Z
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+   >Figure: B
+     >Object: Z
+         >slots | fillers:
+          num-sides : 4
+          shape : 6
+     >Object: Y
+         >slots | fillers:
+          num-sides : 3
+          shape : 4
+          inside : 10
+   >Figure: C
+     >Object: Z
+         >slots | fillers:
+          num-sides : 0
+          shape : 2
+
+added to case memory for T(A,B) :[5.0, 125.0]
+
+calc test case value for T(C,3) :[32.0]
+calc test case value for T(C,2) :[32.0, 125.0]
+calc test case value for T(C,1) :[13.0, 0.0]
+calc test case value for T(C,6) :[32.0, 104.0, 566.0]
+calc test case value for T(C,5) :[32.0, 104.0, 0.0]
+calc test case value for T(C,4) :[0.0, 0.0, 0.0]
+Min diff calculated : 27.0
+Answer calculated : 2

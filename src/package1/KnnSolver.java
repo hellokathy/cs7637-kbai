@@ -10,7 +10,7 @@ public class KnnSolver {
  * 
  */
 	
-	private KnnSemanticNet semanticNet = null;
+	private SemanticNet semanticNet = null;
 	private Node horizontalTestOriginNode = null;  // horizontal node to be tested against solution candidates
 	private Node verticalTestOriginNode = null; // vertical node to be tested against solution candidates
 	private Node startNode = null;
@@ -22,7 +22,7 @@ public class KnnSolver {
 	private HashMap<String,ArrayList<Double>> verticalTestResults = null;
 	
 	// constructor
-	public KnnSolver(KnnSemanticNet _semanticNet)
+	public KnnSolver(SemanticNet _semanticNet)
 	{
 		this.semanticNet = _semanticNet;
 		
@@ -99,7 +99,7 @@ public class KnnSolver {
 		 * come up with a scalable approach that will also work for 2x2 and 3x3
 		 */
 		
-		testResultSelected = compareTestResultsToCaseMemory(this.horizontalTestResults);
+		testResultSelected = compareTestResultsToCaseMemory();
 		
 		return testResultSelected.getKey();
 	}
@@ -145,11 +145,11 @@ public class KnnSolver {
 			// contain keys that are not in frame2 and vice-versa.
 			ArrayList<String> combinedKeys = new ArrayList<String>();
 				
-			for (String key : frame1.frame.keySet())
+			for (String key : frame1.slots.keySet())
 				if (!combinedKeys.contains(key)) combinedKeys.add(key);
 			
 			
-			for (String key : frame2.frame.keySet())
+			for (String key : frame2.slots.keySet())
 				if (!combinedKeys.contains(key)) combinedKeys.add(key);
 			
 			for (String key : combinedKeys)
@@ -168,7 +168,7 @@ public class KnnSolver {
 	{
 		Integer weight = null;
 		
-		weight = f.frame.get(key);
+		weight = f.slots.get(key);
 		if ( weight == null)
 		{
 			return 0;
@@ -183,7 +183,7 @@ public class KnnSolver {
 		return i * i;
 	}
 	
-	private Entry<String, ArrayList<Double>> compareTestResultsToCaseMemory ( HashMap<String, ArrayList<Double>> horizontalTestResults2)
+	private Entry<String, ArrayList<Double>> compareTestResultsToCaseMemory ()
 	{
 		/* compare a map of test results to values recorded in case memory
 		 * return test result entry (containing candidate solution node label and KNN delta)
@@ -209,7 +209,7 @@ public class KnnSolver {
 		
 		maxLength = this.horizontalCaseMemory.size();
 		
-		for (Entry<String, ArrayList<Double>> testResultVectorEntry : horizontalTestResults2.entrySet())
+		for (Entry<String, ArrayList<Double>> testResultVectorEntry : this.horizontalTestResults.entrySet())
 			if (testResultVectorEntry.getValue().size() > maxLength )
 				maxLength = testResultVectorEntry.getValue().size();
 		
@@ -222,7 +222,7 @@ public class KnnSolver {
 		
 		// check test result vectors
 		
-		for (Entry<String, ArrayList<Double>> testResultVectorEntry : horizontalTestResults2.entrySet())
+		for (Entry<String, ArrayList<Double>> testResultVectorEntry : this.horizontalTestResults.entrySet())
 		{
 			diff = maxLength - testResultVectorEntry.getValue().size();
 			
@@ -238,7 +238,7 @@ public class KnnSolver {
 		
 		// iterate through set of test result vectors and compute delta to avg case vector
 		// keep track of which one has the smallest delta
-		for (Entry<String, ArrayList<Double>> testResultVectorEntry : horizontalTestResults2.entrySet())
+		for (Entry<String, ArrayList<Double>> testResultVectorEntry : this.horizontalTestResults.entrySet())
 		{
 			ArrayList<Double> diffVector = new ArrayList<Double>(); // diff between memory vector and test vector
 			int diffVectorSum = 0;
@@ -254,8 +254,8 @@ public class KnnSolver {
 			{
 				diffVectorSum += diffVector.get(j);
 			}
-			
-			if (diffVectorSum < minDiff)
+				
+			if ( diffVectorSum < minDiff )
 			{
 				minDiff = diffVectorSum;
 				solutionTestResult = testResultVectorEntry;		
