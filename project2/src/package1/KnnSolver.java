@@ -11,9 +11,6 @@ public class KnnSolver {
  */
 	
 	private SemanticNet semanticNet = null;
-	private Node horizontalTestOriginNode = null;  // horizontal node to be tested against solution candidates
-	private Node verticalTestOriginNode = null; // vertical node to be tested against solution candidates
-	private Node startNode = null;
 	
 	private ArrayList<Double> horizontalCaseMemory = null;
 	private ArrayList<Double> verticalCaseMemory = null;
@@ -25,29 +22,7 @@ public class KnnSolver {
 	public KnnSolver(SemanticNet _semanticNet)
 	{
 		this.semanticNet = _semanticNet;
-		
-		switch (semanticNet.rpmType)
-		{
-			case "2x1":
-				horizontalTestOriginNode = semanticNet.nodes.get("C");
-				verticalTestOriginNode = null;
-				break;
-			case "2x2":
-				horizontalTestOriginNode = semanticNet.nodes.get("C");
-				verticalTestOriginNode = semanticNet.nodes.get("B");	
-				break;
-			case "3x3":
-				horizontalTestOriginNode = semanticNet.nodes.get("H");
-				verticalTestOriginNode = semanticNet.nodes.get("F");
-				// TODO: there are definitely other test origin nodes in a 3x3 RPM problem.
-				// just have not thought them through yet. Not required for project 1
-				break;
-			default:
-				throw new Error("Invalid Raven's problem type specified. Please ensure type is 1x2, 2x2 or 3x3");
-		}
-		
-		startNode = semanticNet.nodes.get("A");
-		
+
 		horizontalCaseMemory = null;
 		verticalCaseMemory = null;
 		horizontalTestResults = new HashMap<String,ArrayList<Double>>();
@@ -62,7 +37,7 @@ public class KnnSolver {
 		
 		// traverse network - populate case memory
 		// TODO: populate a list of nodes to start traversing from
-		Node currNode = startNode;
+		Node currNode = this.semanticNet.getStartNode();
 		
 		// store case values for horizontal transformations
 	
@@ -83,9 +58,9 @@ public class KnnSolver {
 		for (Node candidateNode : semanticNet.candidateNodes.values())
 		{
 			ArrayList<Double> testCaseVector = null;
-			testCaseVector = this.computeKnnDelta(horizontalTestOriginNode, candidateNode);
+			testCaseVector = this.computeKnnDelta(this.semanticNet.getHorizontalTestOriginNode(), candidateNode);
 			this.horizontalTestResults.put(candidateNode.getFigureLabel(),testCaseVector);
-			System.out.println("calc test case value for T("+horizontalTestOriginNode.getFigureLabel()+","+candidateNode.getFigureLabel()+") :"+testCaseVector );
+			System.out.println("calc test case value for T("+this.semanticNet.getHorizontalTestOriginNode().getFigureLabel()+","+candidateNode.getFigureLabel()+") :"+testCaseVector );
 
 		}
 		
@@ -154,7 +129,7 @@ public class KnnSolver {
 			
 			for (String key : combinedKeys)
 			{
-				sum +=  sqr( getSimilarityWeight(frame1,key) - getSimilarityWeight(frame2,key)) ;
+				sum +=  sqr( getSimilarityValue(frame1,key) - getSimilarityValue(frame2,key)) ;
 			}
 			delta = sum;
 			deltaVector.add(delta);
@@ -164,7 +139,7 @@ public class KnnSolver {
 		return deltaVector;
 	}
 	
-	private Integer getSimilarityWeight(Frame f, String key)
+	private Integer getSimilarityValue(Frame f, String key)
 	{
 		Integer weight = null;
 		

@@ -12,6 +12,31 @@ public class SemanticNet
 	public HashMap<String,Node> nodes = null;
 	public HashMap<String,Node> candidateNodes = null;
 	public String rpmType = null;
+	private Node horizontalTestOriginNode = null;  // horizontal node to be tested against solution candidates
+	private Node verticalTestOriginNode = null; // vertical node to be tested against solution candidates
+	private Node startNode = null;
+
+	
+	public Node getHorizontalTestOriginNode() {
+		return horizontalTestOriginNode;
+	}
+	public void setHorizontalTestOriginNode(Node _horizontalTestOriginNode) {
+		this.horizontalTestOriginNode = _horizontalTestOriginNode;
+	}
+
+	public Node getVerticalTestOriginNode() {
+		return verticalTestOriginNode;
+	}
+	public void setVerticalTestOriginNode(Node _verticalTestOriginNode) {
+		this.verticalTestOriginNode = _verticalTestOriginNode;
+	}
+
+	public Node getStartNode() {
+		return startNode;
+	}
+	public void setStartNode(Node _startNode) {
+		this.startNode = _startNode;
+	}
 	
 	public SemanticNet(String _rpmType)
 	{
@@ -25,71 +50,61 @@ public class SemanticNet
 		switch (rpmType) 
 		{
 			case "2x1":
-				String[] labels_2x1 = {"A", "B", "C"};
+				String[] labels_2x1 = {"A","B","C"};
 				createNodes(labels_2x1);
 
 				// link nodes
-				nodes.get("A").setNextHorizontalNode(nodes.get("B"));
-
+				this.nodes.get("A").setNextHorizontalNode(this.nodes.get("B"));
+				
+				// set test origin nodes
+				this.setHorizontalTestOriginNode(this.nodes.get("C"));
+				this.setVerticalTestOriginNode(null);
+				
 				break;
 			case "2x2":
-/*				
- 				String[] labels_2x2 = 
-			    {
-						"A", 
-						"B", 
-						"C"
-				};
+				
+ 				String[] labels_2x2 = {"A","B","C"};
 				
 				createNodes(labels_2x2);
 				
 				// link nodes
-				nodes.get("A").setNextHorizontalNode(nodes.get("B"));
-				nodes.get("A").setNextVerticalNode(nodes.get("C"));
-*/				
-				throw new IllegalArgumentException(
-						"2x2 RPM problems not implemented yet");		
-				//break; uncomment when implemented
-			case "3x3":
-/*
-				KnnGlobals.String[] labels_3x3 = 
-			    {
-						"A",
-						"B", 
-						"C",
-						"D",
-						"E",
-						"F",
-						"G",
-						"H"
-				};
+				this.nodes.get("A").setNextHorizontalNode(this.nodes.get("B"));
+				this.nodes.get("A").setNextVerticalNode(this.nodes.get("C"));
 				
+				// set test origin nodes
+				this.setHorizontalTestOriginNode(this.nodes.get("C"));
+				this.setVerticalTestOriginNode (this.nodes.get("B"));	
+				
+				break; 
+			case "3x3":
+
+				String[] labels_3x3 = {"A","B","C","D","E","F","G","H"};
 				
  				createNodes(labels_3x3);
 				
 				// link nodes
-				nodes.get("A").setNextHorizontalNode(nodes.get("B"));
-				nodes.get("B").setNextHorizontalNode(nodes.get("C"));
-				nodes.get("D").setNextHorizontalNode(nodes.get("E"));
-				nodes.get("E").setNextHorizontalNode(nodes.get("F"));
-				nodes.get("G").setNextHorizontalNode(nodes.get("H"));
+ 				this.nodes.get("A").setNextHorizontalNode(this.nodes.get("B"));
+ 				this.nodes.get("B").setNextHorizontalNode(this.nodes.get("C"));
+ 				this.nodes.get("D").setNextHorizontalNode(this.nodes.get("E"));
+ 				this.nodes.get("E").setNextHorizontalNode(this.nodes.get("F"));
+ 				this.nodes.get("G").setNextHorizontalNode(this.nodes.get("H"));
 
-				nodes.get("A").setNextVerticalNode(nodes.get("D"));
-				nodes.get("D").setNextVerticalNode(nodes.get("G"));
-				nodes.get("B").setNextVerticalNode(nodes.get("E"));
-				nodes.get("E").setNextVerticalNode(nodes.get("H"));
-				nodes.get("C").setNextVerticalNode(nodes.get("F"));
-*/
-				throw new IllegalArgumentException(
-						"3x3 RPM problems not implemented yet");			
-				//break; uncomment when implemented
+ 				this.nodes.get("A").setNextVerticalNode(this.nodes.get("D"));
+ 				this.nodes.get("D").setNextVerticalNode(this.nodes.get("G"));
+ 				this.nodes.get("B").setNextVerticalNode(this.nodes.get("E"));
+ 				this.nodes.get("E").setNextVerticalNode(this.nodes.get("H"));
+ 				this.nodes.get("C").setNextVerticalNode(this.nodes.get("F"));
+
+				this.setHorizontalTestOriginNode(this.nodes.get("H"));
+				this.setVerticalTestOriginNode(this.nodes.get("F"));
+				
+				break; 
 			default:
 				throw new IllegalArgumentException(
 						"Please specify rpmType as; 2x1, 2x2 or 3x3");
 		}
 		
-
-		
+		this.setStartNode(this.nodes.get("A"));
 		
 	}
 	
