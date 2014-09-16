@@ -1,0 +1,39 @@
+2x1 Basic Problem 01
+2x1
+5
+A
+	Z
+		shape:circle
+		fill:no
+B
+	Z
+		shape:circle
+		fill:yes
+C
+	Z
+		shape:square
+		fill:no
+1
+	Z
+		shape:circle
+		fill:yes
+2
+	Z
+		shape:triangle
+		fill:no
+3
+	Z
+		shape:square
+		fill:no
+4
+	Z
+		shape:triangle
+		fill:yes
+5
+	Z
+		shape:square
+		fill:yes
+6
+	Z
+		shape:circle
+		fill:no

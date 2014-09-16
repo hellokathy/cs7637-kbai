@@ -1,0 +1,111 @@
+2x1 Basic Problem 12
+2x1
+6
+A
+	Z
+		shape:circle
+		size:large
+	Y
+		shape:square
+		size:medium
+		inside:Z
+	X
+		shape:triangle
+		size:small
+		inside:Y,Z
+B
+	Z
+		shape:square
+		size:large
+	Y
+		shape:triangle
+		size:medium
+		inside:Z
+	X
+		shape:circle
+		size:small
+		inside:Y,Z
+C
+	Z
+		shape:square
+		size:large
+	Y
+		shape:triangle
+		size:medium
+		inside:Z
+	X
+		shape:circle
+		size:small
+		inside:Y,Z
+1
+	Z
+		shape:square
+		size:large
+	Y
+		shape:circle
+		size:medium
+		inside:Z
+	X
+		shape:triangle
+		size:small
+		inside:Y,Z
+2
+	Z
+		shape:square
+		size:large
+	Y
+		shape:triangle
+		size:medium
+		inside:Z
+	X
+		shape:circle
+		size:small
+		inside:Y,Z
+3
+	Z
+		shape:circle
+		size:large
+	Y
+		shape:square
+		size:medium
+		inside:Z
+	X
+		shape:triangle
+		size:small
+		inside:Y,Z
+4
+	Z
+		shape:circle
+		size:large
+	Y
+		shape:triangle
+		size:medium
+		inside:Z
+	X
+		shape:square
+		size:small
+		inside:Y,Z
+5
+	Z
+		shape:triangle
+		size:large
+	Y
+		shape:square
+		size:medium
+		inside:Z
+	X
+		shape:circle
+		size:small
+		inside:Y,Z
+6
+	Z
+		shape:triangle
+		size:large
+	Y
+		shape:circle
+		size:medium
+		inside:Z
+	X
+		shape:square
+		size:small
+		inside:Y,Z

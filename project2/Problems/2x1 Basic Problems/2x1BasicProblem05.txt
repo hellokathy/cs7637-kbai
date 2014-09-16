@@ -1,0 +1,109 @@
+2x1 Basic Problem 05
+2x1
+2
+A
+	Z
+		shape:circle
+		size:large
+		fill:no
+	Y
+		shape:diamond
+		size:small
+		inside:Z
+		fill:no
+	X
+		shape:circle
+		size:small
+		fill:yes
+		above:Z,Y
+B
+	Z
+		shape:circle
+		size:large
+		fill:no
+	Y
+		shape:diamond
+		size:large
+		fill:no
+		above:Z
+C
+	Z
+		shape:triangle
+		size:large
+		fill:no
+	Y
+		shape:circle
+		size:small
+		fill:no
+		inside:Z
+	X
+		shape:circle
+		size:small
+		fill:yes
+		above:Z,Y
+1
+	Z
+		shape:triangle
+		size:large
+		fill:no
+	Y
+		shape:circle
+		size:large
+		fill:no
+		above:Z
+	X
+		shape:circle
+		size:small
+		fill:yes
+		above:Z
+		inside:Y
+2
+	Z
+		shape:triangle
+		size:large
+		fill:no
+	Y
+		shape:circle
+		size:large
+		fill:no
+		above:Z
+3
+	Z
+		shape:triangle
+		size:large
+		fill:no
+	Y
+		shape:circle
+		size:large
+		fill:no
+		overlaps:Z
+4
+	Z
+		shape:triangle
+		size:small
+		fill:no
+	Y
+		shape:circle
+		size:large
+		fill:no
+		above:Z
+5
+	Z
+		shape:triangle
+		size:large
+		fill:no
+	Y
+		shape:circle
+		size:small
+		fill:no
+		above:Z
+6
+	Z
+		shape:triangle
+		size:large
+		fill:no
+	Y
+		shape:circle
+		size:small
+		fill:no
+		inside:Z

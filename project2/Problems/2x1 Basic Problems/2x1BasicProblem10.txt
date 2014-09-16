@@ -1,0 +1,39 @@
+2x1 Basic Problem 10
+2x1
+4
+A
+	Z
+		shape:square
+		fill:no
+B
+	Z
+		shape:square
+		fill:left-half
+C
+	Z
+		shape:triangle
+		fill:no
+1
+	Z
+		shape:triangle
+		fill:no
+2
+	Z
+		shape:triangle
+		fill:top-half
+3
+	Z
+		shape:triangle
+		fill:right-half
+4
+	Z
+		shape:triangle
+		fill:left-half
+5
+	Z
+		shape:triangle
+		fill:bottom-half
+6
+	Z
+		shape:triangle
+		fill:yes

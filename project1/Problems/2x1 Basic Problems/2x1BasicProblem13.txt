@@ -1,0 +1,47 @@
+2x1 Basic Problem 13
+2x1
+2
+A
+	Z
+		shape:triangle
+		angle:90
+B
+	Z
+		shape:triangle
+		angle:270
+C
+	Z
+		shape:triangle
+		angle:0
+1
+	Z
+		shape:triangle
+		angle:90
+2
+	Z
+		shape:triangle
+		angle:0
+3
+	Z
+		shape:triangle
+		angle:270
+4
+	Z
+		shape:triangle
+		angle:0
+	Y
+		shape:triangle
+		angle:180
+		overlaps:Z
+5
+	Z
+		shape:triangle
+		angle:90
+	Y
+		shape:triangle
+		angle:270
+		overlaps:Z
+6
+	Z
+		shape:triangle
+		angle:180

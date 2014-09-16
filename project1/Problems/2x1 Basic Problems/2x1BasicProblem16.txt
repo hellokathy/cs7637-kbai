@@ -1,0 +1,59 @@
+2x1 Basic Problem 16
+2x1
+3
+A
+	X
+		shape:circle
+		size:large
+	Y
+		shape:circle
+		size:small
+		inside:X
+B
+	X
+		shape:circle
+		size:large
+C
+	X
+		shape:square
+		size:large
+	Y
+		shape:triangle
+		size:small
+		inside:X
+1
+	X
+		shape:square
+		size:large
+	Y
+		shape:circle
+		size:small
+		inside:X
+2
+	X
+		shape:circle
+		size:small
+3
+	X
+		shape:triangle
+		size:large
+4
+	X
+		shape:circle
+		size:large
+	Y
+		shape:triangle
+		size:small
+		inside:X
+5
+	X
+		shape:square
+		size:large
+	Y
+		shape:square
+		size:small
+		inside:X
+6
+	X
+		shape:circle
+		size:large

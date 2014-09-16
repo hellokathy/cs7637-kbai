@@ -1,0 +1,30 @@
+2x1 Challenge Problem 01
+2x1
+1
+A
+	Z
+		shape:octagon
+B
+	Z
+		shape:square
+C
+	Z
+		shape:hexagon
+1
+	Z
+		shape:triangle
+2
+	Z
+		shape:square
+3
+	Z
+		shape:pentagon
+4
+	Z
+		shape:hexagon
+5
+	Z
+		shape:heptagon
+6
+	Z
+		shape:octagon

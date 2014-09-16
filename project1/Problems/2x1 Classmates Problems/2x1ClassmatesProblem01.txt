@@ -1,0 +1,85 @@
+2x1 Classmates' Problem 01
+2x1
+2
+A
+	Z
+		shape:triangle
+		inside:Y
+		left-of:X
+	Y
+		shape:circle
+		left-of:X
+	X
+		shape:square
+B
+	Z
+		shape:circle
+		left-of:X,Y
+	Y
+		shape:triangle
+		inside:X
+	X
+		shape:square
+C
+	Z
+		shape:circle
+		inside:Y
+		left-of:X
+	Y
+		shape:square
+		left-of:X
+	X
+		shape:circle
+1
+	Z
+		shape:circle
+		inside:Y
+		left-of:X
+	Y
+		shape:square
+		left-of:X
+	X
+		shape:circle
+2
+	Z
+		shape:square
+		left-of:X,Y
+	Y
+		shape:circle
+		inside:X
+	X
+		shape:circle
+3
+	Z
+		shape:circle
+		inside:Y
+		left-of:X
+	Y
+		shape:circle
+		left-of:X
+	X
+		shape:square
+4
+	Z
+		shape:circle
+		left-of:Y,X
+	Y
+		shape:circle
+		inside:X
+	X
+		shape:square
+5
+	Z
+		shape:circle
+		inside:Y,X
+	Y
+		shape:circle
+		overlaps:X
+	X
+		shape:square
+6
+	Z
+		shape:square
+		left-of:Y
+	Y
+		shape:circle

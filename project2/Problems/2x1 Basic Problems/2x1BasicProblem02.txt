@@ -1,0 +1,48 @@
+2x1 Basic Problem 02
+2x1
+6
+A
+	Z
+		shape:circle
+		size:small
+		fill:no
+B
+	Z
+		shape:circle
+		size:large
+		fill:no
+C
+	Z
+		shape:square
+		size:small
+		fill:no
+1
+	Z
+		shape:triangle
+		size:small
+		fill:no
+2
+	Z
+		shape:triangle
+		size:large
+		fill:no
+3
+	Z
+		shape:circle
+		size:small
+		fill:no
+4
+	Z
+		shape:square
+		size:small
+		fill:no
+5
+	Z
+		shape:circle
+		size:large
+		fill:no
+6
+	Z
+		shape:square
+		size:large
+		fill:no

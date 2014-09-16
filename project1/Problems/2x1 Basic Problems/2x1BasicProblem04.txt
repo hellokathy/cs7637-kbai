@@ -1,0 +1,55 @@
+2x1 Basic Problem 04
+2x1
+3
+A
+	Z
+		shape:circle
+		size:large
+	Y
+		shape:circle
+		size:small
+		inside:Z
+B
+	Z
+		shape:circle
+		size:large
+C
+	Z
+		shape:square
+		size:large
+	Y
+		shape:square
+		size:small
+		inside:Z
+1
+	Z
+		shape:circle
+		size:large
+2
+	Z
+		shape:circle
+		size:small
+3
+	Z
+		shape:square
+		size:large
+4
+	Z
+		shape:square
+		size:small
+5
+	Z
+		shape:square
+		size:large
+	Y
+		shape:square
+		size:small
+		inside:Z
+6
+	Z
+		shape:circle
+		size:large
+	Y
+		shape:circle
+		size:small
+		inside:Z
