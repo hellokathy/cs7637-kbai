@@ -1,0 +1,39 @@
+2x2 Basic Problem 05
+2x2
+1
+A
+	A
+		shape:right-triangle
+		angle:135
+B
+	B
+		shape:right-triangle
+		angle:180
+C
+	C
+		shape:right-triangle
+		angle:90
+1
+	D
+		shape:right-triangle
+		angle:135
+2
+	E
+		shape:right-triangle
+		angle:180
+3
+	F
+		shape:right-triangle
+		angle:225
+4
+	G
+		shape:right-triangle
+		angle:270
+5
+	H
+		shape:right-triangle
+		angle:315
+6
+	I
+		shape:right-triangle
+		angle:0

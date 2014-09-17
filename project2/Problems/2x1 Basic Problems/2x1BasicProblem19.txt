@@ -48,6 +48,7 @@ C
 	Y
 		shape:square
 		angle:0
+		above:Z
 4
 	Z
 		shape:plus

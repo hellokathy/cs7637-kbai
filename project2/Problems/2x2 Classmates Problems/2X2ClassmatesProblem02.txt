@@ -1,0 +1,79 @@
+2x2 Classmates' Problem 02
+2x2
+6
+A
+	A
+		shape:circle
+		size:large
+		fill:no
+		above:B
+	B
+		shape:circle
+		size:small
+		fill:yes
+B
+	C
+		shape:circle
+		size:large
+		fill:no
+C
+	D
+		shape:circle
+		size:large
+		fill:no
+		above:F
+	E
+		shape:square
+		size:medium
+		fill:yes
+		inside:D
+		above:F
+	F
+		shape:circle
+		size:small
+		fill:yes
+1
+	G
+		shape:circle
+		size:large
+		fill:no
+2
+	H
+		shape:circle
+		size:small
+		fill:yes
+3
+	I
+		shape:square
+		size:medium
+		fill:yes
+4
+	J
+		shape:circle
+		size:small
+		fill:yes
+	K
+		shape:square
+		size:medium
+		fill:yes
+		above:J
+5
+	L
+		shape:circle
+		size:large
+		fill:no
+		above:M
+	M
+		shape:circle
+		size:small
+		fill:yes
+6
+	N
+		shape:circle
+		size:large
+		fill:no
+	O
+		shape:square
+		size:medium
+		fill:yes
+		inside:N

@@ -1,0 +1,58 @@
+2x2 Basic Problem 12
+2x2
+3
+A
+	A
+		shape:circle
+		fill:no
+		angle:0
+B
+	B
+		shape:square
+		fill:no
+		angle:0
+C
+	C
+		shape:circle
+		fill:no
+		angle:0
+1
+	D
+		shape:circle
+		fill:no
+		angle:0
+		overlaps:E
+	E
+		shape:square
+		fill:no
+		angle:0
+2
+	F
+		shape:square
+		fill:yes
+		angle:0
+3
+	G
+		shape:square
+		fill:no
+		angle:45
+4
+	H
+		shape:circle
+		fill:no
+		angle:0
+		overlaps:I
+	I
+		shape:square
+		fill:no
+		angle:45
+5
+	J
+		shape:circle
+		fill:yes
+		angle:0
+6
+	K
+		shape:circle
+		fill:no
+		angle:0

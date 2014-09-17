@@ -1,0 +1,39 @@
+2x2 Challenge Problem 04
+2x2
+1
+A
+	A
+		shape:pentagon
+		angle:0
+B
+	B
+		shape:pentagon
+		angle:90
+C
+	C
+		shape:octagon
+		angle:0
+1
+	D
+		shape:octagon
+		angle:0
+2
+	E
+		shape:pentagon
+		angle:0
+3
+	F
+		shape:pentagon
+		angle:270
+4
+	G
+		shape:octagon
+		angle:22
+5
+	H
+		shape:pentagon
+		angle:90
+6
+	I
+		shape:pentagon
+		angle:180

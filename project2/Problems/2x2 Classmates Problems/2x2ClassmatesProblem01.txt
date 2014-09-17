@@ -1,0 +1,39 @@
+2x2 Classmates' Problem 01
+2x2
+2
+A
+	A
+		shape:Pac-Man
+		angle:0
+B
+	B
+		shape:Pac-Man
+		angle:45
+C
+	C
+		shape:Pac-Man
+		angle:180
+1
+	D
+		shape:Pac-Man
+		angle:270
+2
+	E
+		shape:Pac-Man
+		angle:225
+3
+	F
+		shape:Pac-Man
+		angle:45
+4
+	G
+		shape:Pac-Man
+		angle:90
+5
+	H
+		shape:Pac-Man
+		angle:315
+6
+	I
+		shape:Pac-Man
+		angle:135

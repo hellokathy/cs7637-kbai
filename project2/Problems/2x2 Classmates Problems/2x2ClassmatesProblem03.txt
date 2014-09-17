@@ -1,0 +1,48 @@
+2x2 Classmates Problem 03
+2x2
+6
+A
+	A
+		shape:Pac-Man
+		angle:315
+		fill:no
+B
+	B
+		shape:Pac-Man
+		angle:225
+		fill:no
+C
+	C
+		shape:Pac-Man
+		angle:45
+		fill:yes
+1
+	D
+		shape:Pac-Man
+		angle:45
+		fill:no
+2
+	E
+		shape:Pac-Man
+		angle:225
+		fill:no
+3
+	F
+		shape:Pac-Man
+		angle:135
+		fill:no
+4
+	G
+		shape:Pac-Man
+		angle:45
+		fill:yes
+5
+	H
+		shape:Pac-Man
+		angle:225
+		fill:yes
+6
+	I
+		shape:Pac-Man
+		angle:135
+		fill:yes
