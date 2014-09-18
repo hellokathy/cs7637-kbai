@@ -12,11 +12,11 @@ public class KnnSolver {
 	
 	private SemanticNet semanticNet = null;
 	
-	private ArrayList<Double> horizontalCaseMemory = null;
-	private ArrayList<Double> verticalCaseMemory = null;
+	private Vector horizontalCaseMemory = null;
+	private Vector verticalCaseMemory = null;
 	
-	private HashMap<String,ArrayList<Double>> horizontalTestResults = null;
-	private HashMap<String,ArrayList<Double>> verticalTestResults = null;
+	private HashMap<String,Vector> horizontalTestResults = null;
+	private HashMap<String,Vector> verticalTestResults = null;
 	
 	// constructor
 	public KnnSolver(SemanticNet _semanticNet)
@@ -25,15 +25,15 @@ public class KnnSolver {
 
 		horizontalCaseMemory = null;
 		verticalCaseMemory = null;
-		horizontalTestResults = new HashMap<String,ArrayList<Double>>();
-		verticalTestResults = new HashMap<String,ArrayList<Double>>();
+		horizontalTestResults = new HashMap<String,Vector>();
+		verticalTestResults = new HashMap<String,Vector>();
 	
 	}
 	
 	public String computeSolution()
 	{
 		
-		Entry<String, ArrayList<Double>> testResultSelected = null;
+		Entry<String, Vector> testResultSelected = null;
 		
 		// traverse network - populate case memory
 		// TODO: populate a list of nodes to start traversing from
@@ -57,8 +57,9 @@ public class KnnSolver {
 		
 		for (Node candidateNode : semanticNet.candidateNodes.values())
 		{
-			ArrayList<Double> testCaseVector = null;
+			Vector testCaseVector = null;
 			testCaseVector = this.computeKnnDelta(this.semanticNet.getHorizontalTestOriginNode(), candidateNode);
+			
 			this.horizontalTestResults.put(candidateNode.getFigureLabel(),testCaseVector);
 			System.out.println("calc test case value for T("+this.semanticNet.getHorizontalTestOriginNode().getFigureLabel()+","+candidateNode.getFigureLabel()+") :"+testCaseVector );
 
@@ -79,12 +80,12 @@ public class KnnSolver {
 		return testResultSelected.getKey();
 	}
 	
-	public ArrayList<Double> computeKnnDelta(Node node1, Node node2)
+	public Vector computeKnnDelta(Node node1, Node node2)
 	{
 		/* Computes K-nearest neighbor delta between two nodes
 		 * 
 		 */
-		ArrayList<Double> deltaVector = new ArrayList<Double>();
+		Vector deltaVector = new Vector();
 		
 		// first pad nodes with zero frames if necessary to make sure they
 		// each contain the same number of frames
@@ -158,12 +159,12 @@ public class KnnSolver {
 		return i * i;
 	}
 	
-	private Entry<String, ArrayList<Double>> compareTestResultsToCaseMemory ()
+	private Entry<String, Vector> compareTestResultsToCaseMemory ()
 	{
 		/* compare a map of test results to values recorded in case memory
 		 * return test result entry (containing candidate solution node label and KNN delta)
 		 */
-		Entry<String, ArrayList<Double>> solutionTestResult = null;  // return value
+		Entry<String, Vector> solutionTestResult = null;  // return value
 		//ArrayList<Double> avgCaseVector = new ArrayList<Double>();
 		
 				
@@ -184,27 +185,27 @@ public class KnnSolver {
 		
 		maxLength = this.horizontalCaseMemory.size();
 		
-		for (Entry<String, ArrayList<Double>> testResultVectorEntry : this.horizontalTestResults.entrySet())
-			if (testResultVectorEntry.getValue().size() > maxLength )
-				maxLength = testResultVectorEntry.getValue().size();
-		
-		// check case memory
-		int diff = this.horizontalCaseMemory.size() - maxLength;
-		
-		if (diff<0)
-			for (int i=0 ; i<diff*-1 ; i++)
-				this.horizontalCaseMemory.add(0.0);
-		
-		// check test result vectors
-		
-		for (Entry<String, ArrayList<Double>> testResultVectorEntry : this.horizontalTestResults.entrySet())
-		{
-			diff = maxLength - testResultVectorEntry.getValue().size();
-			
-			if (diff>0)
-				for (int i=0 ; i<diff ; i++)
-					testResultVectorEntry.getValue().add(0.0);
-		}
+//		for (Entry<String, Vector> testResultVectorEntry : this.horizontalTestResults.entrySet())
+//			if (testResultVectorEntry.getValue().size() > maxLength )
+//				maxLength = testResultVectorEntry.getValue().size();
+//		
+//		// check case memory
+//		int diff = this.horizontalCaseMemory.size() - maxLength;
+//		
+//		if (diff<0)
+//			for (int i=0 ; i<diff*-1 ; i++)
+//				this.horizontalCaseMemory.add(0.0);
+//		
+//		// check test result vectors
+//		
+//		for (Entry<String, Vector> testResultVectorEntry : this.horizontalTestResults.entrySet())
+//		{
+//			diff = maxLength - testResultVectorEntry.getValue().size();
+//			
+//			if (diff>0)
+//				for (int i=0 ; i<diff ; i++)
+//					testResultVectorEntry.getValue().add(0.0);
+//		}
 		
 		
 
@@ -213,16 +214,12 @@ public class KnnSolver {
 		
 		// iterate through set of test result vectors and compute delta to avg case vector
 		// keep track of which one has the smallest delta
-		for (Entry<String, ArrayList<Double>> testResultVectorEntry : this.horizontalTestResults.entrySet())
+		for (Entry<String, Vector> testResultVectorEntry : this.horizontalTestResults.entrySet())
 		{
-			ArrayList<Double> diffVector = new ArrayList<Double>(); // diff between memory vector and test vector
+			Vector diffVector = new Vector(); // diff between memory vector and test vector
 			int diffVectorSum = 0;
 			
-			for (int i = 0 ; i < this.horizontalCaseMemory.size() ; i++)
-			{
-				// work out diffVector
-				diffVector.add( Math.abs( this.horizontalCaseMemory.get(i) - (double)(testResultVectorEntry.getValue().get(i)) ));
-			}
+			diffVector = this.horizontalCaseMemory.getDiff(testResultVectorEntry.getValue());
 			
 			// sum elements of diff vector
 			for (int j=0 ; j < diffVector.size() ; j++)
