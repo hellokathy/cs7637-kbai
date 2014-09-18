@@ -72,5 +72,16 @@ public class Vector {
 		
 		return diffVector;
 	}
+	
+	public double getSum()
+	{
+		double sum = 0;
+		
+		for (int i = 0 ; i<this.size() ; i++ )
+		{
+			sum+=this.get(i);
+		}
+		return sum;
+	}
 			
 }

@@ -182,34 +182,9 @@ public class KnnSolver {
 		// make memory and test vectors all the same length, zero pad where necessary
 		int maxLength = Const.NEGATIVE_INFINITY;
 		int maxTestVectorLength = Const.NEGATIVE_INFINITY;
-		
+		double diffVectorSum = 0;
 		maxLength = this.horizontalCaseMemory.size();
 		
-//		for (Entry<String, Vector> testResultVectorEntry : this.horizontalTestResults.entrySet())
-//			if (testResultVectorEntry.getValue().size() > maxLength )
-//				maxLength = testResultVectorEntry.getValue().size();
-//		
-//		// check case memory
-//		int diff = this.horizontalCaseMemory.size() - maxLength;
-//		
-//		if (diff<0)
-//			for (int i=0 ; i<diff*-1 ; i++)
-//				this.horizontalCaseMemory.add(0.0);
-//		
-//		// check test result vectors
-//		
-//		for (Entry<String, Vector> testResultVectorEntry : this.horizontalTestResults.entrySet())
-//		{
-//			diff = maxLength - testResultVectorEntry.getValue().size();
-//			
-//			if (diff>0)
-//				for (int i=0 ; i<diff ; i++)
-//					testResultVectorEntry.getValue().add(0.0);
-//		}
-		
-		
-
-
 		double minDiff = Const.POSITIVE_INFINITY;
 		
 		// iterate through set of test result vectors and compute delta to avg case vector
@@ -217,15 +192,14 @@ public class KnnSolver {
 		for (Entry<String, Vector> testResultVectorEntry : this.horizontalTestResults.entrySet())
 		{
 			Vector diffVector = new Vector(); // diff between memory vector and test vector
-			int diffVectorSum = 0;
+			
+			//TODO: This is where we would put
+			// conflict-resolution logic if we find that 
+			// more than one test result appears to be correct.
 			
 			diffVector = this.horizontalCaseMemory.getDiff(testResultVectorEntry.getValue());
 			
-			// sum elements of diff vector
-			for (int j=0 ; j < diffVector.size() ; j++)
-			{
-				diffVectorSum += diffVector.get(j);
-			}
+			diffVectorSum = diffVector.getSum();
 				
 			if ( diffVectorSum < minDiff )
 			{
