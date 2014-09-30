@@ -23,9 +23,7 @@ class Ontology {
 	
 	public int getValueMap(String _attributeValue)
 	{
-		// if _attributeValue is not present in Ontology then add it
-		// TODO: consider pulling this code out into an agent-learning module
-		
+		// if _attributeValue is not present in Ontology then add it		
 		
 		
 		if (!ontology.containsKey(_attributeValue))
@@ -59,7 +57,7 @@ class Ontology {
     }
 }
 
-public class KnnOntologySet {
+public class OntologySet {
 
 	/* An list of ontologies keyed by attribute name
 	 * 
@@ -69,7 +67,7 @@ public class KnnOntologySet {
 	private ArrayList<NameValuePair> keyMap;
 	
 	// constructor
-	public KnnOntologySet() throws Exception 
+	public OntologySet() throws Exception 
 	{
 		this.ontologySet = new HashMap<String,Ontology>();
 		this.keyMap = new ArrayList<NameValuePair>();
@@ -102,7 +100,6 @@ public class KnnOntologySet {
 		
 		if (o == null) {
 			// Ontology not present for _ontologyKeyName. Create one and add _attributeValue
-			// TODO: consider pulling this code out into an agent-learning module
 			// create new ontology and add to set
 			o = createNewOntologyInSet(_ontologyKeyName);
 			o.addValueMap(_attributeValue, Const.MIN_SIMILARITY_WEIGHT);
@@ -186,7 +183,7 @@ public class KnnOntologySet {
 		return retKeyMap;
 	}  
 	
-    public ArrayList<NameValuePair> getOntologyData(RavensAttribute ra)
+    public ArrayList<NameValuePair> getFrameDataSet(RavensAttribute ra)
     {
     	/* returns a list of ontology key names and similarity values for a given Raven's attribute
     	 * e.g. fill ->  fill-h | 3
@@ -204,8 +201,7 @@ public class KnnOntologySet {
     	// first check whether this attribute needs to be split into multiple entries
     	// fill attributes can have multiple comma separated values so need to separate them out
     	// e.g. fill:top-right,bottom-right,bottom-left
-    	String raValue = ra.getValue();
-    	String[] contents = raValue.split(",");
+    	String[] contents = ra.getValue().split(",");
     	
     	// works for both single values and comma separated values
     	for (String s : contents) 
@@ -213,18 +209,17 @@ public class KnnOntologySet {
     	
     	// first check to see whether ravens attribute name has any entries in keyMap
     	Boolean bFoundInKeyMap = false;
-    	ArrayList<NameValuePair> dataReturned = new ArrayList<NameValuePair>();
+    	ArrayList<NameValuePair> frameData = new ArrayList<NameValuePair>();
     	
-    	for (NameValuePair keyMapPair : keyMap) 
+    	for (NameValuePair keyMapPair : keyMap)
     	{
     		if (keyMapPair.getName().equals(ra.getName())) 
     		{
     			// attribute name found in keyMap, so use corresponding ontology key name from keyMapPair.value
     			// if mapping is found in keyMap then this attribute should already in the ontologySet
-    			// TODO: add check later on to validate whether ontologies file was correctly populated for key maps
     			bFoundInKeyMap = true;
     			for (String attrVal : attributeValueList)
-    				addToDataReturnList(dataReturned, keyMapPair.getValue(), attrVal);
+    				addToFrameDataSet(frameData, keyMapPair.getValue(), attrVal);
 
     		}
     	}
@@ -233,15 +228,15 @@ public class KnnOntologySet {
     	{
     		// use the ravens attribute name as the ontology key name
     		for (String attrVal : attributeValueList) 
-    			addToDataReturnList(dataReturned, ra.getName(), attrVal );
+    			addToFrameDataSet(frameData, ra.getName(), attrVal );
     	}
     	
-    	return dataReturned;
+    	return frameData;
     }
     
-    private void addToDataReturnList(ArrayList<NameValuePair> slots, String slotName, String slotFiller)
+    private void addToFrameDataSet(ArrayList<NameValuePair> slots, String slotName, String slotFiller)
     {	
-    	/* Used by getOntologyData to build the list of slot names and fillers to be returned
+    	/* Used by getFrameDataSet to build the list of slot names and fillers to be returned
     	 * 
     	 */
     		boolean bSlotAlreadyExists = false;

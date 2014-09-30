@@ -37,7 +37,7 @@ public class Agent
      * 
      */
 	
-	private KnnOntologySet ontologySet = null; 
+	private OntologySet ontologySet = null; 
 	
     public Agent() 
     {
@@ -51,7 +51,7 @@ public class Agent
     	// and readable in the program directory
     	try 
     	{
-			ontologySet = new KnnOntologySet();
+			ontologySet = new OntologySet();
 		} catch (Exception e) 
     	{
 			// TODO Auto-generated catch block
@@ -116,7 +116,7 @@ public class Agent
     				// and add to  frame
     				
     				// get slots containing ontology keys and values for this attribute name
-    	    		ArrayList<NameValuePair> slots = ontologySet.getOntologyData(ra);
+    	    		ArrayList<NameValuePair> slots = ontologySet.getFrameDataSet(ra);
     	    		// log slots
     	    		    	    		
     	    		for (NameValuePair p : slots)

@@ -43,7 +43,8 @@ public class KnnSolver {
 	
 		while (currNode.getNextHorizontalNode() != null) {
 			
-			this.horizontalCaseMemory = this.computeKnnDelta(currNode,currNode.getNextHorizontalNode());
+			// needs to be extended for multiple cases for 3x3 i.e. A : B , B : C 
+			this.horizontalCaseMemory = this.calcKnnDelta(currNode,currNode.getNextHorizontalNode());
 			
 			System.out.println("\nadded to case memory for T("+currNode.getFigureLabel()+","+currNode.getNextHorizontalNode().getFigureLabel()+") :"+this.horizontalCaseMemory+"\n" );
 			currNode = currNode.getNextHorizontalNode();
@@ -57,11 +58,11 @@ public class KnnSolver {
 		
 		for (Node candidateNode : semanticNet.candidateNodes.values())
 		{
-			Vector testCaseVector = null;
-			testCaseVector = this.computeKnnDelta(this.semanticNet.getHorizontalTestOriginNode(), candidateNode);
+			Vector testCandidateVector = null;
+			testCandidateVector = this.calcKnnDelta(this.semanticNet.getHorizontalTestOriginNode(), candidateNode);
 			
-			this.horizontalTestResults.put(candidateNode.getFigureLabel(),testCaseVector);
-			System.out.println("calc test case value for T("+this.semanticNet.getHorizontalTestOriginNode().getFigureLabel()+","+candidateNode.getFigureLabel()+") :"+testCaseVector );
+			this.horizontalTestResults.put(candidateNode.getFigureLabel(),testCandidateVector);
+			System.out.println("calc test case value for T("+this.semanticNet.getHorizontalTestOriginNode().getFigureLabel()+","+candidateNode.getFigureLabel()+") :"+testCandidateVector );
 
 		}
 		
@@ -80,9 +81,9 @@ public class KnnSolver {
 		return testResultSelected.getKey();
 	}
 	
-	public Vector computeKnnDelta(Node node1, Node node2)
+	public Vector calcKnnDelta(Node node1, Node node2)
 	{
-		/* Computes K-nearest neighbor delta between two nodes
+		/* Computes nearest neighbor delta between two nodes
 		 * 
 		 */
 		Vector deltaVector = new Vector();
