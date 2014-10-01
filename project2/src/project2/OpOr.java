@@ -3,17 +3,17 @@ package project2;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrAntecedent implements Antecedent
+public class OpOr implements Antecedent
 {
 	private final List<Antecedent> antecedents = new ArrayList<Antecedent>();
 
-	public OrAntecedent(Antecedent e1, Antecedent e2)
+	public OpOr(Antecedent e1, Antecedent e2)
 	{
 		this.antecedents.add(e1);
 		this.antecedents.add(e2);		
 	}
 	
-	public OrAntecedent(List<Antecedent> antecedents)
+	public OpOr(List<Antecedent> antecedents)
 	{
 		this.antecedents.addAll(antecedents);
 	}

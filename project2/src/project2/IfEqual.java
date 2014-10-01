@@ -2,12 +2,12 @@ package project2;
 
 import java.util.List;
 
-public class AntecedentExpr implements Antecedent
+public class IfEqual implements Antecedent
 {
 	private List<Integer> values = null;
 	private String antecedentKey;
 	
-	public AntecedentExpr(String antecedentKey, int[] values)
+	public IfEqual(String antecedentKey, int[] values)
 	{
 		for (int v : values)
 		{
@@ -16,13 +16,13 @@ public class AntecedentExpr implements Antecedent
 		this.antecedentKey = antecedentKey;
 	}
 
-	public AntecedentExpr(String antecedentKey, List<Integer> values)
+	public IfEqual(String antecedentKey, List<Integer> values)
 	{
 		this.values.addAll(values);
 		this.antecedentKey = antecedentKey;
 	}
 
-	public AntecedentExpr(String antecedentKey, int value)
+	public IfEqual(String antecedentKey, int value)
 	{
 		this.values.add(value);
 		this.antecedentKey = antecedentKey;

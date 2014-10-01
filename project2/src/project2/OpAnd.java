@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class AndAntecedent implements Antecedent
+public class OpAnd implements Antecedent
 {
 	private final List<Antecedent>  antecedents = new ArrayList<Antecedent>();
 
-	public AndAntecedent(Antecedent e1, Antecedent e2)
+	public OpAnd(Antecedent e1, Antecedent e2)
 	{
 		this.antecedents.add(e1);
 		this.antecedents.add(e2);
 	}
 
-	public AndAntecedent(List<Antecedent> antecedents)
+	public OpAnd(List<Antecedent> antecedents)
 	{
 		this.antecedents.addAll( antecedents);
 	}
