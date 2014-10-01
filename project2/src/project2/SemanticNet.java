@@ -132,7 +132,7 @@ public class SemanticNet
 		
 	}
 	
-	public void addFrameToNode(Frame f, String nodeLabel)
+	public void addFrameToNode(String objectName, Frame f, String nodeLabel)
 	{
 		Node n = null;
 		if (f != null) {
@@ -146,7 +146,7 @@ public class SemanticNet
 				n = nodes.get(nodeLabel);
 				
 			}
-			n.addFrame(f);
+			n.addFrame(objectName,f);
 		}
 		
 	}
@@ -164,7 +164,7 @@ public class SemanticNet
 			System.out.println("\nNode "+ nodeEntry.getKey());
 			
 			Node node = nodeEntry.getValue();
-			for (Frame f : node.frames){
+			for (Frame f : node.getFrameListValues()){
 				System.out.println("\nframe:");
 				for (Entry<String,Integer> frameEntry : f.slots.entrySet()) 
 				{
@@ -182,7 +182,7 @@ public class SemanticNet
 			System.out.println("\nNode "+ nodeEntry.getKey());
 			
 			Node node = nodeEntry.getValue();
-			for (Frame f : node.frames){
+			for (Frame f : node.getFrameListValues()){
 				System.out.println("\nframe:");
 				for (Entry<String,Integer> frameEntry : f.slots.entrySet()) 
 				{

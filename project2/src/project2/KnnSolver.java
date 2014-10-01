@@ -88,52 +88,55 @@ public class KnnSolver {
 		 */
 		Vector deltaVector = new Vector();
 		
-		// first pad nodes with zero frames if necessary to make sure they
-		// each contain the same number of frames
-		int diff = 0;
-		
-		diff = node1.getFrameListSize() - node2.getFrameListSize();
-		
-		if (diff>0)
-			for (int i=0 ; i<diff ; i++)
-				node2.addFrame(new Frame());
-		
-		if (diff<0)
-			for (int i=0 ; i<diff*-1 ; i++)
-				node1.addFrame(new Frame());
+//		// first pad nodes with zero frames if necessary to make sure they
+//		// each contain the same number of frames
+//		int diff = 0;
+//		
+//		diff = node1.getFrameListSize() - node2.getFrameListSize();
+//		
+//		if (diff>0)
+//			for (int i=0 ; i<diff ; i++)
+//				node2.addFrame(new Frame());
+//		
+//		if (diff<0)
+//			for (int i=0 ; i<diff*-1 ; i++)
+//				node1.addFrame(new Frame());
 		
 		// TODO: adjust similarityWeights in frames to cater for
 		// known idioms such as; angle of a circle is comparable to
 		// any other angle for any other shape since the circle looks
 		// exactly the same after rotation
 		
-		
-		
-		for (int i=0; i<node1.getFrameListSize(); i++)
+
+		for (String objectInFrame1 : node1.getFrameListKeys())
 		{
 			
-			Frame frame1 = node1.frames.get(i);
-			Frame frame2 = node2.frames.get(i);
-			
+			Frame frame1 = node1.getFrame(objectInFrame1);
+						
 			int sum = 0;
 			double delta = 0;
 			
-			// need to get a combination of the keys in both frames since frame1 can 
-			// contain keys that are not in frame2 and vice-versa.
-			ArrayList<String> combinedKeys = new ArrayList<String>();
-				
-			for (String key : frame1.slots.keySet())
-				if (!combinedKeys.contains(key)) combinedKeys.add(key);
-			
-			
-			for (String key : frame2.slots.keySet())
-				if (!combinedKeys.contains(key)) combinedKeys.add(key);
-			
-			for (String key : combinedKeys)
+			// iterate across all frames in node 2
+			for (String objectInFrame2 : node2.getFrameListKeys())
 			{
-				sum +=  sqr( getSimilarityValue(frame1,key) - getSimilarityValue(frame2,key)) ;
+				Frame frame2 = node2.getFrame(objectInFrame2);
+				
+				// need to get a combination of the keys in both frames since frame1 can 
+				// contain keys that are not in frame2 and vice-versa.
+				ArrayList<String> combinedKeys = new ArrayList<String>();
+					
+				for (String key : frame1.slots.keySet())
+					if (!combinedKeys.contains(key)) combinedKeys.add(key);
+				for (String key : frame2.slots.keySet())
+					if (!combinedKeys.contains(key)) combinedKeys.add(key);
+				
+				for (String key : combinedKeys)
+				{
+					sum +=  sqr( getSimilarityValue(frame1,key) - getSimilarityValue(frame2,key)) ;
+				}
+				
 			}
-			delta = sum;
+			delta += sum;
 			deltaVector.add(delta);
 			
 		}

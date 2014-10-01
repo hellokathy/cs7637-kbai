@@ -106,7 +106,10 @@ public class Agent
     		{
     			RavensObject ro = objects.get(i);
     			
-    			System.out.println("     >Object: "+ro.getName());
+    			// use numerical key for object instead of label .. same labels 
+    			// between figures may not necessarily refer to same object
+    			// and same object can have different labels between figures :(
+    			System.out.println("     >Object: "+String.valueOf(i)+" ("+ro.getName()+")");
     			System.out.println("         >slots | fillers:");
     			
     			Frame f = new Frame();
@@ -124,8 +127,13 @@ public class Agent
     				
     	    		f.addSlots(slots);
     			}
+    			
+//    			// create normalized frame from production system
+//    			ProductionSystem ps = new ProductionSystem();
+//    			normalizedFrame = ps
+    			
     			// add frame to semantic network
-    			semanticNet.addFrameToNode(f, rf.getName().trim() );
+    			semanticNet.addFrameToNode(String.valueOf(i), f, rf.getName().trim() );
     		}
     		
     	}
