@@ -101,6 +101,9 @@ public class Agent
     	{
     		System.out.println("   >Figure: "+rf.getName());
     		
+    		// build objectIndex map - interate through each ro in rf
+    		RavensFigureObjectIndex objIdx = new RavensFigureObjectIndex(rf); 
+    				
     		ArrayList<RavensObject> objects = rf.getObjects();
     		for ( int i = 0; i < objects.size(); i++)
     		{
@@ -118,10 +121,10 @@ public class Agent
     				// read attribute, convert to simlarityWeight using ontology
     				// and add to  frame
     				
-    				// get slots containing ontology keys and values for this attribute name
-    	    		ArrayList<NameValuePair> slots = ontologySet.getFrameDataSet(ra);
-    	    		// log slots
-    	    		    	    		
+	    			// get slots containing ontology keys and values for this attribute name
+	    	    	ArrayList<NameValuePair> slots = ontologySet.getFrameDataSet(ra, objIdx);
+    	    				
+    				// log slots
     	    		for (NameValuePair p : slots)
     	    			System.out.println("          "+p.getName()+" : "+p.getValue());
     				

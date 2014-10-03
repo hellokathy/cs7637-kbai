@@ -3,6 +3,7 @@ package project2;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 
 public class KnnSolver {
 /* Class uses KNN distance algorithm to calculate distances between nodes 
@@ -15,8 +16,8 @@ public class KnnSolver {
 	private Vector horizontalCaseMemory = null;
 	private Vector verticalCaseMemory = null;
 	
-	private HashMap<String,Vector> horizontalTestResults = null;
-	private HashMap<String,Vector> verticalTestResults = null;
+	private TreeMap<String,Vector> horizontalTestResults = null;
+	private TreeMap<String,Vector> verticalTestResults = null;
 	
 	// constructor
 	public KnnSolver(SemanticNet _semanticNet)
@@ -25,8 +26,8 @@ public class KnnSolver {
 
 		horizontalCaseMemory = null;
 		verticalCaseMemory = null;
-		horizontalTestResults = new HashMap<String,Vector>();
-		verticalTestResults = new HashMap<String,Vector>();
+		horizontalTestResults = new TreeMap<String,Vector>();
+		verticalTestResults = new TreeMap<String,Vector>();
 	
 	}
 	
@@ -88,19 +89,6 @@ public class KnnSolver {
 		 */
 		Vector deltaVector = new Vector();
 		
-//		// first pad nodes with zero frames if necessary to make sure they
-//		// each contain the same number of frames
-//		int diff = 0;
-//		
-//		diff = node1.getFrameListSize() - node2.getFrameListSize();
-//		
-//		if (diff>0)
-//			for (int i=0 ; i<diff ; i++)
-//				node2.addFrame(new Frame());
-//		
-//		if (diff<0)
-//			for (int i=0 ; i<diff*-1 ; i++)
-//				node1.addFrame(new Frame());
 		
 		// TODO: adjust similarityWeights in frames to cater for
 		// known idioms such as; angle of a circle is comparable to
@@ -117,9 +105,9 @@ public class KnnSolver {
 			double delta = 0;
 			
 			// iterate across all frames in node 2
-			for (String objectInFrame2 : node2.getFrameListKeys())
-			{
-				Frame frame2 = node2.getFrame(objectInFrame2);
+			//for (String objectInFrame2 : node2.getFrameListKeys())
+			//{
+				Frame frame2 = node2.getFrame(objectInFrame1);
 				
 				// need to get a combination of the keys in both frames since frame1 can 
 				// contain keys that are not in frame2 and vice-versa.
@@ -135,7 +123,7 @@ public class KnnSolver {
 					sum +=  sqr( getSimilarityValue(frame1,key) - getSimilarityValue(frame2,key)) ;
 				}
 				
-			}
+			//}
 			delta += sum;
 			deltaVector.add(delta);
 			

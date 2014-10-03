@@ -6,13 +6,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 
 public class Node {
-	/* contains HashMap of frames related to a single figure in an RPM
+	/* contains Map of frames related to a single figure in an RPM
 	 */
 	
 	private String figureLabel;
-	private HashMap<String,Frame> frames = null;
+	public RavensFigureObjectIndex objIndex = null;
+	private TreeMap<String,Frame> frames = null;
 	private Node nextHorizontalNode = null;
 	private Node nextVerticalNode = null;
 	
@@ -20,7 +22,7 @@ public class Node {
 	public Node(String _figureLabel)
 	{
 		figureLabel = _figureLabel;
-		frames = new HashMap<String,Frame>();
+		frames = new TreeMap<String,Frame>();
 	}
 	
 	// getters and setters

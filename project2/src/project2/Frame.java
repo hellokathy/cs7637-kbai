@@ -2,6 +2,7 @@ package project2;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.TreeMap;
 
 public class Frame 
 {
@@ -9,11 +10,11 @@ public class Frame
 	 * for a single object in a figure
 	 */
 
-	public HashMap<String, Integer> slots = null;
+	public TreeMap<String, Integer> slots = null;
 	
 	public Frame()
 	{
-		slots = new HashMap<String, Integer>();
+		slots = new TreeMap<String, Integer>();
 	}
 	
 	//public void addSlots(String attributeName, Integer similarityWeight)
@@ -28,6 +29,12 @@ public class Frame
 				slots.put(s.getName(), s.getValueInt());
 			}
 		
+	}
+	
+	public void addSlot(NameValuePair pair)
+	{
+		if (pair.getName().length()>0)
+			slots.put(pair.getName(), pair.getValueInt());
 	}
 	
 	public Integer getSlot(String attributeName)

@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 
 
 public class SemanticNet 
 {
 	
-	public HashMap<String,Node> nodes = null;
-	public HashMap<String,Node> candidateNodes = null;
+	public TreeMap<String,Node> nodes = null;
+	public TreeMap<String,Node> candidateNodes = null;
 	public String rpmType = null;
 	private Node horizontalTestOriginNode = null;  // horizontal node to be tested against solution candidates
 	private Node verticalTestOriginNode = null; // vertical node to be tested against solution candidates
@@ -40,8 +41,8 @@ public class SemanticNet
 	
 	public SemanticNet(String _rpmType)
 	{
-		nodes = new HashMap<String,Node>();
-		candidateNodes = new HashMap<String,Node>();
+		nodes = new TreeMap<String,Node>();
+		candidateNodes = new TreeMap<String,Node>();
 		rpmType = _rpmType;
 		
 		String[] labels_candidate = {"1","2","3","4","5","6"};

@@ -10,6 +10,7 @@ class Ontology {
 	 * as shape, fill, size etc are stored along with their possible values and a similarity 
 	 * weight that reflects how similar each value is to adjacent ones.
 	 */
+	
 	private HashMap<String,Integer> ontology; // 
 	
 	public Ontology() {
@@ -73,6 +74,19 @@ public class OntologySet {
 		this.keyMap = new ArrayList<NameValuePair>();
 
 		loadOntologies();
+	}
+
+	private boolean isSpatialAttribute(String attributeName)
+	{
+		ArrayList<String> spatials = new ArrayList<String>();
+		spatials.add("left-of");
+		spatials.add("right-of");
+		spatials.add("above");
+		spatials.add("below");
+		spatials.add("inside");
+		spatials.add("overlaps");
+		
+		return spatials.contains(attributeName.trim());
 	}
 	
 	// getters and setters
@@ -183,7 +197,7 @@ public class OntologySet {
 		return retKeyMap;
 	}  
 	
-    public ArrayList<NameValuePair> getFrameDataSet(RavensAttribute ra)
+    public ArrayList<NameValuePair> getFrameDataSet(RavensAttribute ra, RavensFigureObjectIndex objIdx)
     {
     	/* returns a list of ontology key names and similarity values for a given Raven's attribute
     	 * e.g. fill ->  fill-h | 3
@@ -197,6 +211,7 @@ public class OntologySet {
     																	// which can have several values on the same line
     																	// e.g. fill, inside etc, each value will be placed
     																	// in a separate element
+    	boolean isSpatial = this.isSpatialAttribute(ra.getName());
     	
     	// first check whether this attribute needs to be split into multiple entries
     	// fill attributes can have multiple comma separated values so need to separate them out
@@ -219,7 +234,16 @@ public class OntologySet {
     			// if mapping is found in keyMap then this attribute should already in the ontologySet
     			bFoundInKeyMap = true;
     			for (String attrVal : attributeValueList)
-    				addToFrameDataSet(frameData, keyMapPair.getValue(), attrVal);
+    			{
+    				if (isSpatial) 
+    				{ 
+    					addToFrameDataSet(frameData, keyMapPair.getValue(), objIdx.get(attrVal) , false);
+    				}
+    				else 
+    				{
+    					addToFrameDataSet(frameData, keyMapPair.getValue(), attrVal, true);
+    				}
+    			}
 
     		}
     	}
@@ -228,22 +252,42 @@ public class OntologySet {
     	{
     		// use the ravens attribute name as the ontology key name
     		for (String attrVal : attributeValueList) 
-    			addToFrameDataSet(frameData, ra.getName(), attrVal );
+    		{
+    			if (isSpatial)
+    			{
+    				addToFrameDataSet(frameData, ra.getName(), objIdx.get(attrVal) , false);
+    			} else
+    			{
+    				addToFrameDataSet(frameData, ra.getName(), attrVal ,true );
+    			}
+    		}
+    			
     	}
     	
     	return frameData;
     }
+ 
     
-    private void addToFrameDataSet(ArrayList<NameValuePair> slots, String slotName, String slotFiller)
+    private void addToFrameDataSet(ArrayList<NameValuePair> slots, String slotName, String slotFiller, boolean useOntology)
     {	
     	/* Used by getFrameDataSet to build the list of slot names and fillers to be returned
     	 * 
     	 */
     		boolean bSlotAlreadyExists = false;
-   		
+    		Integer valueOfSlotFiller = 0;
+    		
+    		if (useOntology) 
+    		{
+    			valueOfSlotFiller = this.getSimilarityValue(slotName, slotFiller);
+    		} else
+    		{
+    			valueOfSlotFiller = Integer.parseInt(slotFiller);
+    		}
+    			
     		if (slots.isEmpty())
     		{
-    			slots.add(new NameValuePair(slotName, this.getSimilarityValue(slotName, slotFiller) ));
+    			slots.add(new NameValuePair(slotName, valueOfSlotFiller ));
+    	
     		} else 
     		{
 				for(NameValuePair p : slots) 
@@ -252,11 +296,11 @@ public class OntologySet {
 					{
 						// add similarityValue to existing slot
 						bSlotAlreadyExists = true;
-						p.setValueInt(p.getValueInt()+ this.getSimilarityValue(slotName, slotFiller)) ;
+						p.setValueInt(p.getValueInt()+ valueOfSlotFiller) ;
 					}
 				}	
 				if (!bSlotAlreadyExists)
-					slots.add(new NameValuePair(slotName, this.getSimilarityValue(slotName, slotFiller) ));
+					slots.add(new NameValuePair(slotName, valueOfSlotFiller ));
     		}
     		
 
