@@ -8,23 +8,24 @@ public class OpAnd implements Antecedent
 {
 	private final List<Antecedent>  antecedents = new ArrayList<Antecedent>();
 
-	public OpAnd(Antecedent e1, Antecedent e2)
+	public OpAnd(Antecedent a1, Antecedent a2)
 	{
-		this.antecedents.add(e1);
-		this.antecedents.add(e2);
+		this.antecedents.add(a1);
+		this.antecedents.add(a2);
 	}
 
-	public OpAnd(List<Antecedent> antecedents)
+	public OpAnd(Antecedent[] antecedents)
 	{
-		this.antecedents.addAll( antecedents);
+		for (Antecedent a : antecedents)
+			this.antecedents.add(a);
 	}
 
 	@Override
 	public boolean applies(Context context)
 	{
-		for (Antecedent e : antecedents)
+		for (Antecedent a : antecedents)
 		{
-			if (!e.applies(context))
+			if (!a.applies(context))
 			{
 				return false;
 			}

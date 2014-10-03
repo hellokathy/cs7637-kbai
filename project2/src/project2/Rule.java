@@ -6,9 +6,9 @@ public class Rule
 	private final Consequence consequence;
 	private final String ruleId;
 
-	public Rule(String ruleId, Antecedent antecedent, Consequence consequence)
+	public Rule(Antecedent antecedent, Consequence consequence)
 	{
-		this.ruleId = ruleId;
+		this.ruleId = getClass().getName();
 		this.antecedent = antecedent;
 		this.consequence = consequence;		
 	}

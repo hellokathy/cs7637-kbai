@@ -3,6 +3,24 @@ shape,horizontal-symmetry
 shape,vertical-symmetry
 shape,rotational-symmetry-order
 
+shape,dot,1
+shape,circle,2
+shape,Pac-Man,3
+shape,triangle,4
+shape,right-triangle,5
+shape,square,6
+shape,diamond,7
+shape,rectangle,8
+shape,pentagon,9
+shape,hexagon,10
+shape,septagon,11
+shape,heptagon,11
+shape,octagon,12
+shape,nonogon,13
+shape,decagon,14
+shape,arrow,15
+shape,half-arrow,16
+shape,plus,17
 
 
 num-sides,dot,0
