@@ -20,9 +20,14 @@ public class RuleSet
 		this.rules.addAll(rules);
 	}
 	
-	public RuleSet(Rule rules)
+	public RuleSet(Rule rule)
 	{
-		this.rules.add(rules);
+		this.rules.add(rule);
+	}
+	
+	public void add(Rule rule)
+	{
+		this.rules.add(rule);
 	}
 	
 	public Iterable<Rule> getRules()

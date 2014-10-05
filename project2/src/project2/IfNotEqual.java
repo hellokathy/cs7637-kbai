@@ -1,10 +1,11 @@
 package project2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class IfNotEqual implements Antecedent
 {
-	private List<Integer> values = null;
+	private List<Integer> values = new ArrayList<Integer>();;
 	private String antecedentKey;
 	
 	public IfNotEqual(String antecedentKey, int[] values)

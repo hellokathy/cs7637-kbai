@@ -6,9 +6,9 @@ public class Rule
 	private final Consequence consequence;
 	private final String ruleId;
 
-	public Rule(Antecedent antecedent, Consequence consequence)
+	public Rule(String ruleId, Antecedent antecedent, Consequence consequence)
 	{
-		this.ruleId = getClass().getName();
+		this.ruleId = ruleId;
 		this.antecedent = antecedent;
 		this.consequence = consequence;		
 	}
@@ -23,8 +23,10 @@ public class Rule
 		
 		if (antecedent.applies(context))
 		{
+			//System.out.println("\nExecuting rule : "+ruleId);
 			consequence.execute(context);
 			context.onRuleFired(ruleId);
+			//System.out.println(ruleId+" successfully executed\n");
 			return true;
 		}
 		

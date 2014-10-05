@@ -6,15 +6,23 @@ import java.util.TreeMap;
 
 public class Frame 
 {
+	private String objectLabel;
+	
 	/* stores mapping from an attribute value to similarityWeight
 	 * for a single object in a figure
 	 */
 
 	public TreeMap<String, Integer> slots = null;
 	
-	public Frame()
+	public Frame(String objectLabel)
 	{
+		this.objectLabel = objectLabel;
 		slots = new TreeMap<String, Integer>();
+	}
+	
+	public String getObjectLabel()
+	{
+		return this.objectLabel;
 	}
 	
 	//public void addSlots(String attributeName, Integer similarityWeight)
@@ -51,5 +59,11 @@ public class Frame
 			return 0;
 			
 		}
+	}
+	
+	@Override
+	public String toString()
+	{
+		return slots.toString();
 	}
 }

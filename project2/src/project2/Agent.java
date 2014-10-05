@@ -109,13 +109,15 @@ public class Agent
     		{
     			RavensObject ro = objects.get(i);
     			
+    			String roName = ro.getName().trim();
+    			
     			// use numerical key for object instead of label .. same labels 
     			// between figures may not necessarily refer to same object
     			// and same object can have different labels between figures :(
-    			System.out.println("     >Object: "+String.valueOf(i)+" ("+ro.getName()+")");
-    			System.out.println("         >slots | fillers:");
+    			//System.out.println("     >Object: "+String.valueOf(objIdx.get(roName) )+" ("+roName+")");
+    			//System.out.println("         >slots | fillers:");
     			
-    			Frame f = new Frame();
+    			Frame f = new Frame(String.valueOf(objIdx.get(roName) ));
     			for ( RavensAttribute ra : ro.getAttributes())
     			{
     				// read attribute, convert to simlarityWeight using ontology
@@ -123,35 +125,43 @@ public class Agent
     				
 	    			// get slots containing ontology keys and values for this attribute name
 	    	    	ArrayList<NameValuePair> slots = ontologySet.getFrameDataSet(ra, objIdx);
-    	    				
+    	    		
+	  
     				// log slots
-    	    		for (NameValuePair p : slots)
-    	    			System.out.println("          "+p.getName()+" : "+p.getValue());
+    	    		//for (NameValuePair p : slots)
+    	    		//	System.out.println("          "+p.getName()+" : "+p.getValue());
     				
     	    		f.addSlots(slots);
     			}
     			
-//    			// create normalized frame from production system
-//    			ProductionSystem ps = new ProductionSystem();
-//    			normalizedFrame = ps
     			
     			// add frame to semantic network
-    			semanticNet.addFrameToNode(String.valueOf(i), f, rf.getName().trim() );
+    			semanticNet.addFrameToNode( f, rf.getName().trim() );
     		}
     		
     	}
     	//semanticNet.debugPrintNetwork();
-    	
-    	// TODO: check integrity of semantic network at this point
-    	
+
+    	   	
     	// create new solver - pass semantic network into constructor
-    	KnnSolver knnSolver = new KnnSolver(semanticNet);
     	
-    	String answerCalculated = knnSolver.computeSolution();
+    	DLSolver dlSolver = new DLSolver(semanticNet);    	
+    	String answerCalculated = dlSolver.computeSolution();
+ 
+    	KnnSolver knnSolver = new KnnSolver(semanticNet);    	
+    	String answerCalculated2 = knnSolver.computeSolution();
     	
-    	System.out.println("Correct answer : "+problem.checkAnswer(answerCalculated));
+    	String finalAnswer = "";
+//    	if (answerCalculated.compareTo(answerCalculated2)==0)
+//    	{
+   		finalAnswer = answerCalculated;
+//    	} else
+//    	{
+//  		finalAnswer = answerCalculated2;
+//    	}
+    	System.out.println("Correct answer : "+problem.checkAnswer(finalAnswer));
         
-    	return answerCalculated;
+    	return finalAnswer;
     }
     
 

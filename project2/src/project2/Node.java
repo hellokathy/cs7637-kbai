@@ -31,11 +31,11 @@ public class Node {
 		return figureLabel;
 	}
 
-	public void addFrame(String objectLabel, Frame frame)
+	public void addFrame( Frame frame)
 	{
 		if (frame != null)
 		{
-			frames.put(objectLabel, frame);
+			frames.put(frame.getObjectLabel(), frame);
 		}
 	}
 	
@@ -45,7 +45,7 @@ public class Node {
 		{
 			// return an empty frame - ensure that attempts
 			// to get values from this empty frame always return 0
-			return (new Frame());
+			return (new Frame(objectLabel));
 		} else 
 		{
 			return frames.get(objectLabel);

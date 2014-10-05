@@ -1,10 +1,11 @@
 package project2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class IfEqual implements Antecedent
 {
-	private List<Integer> values = null;
+	private List<Integer> values = new ArrayList<Integer>();
 	private String antecedentKey;
 	
 	public IfEqual(String antecedentKey, int[] values)

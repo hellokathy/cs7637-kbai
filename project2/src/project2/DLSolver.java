@@ -7,36 +7,36 @@ import java.util.Map.Entry;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-public class KnnSolver {
-/* Class uses KNN distance algorithm to calculate distances between nodes 
+public class DLSolver {
+/* Class uses Damerau Levenshtein distance algorithm to calculate distances between nodes 
  * in semantic network passed to constructor
  * 
  */
 	
 	private SemanticNet semanticNet = null;
 	
-	private Vector horizontalCaseMemory = null;
-	private Vector verticalCaseMemory = null;
+	private String horizontalCaseMemory = null;
+	private String verticalCaseMemory = null;
 	
-	private TreeMap<String,Vector> horizontalTestResults = null;
-	private TreeMap<String,Vector> verticalTestResults = null;
+	private TreeMap<String,String> horizontalTestResults = null;
+	private TreeMap<String,String> verticalTestResults = null;
 	
 	// constructor
-	public KnnSolver(SemanticNet _semanticNet)
+	public DLSolver(SemanticNet _semanticNet)
 	{
 		this.semanticNet = _semanticNet;
 
 		horizontalCaseMemory = null;
 		verticalCaseMemory = null;
-		horizontalTestResults = new TreeMap<String,Vector>();
-		verticalTestResults = new TreeMap<String,Vector>();
+		horizontalTestResults = new TreeMap<String,String>();
+		verticalTestResults = new TreeMap<String,String>();
 	
 	}
 	
 	public String computeSolution()
 	{
 		
-		Entry<String, Vector> testResultSelected = null;
+		Entry<String, String> testResultSelected = null;
 		
 		// traverse network - populate case memory
 		// TODO: populate a list of nodes to start traversing from
@@ -48,7 +48,7 @@ public class KnnSolver {
 			
 			// needs to be extended for multiple cases for 3x3 i.e. A : B , B : C 
 			
-			this.horizontalCaseMemory = this.calcKnnDelta(currNode,currNode.getNextHorizontalNode());
+			this.horizontalCaseMemory = this.generateDeltaString(currNode,currNode.getNextHorizontalNode());
 			
 			System.out.println("\nadded to case memory for T("+currNode.getFigureLabel()+","+currNode.getNextHorizontalNode().getFigureLabel()+") :"+this.horizontalCaseMemory+"\n" );
 			currNode = currNode.getNextHorizontalNode();
@@ -62,11 +62,11 @@ public class KnnSolver {
 		
 		for (Node candidateNode : semanticNet.candidateNodes.values())
 		{
-			Vector testCandidateVector = null;
-			testCandidateVector = this.calcKnnDelta(this.semanticNet.getHorizontalTestOriginNode(), candidateNode);
+			String testCandidateString = null;
+			testCandidateString = this.generateDeltaString(this.semanticNet.getHorizontalTestOriginNode(), candidateNode);
 			
-			this.horizontalTestResults.put(candidateNode.getFigureLabel(),testCandidateVector);
-			System.out.println("calc test case value for T("+this.semanticNet.getHorizontalTestOriginNode().getFigureLabel()+","+candidateNode.getFigureLabel()+") :"+testCandidateVector );
+			this.horizontalTestResults.put(candidateNode.getFigureLabel(),testCandidateString);
+			System.out.println("calc test case value for T("+this.semanticNet.getHorizontalTestOriginNode().getFigureLabel()+","+candidateNode.getFigureLabel()+") :"+testCandidateString );
 
 		}
 		
@@ -85,57 +85,58 @@ public class KnnSolver {
 		return testResultSelected.getKey();
 	}
 	
-	public Vector calcKnnDelta(Node node1, Node node2)
+	public String generateDeltaString(Node node1, Node node2)
 	{
-		/* Computes nearest neighbor delta between two nodes
+		/* Generates delta string between two nodes
 		 * 
 		 */
 		
-		Vector deltaVector = new Vector();
+		String deltaString = "0";
 		
 		for (String objectInFrame1 : node1.getFrameListKeys())
 		{
 			
 			Frame frame1 = node1.getFrame(objectInFrame1);
 						
-			int sum = 0;
-			double delta = 0;
+			int diff = 0;
+			//double delta = 0;
 			
 			for (String objectInFrame2 : node2.getFrameListKeys())  // iterate across all frames in node 2
 			{
+				
 				Frame frame2 = node2.getFrame(objectInFrame2);
 					
 				// need to get a combination of the keys in both frames since frame1 can 
 				// contain keys that are not in frame2 and vice-versa.
 				TreeSet<String> combinedKeys = new TreeSet<String>();
-					
 				
 				// produce normalized frames
 				KnnNormalizer knnNormalizer = new KnnNormalizer(frame1,frame2);
 				Frame normalizedFrame1 = knnNormalizer.get(0);
 				Frame normalizedFrame2 = knnNormalizer.get(1);
-
+				
+				System.out.println("\n   obj:"+objectInFrame1+" -> "+normalizedFrame1);
+				System.out.println("   obj:"+objectInFrame2+" -> "+normalizedFrame2+"\n");
+				
 				for (String key : normalizedFrame1.slots.keySet())
 					if (!combinedKeys.contains(key)) combinedKeys.add(key);
 				
 				for (String key : normalizedFrame2.slots.keySet())
 					if (!combinedKeys.contains(key)) combinedKeys.add(key);
 				
-				System.out.println("\n   obj:"+objectInFrame1+" -> "+normalizedFrame1);
-				System.out.println("   obj:"+objectInFrame2+" -> "+normalizedFrame2+"\n");
-				
 				for (String key : combinedKeys)
 				{
-					sum +=  sqr( getSimilarityValue(normalizedFrame1,key) - getSimilarityValue(normalizedFrame2,key)) ;
+					diff =  getSimilarityValue(normalizedFrame2,key) - getSimilarityValue(normalizedFrame1,key) ;
+					deltaString = deltaString + String.valueOf(diff);
 				}
 				
 			}
-			delta += sum;
-			deltaVector.add(delta);
+			//delta += sum;
+			//deltaVector.add(delta);
 			
 		}
 			
-		return deltaVector;
+		return deltaString;
 	}
 	
 	private Integer getSimilarityValue(Frame f, String key)
@@ -151,52 +152,52 @@ public class KnnSolver {
 			return weight;
 		}
 	}
+
 	
-	private int sqr(int i)
-	{
-		return i * i;
-	}
-	
-	private Entry<String, Vector> compareTestResultsToCaseMemory ()
+	private Entry<String, String> compareTestResultsToCaseMemory ()
 	{
 		/* compare a map of test results to values recorded in case memory
 		 * return test result entry (containing candidate solution node label and KNN delta)
 		 */
-		Entry<String, Vector> solutionTestResult = null;  // return value
+		Entry<String, String> solutionTestResult = null;  // return value
 		
 		// make memory and test vectors all the same length, zero pad where necessary
 		int maxLength = Const.NEGATIVE_INFINITY;
 		int maxTestVectorLength = Const.NEGATIVE_INFINITY;
-		double diffVectorSum = 0;
-		maxLength = this.horizontalCaseMemory.size();
+		
+		int diffDL = 0;
+		
+		//maxLength = this.horizontalCaseMemory.size();
 		
 		double minDiff = Const.POSITIVE_INFINITY;
 		
 		// iterate through set of test result vectors and compute delta to avg case vector
 		// keep track of which one has the smallest delta
-		for (Entry<String, Vector> testResultVector : this.horizontalTestResults.entrySet())
+		for (Entry<String, String> testResultEntry : this.horizontalTestResults.entrySet())
 		{
-
+			// don't accept test vector if its sum is 0 and sum of case memory is non-zero
+			//if ( !( Double.compare(testResultVector.getValue().getSum(),0.0)==0 && Double.compare(this.horizontalCaseMemory.getSum(),0.0) != 0) )
+			//{
 			
-				Vector diffVector = new Vector(); // diff between memory vector and test vector
+				//Vector diffVector = new Vector(); // diff between memory vector and test vector
 				
 				//TODO: This is where we would put
 				// conflict-resolution logic if we find that 
 				// more than one test result appears to be correct.
 				
-				diffVector = this.horizontalCaseMemory.getDiff(testResultVector.getValue());
-				
-				diffVectorSum = diffVector.getSum();
+				DamerauLevenshtein dl = new DamerauLevenshtein(this.horizontalCaseMemory, testResultEntry.getValue());
+				diffDL = dl.getSimilarity();
+			
 					
-				if ( diffVectorSum < minDiff )
+				if ( diffDL < minDiff )
 				{
 				
-						minDiff = diffVectorSum;
-						solutionTestResult = testResultVector;
+						minDiff = diffDL;
+						solutionTestResult = testResultEntry;
 					
 				}
 			
-			
+			//}
 		}
 		
 		System.out.println("Min diff calculated : " +minDiff);

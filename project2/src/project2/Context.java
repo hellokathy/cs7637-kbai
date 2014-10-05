@@ -5,6 +5,7 @@ import static project2.RuleConstants.RULE_FIRED_PREFIX;
 import java.io.PrintWriter;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.TreeMap;
 
 public class Context
@@ -41,6 +42,11 @@ public class Context
 		{
 			pw.println(entry.getKey() + "=" + entry.getValue().toString());
 		}		
+	}
+	
+	public Set<Entry<String, Object>> getEntrySet()
+	{
+		return map.entrySet();
 	}
 	
 	@Override

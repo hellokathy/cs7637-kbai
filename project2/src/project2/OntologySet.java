@@ -211,7 +211,8 @@ public class OntologySet {
     																	// which can have several values on the same line
     																	// e.g. fill, inside etc, each value will be placed
     																	// in a separate element
-    	boolean isSpatial = this.isSpatialAttribute(ra.getName());
+    	String raName = ra.getName().trim();
+    	boolean isSpatial = this.isSpatialAttribute(raName);
     	
     	// first check whether this attribute needs to be split into multiple entries
     	// fill attributes can have multiple comma separated values so need to separate them out
@@ -220,7 +221,7 @@ public class OntologySet {
     	
     	// works for both single values and comma separated values
     	for (String s : contents) 
-    		attributeValueList.add(s);
+    		attributeValueList.add(s.trim());
     	
     	// first check to see whether ravens attribute name has any entries in keyMap
     	Boolean bFoundInKeyMap = false;
@@ -228,7 +229,7 @@ public class OntologySet {
     	
     	for (NameValuePair keyMapPair : keyMap)
     	{
-    		if (keyMapPair.getName().equals(ra.getName())) 
+    		if (keyMapPair.getName().equals(raName) )
     		{
     			// attribute name found in keyMap, so use corresponding ontology key name from keyMapPair.value
     			// if mapping is found in keyMap then this attribute should already in the ontologySet
@@ -255,10 +256,10 @@ public class OntologySet {
     		{
     			if (isSpatial)
     			{
-    				addToFrameDataSet(frameData, ra.getName(), objIdx.get(attrVal) , false);
+    				addToFrameDataSet(frameData, raName, objIdx.get(attrVal) , false);
     			} else
     			{
-    				addToFrameDataSet(frameData, ra.getName(), attrVal ,true );
+    				addToFrameDataSet(frameData,raName, attrVal ,true );
     			}
     		}
     			

@@ -23,7 +23,7 @@ public class ThenSet implements Consequence
 	{
 
 		if (this.consequenceKey2 != null)	
-			this.value = Integer.parseInt((String)context.get(this.consequenceKey1));
+			this.value = (Integer)context.get(this.consequenceKey2);
 				
 		context.set(consequenceKey1, value);
 	

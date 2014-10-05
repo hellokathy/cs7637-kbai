@@ -133,7 +133,7 @@ public class SemanticNet
 		
 	}
 	
-	public void addFrameToNode(String objectName, Frame f, String nodeLabel)
+	public void addFrameToNode(Frame f, String nodeLabel)
 	{
 		Node n = null;
 		if (f != null) {
@@ -147,7 +147,7 @@ public class SemanticNet
 				n = nodes.get(nodeLabel);
 				
 			}
-			n.addFrame(objectName,f);
+			n.addFrame(f);
 		}
 		
 	}

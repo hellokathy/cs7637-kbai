@@ -13,7 +13,7 @@ public class RavensFigureObjectIndex
 		for ( int i = 0; i < objects.size(); i++)
 		{
 			RavensObject ro = objects.get(i);
-			index.put(ro.getName().trim(), String.valueOf(i));
+			index.put(ro.getName().trim(), String.valueOf(i*2 + 1));
 		}	
 	}
 	
