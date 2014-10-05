@@ -111,9 +111,9 @@ public class KnnSolver {
 					
 				
 				// produce normalized frames
-				KnnNormalizer knnNormalizer = new KnnNormalizer(frame1,frame2);
-				Frame normalizedFrame1 = knnNormalizer.get(0);
-				Frame normalizedFrame2 = knnNormalizer.get(1);
+				Normalizer normalizer = new Normalizer(frame1,frame2);
+				Frame normalizedFrame1 = normalizer.get(0);
+				Frame normalizedFrame2 = normalizer.get(1);
 
 				for (String key : normalizedFrame1.slots.keySet())
 					if (!combinedKeys.contains(key)) combinedKeys.add(key);

@@ -67,4 +67,10 @@ public class NameValuePair
 			
 	}
 	
+	@Override
+	public String toString()
+	{
+		return this.name+this.value;
+	}
+	
 }

@@ -6,11 +6,11 @@ import java.util.Map.Entry;
 
 import project2.RuleConstants.SLOT;
 
-public class KnnNormalizer {
+public class Normalizer {
 	
 	private List<Frame> normFrames = new ArrayList<Frame>();
 	
-	public KnnNormalizer(Frame frame1, Frame frame2)
+	public Normalizer(Frame frame1, Frame frame2)
 	{
 		normalize(frame1,frame2);
 	}
@@ -89,7 +89,7 @@ public class KnnNormalizer {
 		normalizedSlots.add(SLOT.horizontalFlip.str());
 		normalizedSlots.add(SLOT.verticalFlip.str());
 		normalizedSlots.add(SLOT.fill.str());
-		//normalizedSlots.add(SLOT.shape.str());
+		normalizedSlots.add(SLOT.shape.str());
 		normalizedSlots.add(SLOT.shapeChanged.str());
 
 

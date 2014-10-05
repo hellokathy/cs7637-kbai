@@ -91,7 +91,7 @@ public class DLSolver {
 		 * 
 		 */
 		
-		String deltaString = "0";
+		String deltaString = "x";
 		
 		for (String objectInFrame1 : node1.getFrameListKeys())
 		{
@@ -111,9 +111,9 @@ public class DLSolver {
 				TreeSet<String> combinedKeys = new TreeSet<String>();
 				
 				// produce normalized frames
-				KnnNormalizer knnNormalizer = new KnnNormalizer(frame1,frame2);
-				Frame normalizedFrame1 = knnNormalizer.get(0);
-				Frame normalizedFrame2 = knnNormalizer.get(1);
+				Normalizer normalizer = new Normalizer(frame1,frame2);
+				Frame normalizedFrame1 = normalizer.get(0);
+				Frame normalizedFrame2 = normalizer.get(1);
 				
 				System.out.println("\n   obj:"+objectInFrame1+" -> "+normalizedFrame1);
 				System.out.println("   obj:"+objectInFrame2+" -> "+normalizedFrame2+"\n");
@@ -126,7 +126,7 @@ public class DLSolver {
 				
 				for (String key : combinedKeys)
 				{
-					diff =  getSimilarityValue(normalizedFrame2,key) - getSimilarityValue(normalizedFrame1,key) ;
+					diff =  getSimilarityValue(normalizedFrame2,key) - getSimilarityValue(normalizedFrame1,key) ;					
 					deltaString = deltaString + String.valueOf(diff);
 				}
 				
