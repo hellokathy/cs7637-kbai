@@ -178,7 +178,7 @@ C
 		angle:180
 	9
 		shape:triangle
-		left-of:9,!
+		left-of:0,!
 		fill:no
 		angle:180
 	0

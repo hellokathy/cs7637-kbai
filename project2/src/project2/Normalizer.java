@@ -78,18 +78,18 @@ public class Normalizer {
 		 */
 		List<String> normalizedSlots = new ArrayList<String>();
 		
-		//normalizedSlots.add(SLOT.leftOf.str());
-		//normalizedSlots.add(SLOT.rightOf.str());
-		//normalizedSlots.add(SLOT.above.str());
-		//normalizedSlots.add(SLOT.below.str());	
-		//normalizedSlots.add(SLOT.overlaps.str());
+		normalizedSlots.add(SLOT.leftOf.str());
+		normalizedSlots.add(SLOT.rightOf.str());
+		normalizedSlots.add(SLOT.above.str());
+		normalizedSlots.add(SLOT.below.str());	
+		normalizedSlots.add(SLOT.overlaps.str());
 		normalizedSlots.add(SLOT.numSides.str());
 		normalizedSlots.add(SLOT.size.str());
 		normalizedSlots.add(SLOT.finalAngle.str());
 		normalizedSlots.add(SLOT.horizontalFlip.str());
 		normalizedSlots.add(SLOT.verticalFlip.str());
 		normalizedSlots.add(SLOT.fill.str());
-		normalizedSlots.add(SLOT.shape.str());
+		//normalizedSlots.add(SLOT.shape.str());
 		normalizedSlots.add(SLOT.shapeChanged.str());
 
 

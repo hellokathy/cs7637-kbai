@@ -27,7 +27,11 @@ public class RecordedCaseSolver {
 		for (String possibleKeyMatch : memory.keySet())
 		{
 			DamerauLevenshtein dl = new DamerauLevenshtein(testString, possibleKeyMatch);
-			if (dl.getSimilarity()<=4) possibleMatches.add(possibleKeyMatch);
+			if (dl.getSimilarity()<=10) 
+			{
+				System.out.println("\npossible match in permanent memory: delta to current problem = "+dl.getSimilarity());
+				possibleMatches.add(possibleKeyMatch);
+			}
 		}
 			
 		int minDiff = Const.POSITIVE_INFINITY;
@@ -49,12 +53,14 @@ public class RecordedCaseSolver {
 			}
 				
 		}
-		if (minDiff > 3)
+		if (minDiff > 4)
 		{
+			System.out.println("no matches found in permanent case memory. (smallest delta is "+minDiff+ ") falling back to generate and test");
 			// discard case and fallback to alternative solver
 			return null;
 		} else 
 		{
+			System.out.println("possible match found. Solution Delta = "+minDiff);
 			return possibleSoln;
 		}
 			
@@ -73,7 +79,7 @@ public class RecordedCaseSolver {
 			Frame f = e.getValue();
 			for (Entry<String,Integer> s : f.slots.entrySet())
 			{
-				hashStr = hashStr + s.getValue().toString().trim();
+				hashStr = hashStr + s.getKey().toString().trim() + s.getValue().toString().trim();
 			}
 		}
 		

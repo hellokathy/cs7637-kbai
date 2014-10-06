@@ -1,6 +1,6 @@
 2x2 Challenge Problem 01
 2x2
-3
+5
 A
 	A
 		shape:half-arrow

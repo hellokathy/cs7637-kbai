@@ -195,7 +195,7 @@ public class Agent
 			  
 		    				// log slots
 		    	    		for (NameValuePair p : slots)
-			    	    		Const.collecter = Const.collecter + p.getValue().trim();
+			    	    		Const.collecter = Const.collecter + p.getName().trim() + p.getValue().trim();
 		    	    		//	System.out.println("          "+p.getName()+" : "+p.getValue());
 			    	    	
 		    	    		

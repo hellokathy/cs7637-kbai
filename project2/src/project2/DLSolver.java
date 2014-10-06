@@ -36,38 +36,59 @@ public class DLSolver {
 	public String computeSolution()
 	{
 		
-		Entry<String, String> testResultSelected = null;
 		
 		// traverse network - populate case memory
 		// TODO: populate a list of nodes to start traversing from
-		Node currNode = this.semanticNet.getStartNode();
-		
+		Node currNodeH = this.semanticNet.getStartNode();
+		Node currNodeV = this.semanticNet.getStartNode();
+
 		// store case values for horizontal transformations
 	
-		while (currNode.getNextHorizontalNode() != null) {
+		while (currNodeH.getNextHorizontalNode() != null) {
 			
 			// needs to be extended for multiple cases for 3x3 i.e. A : B , B : C 
 			
-			this.horizontalCaseMemory = this.generateDeltaString(currNode,currNode.getNextHorizontalNode());
+			this.horizontalCaseMemory = this.generateDeltaString(currNodeH,currNodeH.getNextHorizontalNode());
 			
-			System.out.println("\nadded to case memory for T("+currNode.getFigureLabel()+","+currNode.getNextHorizontalNode().getFigureLabel()+") :"+this.horizontalCaseMemory+"\n" );
-			currNode = currNode.getNextHorizontalNode();
+			System.out.println("\nadded to case memory for T("+currNodeH.getFigureLabel()+","+currNodeH.getNextHorizontalNode().getFigureLabel()+") :"+this.horizontalCaseMemory+"\n" );
+			currNodeH = currNodeH.getNextHorizontalNode();
 		}
 		
 		/* TODO: mirror above case storage for vertical transformations
 		 * more relevant for 2x2 and 3x3 problems
 		 */ 
 		
+		// store cases for vertical transformations
+		while (currNodeV.getNextVerticalNode() != null) {
+						
+			this.verticalCaseMemory = this.generateDeltaString(currNodeV,currNodeV.getNextVerticalNode());
+			
+			System.out.println("\nadded to case memory for T("+currNodeV.getFigureLabel()+","+currNodeV.getNextVerticalNode().getFigureLabel()+") :"+this.verticalCaseMemory+"\n" );
+			currNodeV = currNodeV.getNextVerticalNode();
+		}		
+		
+		
 		// test each candidate solution against the horizontal test origin node
 		
 		for (Node candidateNode : semanticNet.candidateNodes.values())
 		{
+			// horizontal
 			String testCandidateString = null;
 			testCandidateString = this.generateDeltaString(this.semanticNet.getHorizontalTestOriginNode(), candidateNode);
 			
 			this.horizontalTestResults.put(candidateNode.getFigureLabel(),testCandidateString);
 			System.out.println("calc test case value for T("+this.semanticNet.getHorizontalTestOriginNode().getFigureLabel()+","+candidateNode.getFigureLabel()+") :"+testCandidateString );
-
+			
+			if (this.semanticNet.getVerticalTestOriginNode() != null)
+			{
+				// vertical
+				String testCandidateString2 = null;
+				testCandidateString2 = this.generateDeltaString(this.semanticNet.getVerticalTestOriginNode(), candidateNode);
+			
+				this.verticalTestResults.put(candidateNode.getFigureLabel(),testCandidateString2);
+				System.out.println("calc test case value for T("+this.semanticNet.getVerticalTestOriginNode().getFigureLabel()+","+candidateNode.getFigureLabel()+") :"+testCandidateString2 );
+			}
+			
 		}
 		
 		/* TODO: mirror above test case storage for vertical test origin node
@@ -80,9 +101,9 @@ public class DLSolver {
 		 * come up with a scalable approach that will also work for 2x2 and 3x3
 		 */
 		
-		testResultSelected = compareTestResultsToCaseMemory();
+		return  compareTestResultsToCaseMemory();
 		
-		return testResultSelected.getKey();
+		 
 	}
 	
 	public String generateDeltaString(Node node1, Node node2)
@@ -154,54 +175,48 @@ public class DLSolver {
 	}
 
 	
-	private Entry<String, String> compareTestResultsToCaseMemory ()
+	private String compareTestResultsToCaseMemory ()
 	{
 		/* compare a map of test results to values recorded in case memory
 		 * return test result entry (containing candidate solution node label and KNN delta)
 		 */
-		Entry<String, String> solutionTestResult = null;  // return value
+		String solutionTestResult = null;  // return value
 		
 		// make memory and test vectors all the same length, zero pad where necessary
-		int maxLength = Const.NEGATIVE_INFINITY;
-		int maxTestVectorLength = Const.NEGATIVE_INFINITY;
 		
 		int diffDL = 0;
+
 		
-		//maxLength = this.horizontalCaseMemory.size();
-		
-		double minDiff = Const.POSITIVE_INFINITY;
+		int minDiff = Const.POSITIVE_INFINITY;
 		
 		// iterate through set of test result vectors and compute delta to avg case vector
 		// keep track of which one has the smallest delta
-		for (Entry<String, String> testResultEntry : this.horizontalTestResults.entrySet())
+		for (String candidateNodeLabel : this.horizontalTestResults.keySet())
 		{
-			// don't accept test vector if its sum is 0 and sum of case memory is non-zero
-			//if ( !( Double.compare(testResultVector.getValue().getSum(),0.0)==0 && Double.compare(this.horizontalCaseMemory.getSum(),0.0) != 0) )
-			//{
+						
+			String horizontalCandidate = this.horizontalTestResults.get(candidateNodeLabel);
+			String verticalCandidate = this.verticalTestResults.get(candidateNodeLabel);
+
+			String memory = this.horizontalCaseMemory;
+			String candidate = horizontalCandidate;
 			
-				//Vector diffVector = new Vector(); // diff between memory vector and test vector
+			//TODO: This is where we would put
+			// conflict-resolution logic if we find that 
+			// more than one test result appears to be correct.
 				
-				//TODO: This is where we would put
-				// conflict-resolution logic if we find that 
-				// more than one test result appears to be correct.
-				
-				DamerauLevenshtein dl = new DamerauLevenshtein(this.horizontalCaseMemory, testResultEntry.getValue());
-				diffDL = dl.getSimilarity();
+			DamerauLevenshtein dl = new DamerauLevenshtein(memory, candidate);
+			diffDL = dl.getSimilarity();
 			
-					
-				if ( diffDL < minDiff )
-				{
-				
-						minDiff = diffDL;
-						solutionTestResult = testResultEntry;
-					
-				}
-			
-			//}
+			if ( diffDL < minDiff )
+			{
+				minDiff = diffDL;
+				solutionTestResult = candidateNodeLabel;				
+			}
+
 		}
 		
 		System.out.println("Min diff calculated : " +minDiff);
-		System.out.println("Answer calculated : " +solutionTestResult.getKey());
+		System.out.println("Answer calculated : " +solutionTestResult);
 		return solutionTestResult;
 	}
 	
