@@ -1,0 +1,75 @@
+2x1 Basic Problem 19
+2x1
+1
+A
+	Z
+		shape:plus
+		angle:0
+	Y
+		shape:plus
+		angle:0
+		above:Z
+B
+	Z
+		shape:plus
+		angle:45
+	Y
+		shape:plus
+		angle:45
+		above:Z
+C
+	Z
+		shape:circle
+		angle:0
+	Y
+		shape:circle
+		angle:0
+		above:Z
+1
+	Z
+		shape:circle
+		angle:0
+	Y
+		shape:circle
+		angle:0
+		above:Z
+2
+	Z
+		shape:plus
+		angle:0
+	Y
+		shape:plus
+		angle:0
+		above:Z
+3
+	Z
+		shape:square
+		angle:0
+	Y
+		shape:square
+		angle:0
+		above:Z
+4
+	Z
+		shape:plus
+		angle:45
+	Y
+		shape:plus
+		angle:45
+		above:Z
+5
+	Z
+		shape:square
+		angle:45
+	Y
+		shape:square
+		angle:45
+		above:Z
+6
+	Z
+		shape:triangle
+		angle:180
+	Y
+		shape:triangle
+		angle:0
+		above:Z

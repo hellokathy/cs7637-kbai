@@ -1,0 +1,32 @@
+2x1 Basic Problem 04 (Same Circle)
+2x1
+2
+A
+	Z
+		shape:circle
+B
+	Z
+		shape:circle
+C
+	Z
+		shape:circle
+1
+	Z
+		shape:pentagon
+2
+	Z
+		shape:circle
+3
+	Z
+		shape:triangle
+4
+	Z
+		shape:Pac-Man
+5
+	Z
+		shape:circle
+		size:small
+6
+	Z
+		shape:circle
+		fill:yes

@@ -1,0 +1,59 @@
+3x3 Basic Problem 01
+3x3
+2
+A
+	A
+		shape:circle
+		fill:yes
+B
+	B
+		shape:circle
+		fill:yes
+C
+	C
+		shape:circle
+		fill:yes
+D
+	D
+		shape:circle
+		fill:yes
+E
+	E
+		shape:circle
+		fill:yes
+F
+	F
+		shape:circle
+		fill:yes
+G
+	G
+		shape:circle
+		fill:yes
+H
+	H
+		shape:circle
+		fill:yes
+1
+	I
+		shape:plus
+		fill:yes
+2
+	J
+		shape:circle
+		fill:yes
+3
+	K
+		shape:square
+		fill:yes
+4
+	L
+		shape:octagon
+		fill:yes
+5
+	M
+		shape:triangle
+		fill:yes
+6
+	N
+		shape:Pac-Man
+		fill:yes

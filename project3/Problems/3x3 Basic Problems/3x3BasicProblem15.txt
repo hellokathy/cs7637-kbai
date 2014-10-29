@@ -1,0 +1,59 @@
+3x3 Basic Problem 15
+3x3
+1
+A
+	A
+		shape:Pac-Man
+		angle:0
+B
+	B
+		shape:Pac-Man
+		angle:90
+C
+	C
+		shape:Pac-Man
+		angle:180
+D
+	D
+		shape:Pac-Man
+		angle:90
+E
+	E
+		shape:Pac-Man
+		angle:180
+F
+	F
+		shape:Pac-Man
+		angle:270
+G
+	G
+		shape:Pac-Man
+		angle:180
+H
+	H
+		shape:Pac-Man
+		angle:270
+1
+	I
+		shape:Pac-Man
+		angle:0
+2
+	J
+		shape:Pac-Man
+		angle:90
+3
+	K
+		shape:Pac-Man
+		angle:315
+4
+	L
+		shape:Pac-Man
+		angle:180
+5
+	M
+		shape:Pac-Man
+		angle:270
+6
+	N
+		shape:Pac-Man
+		angle:135

@@ -1,0 +1,111 @@
+2x2 Basic Problem 15
+2x2
+6
+A
+	A
+		shape:circle
+		fill:no
+		left-of:B,C
+	B
+		shape:triangle
+		fill:no
+		left-of:C
+	C
+		shape:square
+		fill:no
+B
+	D
+		shape:square
+		fill:no
+		left-of:E,F
+	E
+		shape:triangle
+		fill:no
+		left-of:F
+	F
+		shape:circle
+		fill:no
+C
+	G
+		shape:circle
+		fill:yes
+		left-of:H,I
+	H
+		shape:triangle
+		fill:no
+		left-of:I
+	I
+		shape:square
+		fill:no
+1
+	J
+		shape:circle
+		fill:no
+		left-of:K,L
+	K
+		shape:triangle
+		fill:no
+		left-of:L
+	L
+		shape:square
+		fill:yes
+2
+	M
+		shape:circle
+		fill:yes
+		left-of:N,O
+	N
+		shape:triangle
+		fill:no
+		left-of:O
+	O
+		shape:square
+		fill:no
+3
+	P
+		shape:circle
+		fill:yes
+		left-of:Q,R
+	Q
+		shape:triangle
+		fill:no
+		left-of:R
+	R
+		shape:square
+		fill:yes
+4
+	S
+		shape:square
+		fill:yes
+		left-of:T,U
+	T
+		shape:triangle
+		fill:yes
+		left-of:U
+	U
+		shape:circle
+		fill:yes
+5
+	V
+		shape:square
+		fill:no
+		left-of:W,X
+	W
+		shape:triangle
+		fill:no
+		left-of:X
+	X
+		shape:circle
+		fill:no
+6
+	Y
+		shape:square
+		fill:yes
+		left-of:Z,1
+	Z
+		shape:triangle
+		fill:no
+		left-of:1
+	1
+		shape:circle
+		fill:yes

@@ -1,0 +1,30 @@
+2x2 Challenge Problem 03
+2x2
+2
+A
+	A
+		shape:square
+B
+	B
+		shape:pentagon
+C
+	C
+		shape:triangle
+1
+	D
+		shape:triangle
+2
+	E
+		shape:square
+3
+	F
+		shape:pentagon
+4
+	G
+		shape:hexagon
+5
+	H
+		shape:septagon
+6
+	I
+		shape:octagon

@@ -1,0 +1,45 @@
+3x3 Challenge Problem 02
+3x3
+5
+A
+	A
+		shape:square
+B
+	B
+		shape:hexagon
+C
+	C
+		shape:octagon
+D
+	D
+		shape:hexagon
+E
+	E
+		shape:octagon
+F
+	F
+		shape:decagon
+G
+	G
+		shape:octagon
+H
+	H
+		shape:decagon
+1
+	I
+		shape:square
+2
+	J
+		shape:hexagon
+3
+	K
+		shape:octagon
+4
+	L
+		shape:decagon
+5
+	M
+		shape:dodecagon
+6
+	N
+		shape:circle

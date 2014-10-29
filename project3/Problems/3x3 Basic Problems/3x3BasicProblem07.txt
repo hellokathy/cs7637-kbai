@@ -1,0 +1,73 @@
+3x3 Basic Problem 07
+3x3
+5
+A
+	A
+		shape:square
+		fill:no
+		size:very-small
+B
+	B
+		shape:square
+		fill:no
+		size:small
+C
+	C
+		shape:square
+		fill:no
+		size:medium
+D
+	D
+		shape:square
+		fill:no
+		size:small
+E
+	E
+		shape:square
+		fill:no
+		size:medium
+F
+	F
+		shape:square
+		fill:no
+		size:large
+G
+	G
+		shape:square
+		fill:no
+		size:medium
+H
+	H
+		shape:square
+		fill:no
+		size:large
+1
+	I
+		shape:square
+		fill:no
+		size:very-small
+2
+	J
+		shape:square
+		fill:no
+		size:small
+3
+	K
+		shape:square
+		fill:no
+		size:medium
+4
+	L
+		shape:square
+		fill:no
+		size:large
+5
+	M
+		shape:square
+		fill:no
+		size:very-large
+6
+	N
+		shape:octagon
+		fill:no
+		size:very-large

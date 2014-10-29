@@ -1,0 +1,36 @@
+2x2 Basic Problem 04
+2x2
+4
+A
+	A
+		shape:right-triangle
+		angle:180
+B
+	B
+		shape:right-triangle
+		angle:90
+C
+	C
+		shape:right-triangle
+		angle:270
+1
+	D
+		shape:right-triangle
+		angle:180
+2
+	E
+		shape:right-triangle
+		angle:90
+3
+	F
+		shape:right-triangle
+		angle:270
+4
+	G
+		shape:right-triangle
+		angle:0
+5
+6
+	H
+		shape:square
+		angle:0

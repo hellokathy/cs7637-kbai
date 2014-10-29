@@ -1,0 +1,115 @@
+3x3 Basic Problem 04
+3x3
+4
+A
+	A
+		shape:octagon
+		fill:no
+	B
+		shape:triangle
+		fill:yes
+		inside:A
+B
+	C
+		shape:octagon
+		fill:no
+	D
+		shape:plus
+		fill:yes
+		inside:C
+C
+	E
+		shape:octagon
+		fill:no
+	F
+		shape:Pac-Man
+		fill:yes
+		inside:E
+D
+	G
+		shape:circle
+		fill:no
+	H
+		shape:triangle
+		fill:yes
+		inside:G
+E
+	I
+		shape:circle
+		fill:no
+	J
+		shape:plus
+		fill:yes
+		inside:I
+F
+	K
+		shape:circle
+		fill:no
+	L
+		shape:Pac-Man
+		fill:yes
+		inside:K
+G
+	M
+		shape:square
+		fill:no
+	N
+		shape:triangle
+		fill:yes
+		inside:M
+H
+	O
+		shape:square
+		fill:no
+	P
+		shape:plus
+		fill:yes
+		inside:O
+1
+	Q
+		shape:circle
+		fill:no
+	R
+		shape:Pac-Man
+		fill:yes
+		inside:Q
+2
+	S
+		shape:circle
+		fill:no
+	T
+		shape:triangle
+		fill:yes
+		inside:S
+3
+	U
+		shape:circle
+		fill:no
+	V
+		shape:plus
+		fill:yes
+		inside:U
+4
+	W
+		shape:square
+		fill:no
+	X
+		shape:Pac-Man
+		fill:yes
+		inside:W
+5
+	Y
+		shape:square
+		fill:no
+	Z
+		shape:triangle
+		fill:yes
+		inside:Y
+6
+	1
+		shape:square
+		fill:no
+	2
+		shape:plus
+		fill:yes
+		inside:1

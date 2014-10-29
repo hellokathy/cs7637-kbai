@@ -1,0 +1,50 @@
+2x2 Basic Problem 11
+2x2
+4
+A
+B
+	A
+		shape:plus
+		fill:yes
+		angle:0
+C
+	B
+		shape:circle
+		fill:no
+		angle:0
+1
+2
+	C
+		shape:plus
+		fill:yes
+		angle:0
+3
+	D
+		shape:circle
+		fill:no
+		angle:0
+4
+	E
+		shape:circle
+		fill:no
+		angle:0
+	F
+		shape:plus
+		fill:yes
+		angle:0
+		inside:E
+5
+	G
+		shape:circle
+		fill:no
+		angle:0
+	H
+		shape:plus
+		fill:yes
+		angle:45
+		inside:G
+6
+	I
+		shape:square
+		fill:no
+		angle:45

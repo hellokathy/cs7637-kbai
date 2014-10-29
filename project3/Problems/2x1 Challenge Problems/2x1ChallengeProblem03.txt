@@ -1,0 +1,75 @@
+2x1 Challenge Problem 03
+2x1
+6
+A
+	Z
+		shape:Pac-Man
+		angle:270
+		left-of:Y
+	Y
+		shape:Pac-Man
+		angle:90
+B
+	Z
+		shape:Pac-Man
+		angle:0
+		above:Y
+	Y
+		shape:Pac-Man
+		angle:180
+C
+	Z
+		shape:Pac-Man
+		angle:90
+		left-of:Y
+	Y
+		shape:Pac-Man
+		angle:90
+1
+	Z
+		shape:Pac-Man
+		angle:90
+		above:Y
+	Y
+		shape:Pac-Man
+		angle:270
+2
+	Z
+		shape:Pac-Man
+		angle:270
+		above:Y
+	Y
+		shape:Pac-Man
+		angle:270
+3
+	Z
+		shape:Pac-Man
+		angle:0
+		above:Y
+	Y
+		shape:Pac-Man
+		angle:180
+4
+	Z
+		shape:Pac-Man
+		angle:0
+		above:Y
+	Y
+		shape:Pac-Man
+		angle:0
+5
+	Z
+		shape:Pac-Man
+		angle:180
+		above:Y
+	Y
+		shape:Pac-Man
+		angle:180
+6
+	Z
+		shape:Pac-Man
+		angle:180
+		above:Y
+	Y
+		shape:Pac-Man
+		angle:0

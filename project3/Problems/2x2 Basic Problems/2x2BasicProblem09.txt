@@ -1,0 +1,67 @@
+2x2 Basic Problem 09
+2x2
+6
+A
+	A
+		shape:circle
+		size:large
+	B
+		shape:circle
+		size:medium
+		inside:A
+	C
+		shape:circle
+		size:small
+		inside:A,B
+B
+	D
+		shape:circle
+		size:large
+	E
+		shape:circle
+		size:medium
+		inside:D
+C
+	F
+		shape:circle
+		size:large
+	G
+		shape:circle
+		size:small
+		inside:F
+1
+	H
+		shape:circle
+		size:medium
+	I
+		shape:circle
+		size:small
+		inside:H
+2
+	J
+		shape:circle
+		size:large
+	K
+		shape:circle
+		size:small
+		inside:J
+3
+	L
+		shape:circle
+		size:large
+	M
+		shape:circle
+		size:medium
+		inside:L
+4
+	N
+		shape:circle
+		size:small
+5
+	O
+		shape:circle
+		size:medium
+6
+	P
+		shape:circle
+		size:large

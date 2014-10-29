@@ -1,0 +1,54 @@
+2x2 Basic Problem 10
+2x2
+6
+A
+	A
+		shape:square
+		size:large
+		angle:0
+	B
+		shape:square
+		size:small
+		angle:45
+		inside:A
+B
+	C
+		shape:square
+		size:small
+		angle:45
+C
+	D
+		shape:square
+		size:large
+		angle:0
+1
+	E
+		shape:square
+		size:large
+		angle:0
+	F
+		shape:square
+		size:small
+		angle:45
+		inside:E
+2
+	G
+		shape:square
+		size:large
+		angle:0
+3
+	H
+		shape:square
+		size:small
+		angle:45
+4
+	I
+		shape:square
+		size:small
+		angle:0
+5
+	J
+		shape:square
+		size:large
+		angle:45
+6

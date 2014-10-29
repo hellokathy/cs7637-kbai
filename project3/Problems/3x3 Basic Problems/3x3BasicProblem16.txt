@@ -1,0 +1,59 @@
+3x3 Basic Problem 16
+3x3
+2
+A
+	A
+		shape:triangle
+		size:medium
+B
+	B
+		shape:circle
+		size:small
+C
+	C
+		shape:square
+		size:large
+D
+	D
+		shape:circle
+		size:large
+E
+	E
+		shape:square
+		size:medium
+F
+	F
+		shape:triangle
+		size:small
+G
+	G
+		shape:square
+		size:small
+H
+	H
+		shape:triangle
+		size:large
+1
+	I
+		shape:square
+		size:medium
+2
+	J
+		shape:circle
+		size:medium
+3
+	K
+		shape:triangle
+		size:medium
+4
+	L
+		shape:circle
+		size:small
+5
+	M
+		shape:triangle
+		size:small
+6
+	N
+		shape:circle
+		size:large

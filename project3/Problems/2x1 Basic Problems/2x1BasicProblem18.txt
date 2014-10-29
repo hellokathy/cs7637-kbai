@@ -1,0 +1,46 @@
+2x1 Basic Problem 18
+2x1
+2
+A
+	Z
+		shape:arrow
+		angle:0
+		fill:no
+B
+	Z
+		shape:arrow
+		angle:180
+		fill:no
+C
+	Z
+		shape:half-arrow
+		angle:0
+		vertical-flip:no
+1
+	Z
+		shape:half-arrow
+		angle:0
+		vertical-flip:no
+2
+	Z
+		shape:half-arrow
+		angle:180
+		vertical-flip:yes
+3
+	Z
+		shape:half-arrow
+		angle:0
+		vertical-flip:yes
+4
+	Z
+		shape:half-arrow
+		angle:180
+		vertical-flip:no
+5
+	Z
+		shape:arrow
+		angle:0
+6
+	Z
+		shape:arrow
+		angle:180

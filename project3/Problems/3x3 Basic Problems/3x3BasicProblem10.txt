@@ -1,0 +1,105 @@
+3x3 Basic Problem 10
+3x3
+1
+A
+	A
+		shape:square
+	B
+		shape:square
+		above:A,C
+	C
+		shape:square
+		left-of:A,B
+	D
+		shape:square
+		left-of:A,B
+		above:A,C
+B
+	E
+		shape:square
+		above:F
+	F
+		shape:square
+		left-of:E
+	G
+		shape:square
+		left-of:E
+		above:F
+C
+	H
+		shape:square
+	I
+		shape:square
+		left-of:H
+D
+	J
+		shape:square
+	K
+		shape:square
+		above:J
+	L
+		shape:square
+		left-of:J,K
+E
+	M
+		shape:square
+		above:N
+	N
+		shape:square
+		left-of:M
+F
+	O
+		shape:square
+G
+	P
+		shape:square
+	Q
+		shape:square
+		left-of:P
+H
+	R
+		shape:square
+1
+2
+	S
+		shape:square
+3
+	T
+		shape:square
+		above:U
+	U
+		shape:square
+		left-of:T
+4
+	V
+		shape:square
+	W
+		shape:square
+		above:V,X
+	X
+		shape:square
+		left-of:V,W
+5
+	Y
+		shape:square
+		above:Z
+	Z
+		shape:square
+		left-of:Y
+	1
+		shape:square
+		above:Z
+		left-of:Y
+6
+	2
+		shape:square
+	3
+		shape:square
+		above:2,4
+	4
+		shape:square
+		left-of:2,3
+	5
+		shape:square
+		left-of:2,3
+		above:2,4

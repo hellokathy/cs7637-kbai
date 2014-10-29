@@ -1,0 +1,59 @@
+3x3 Classmates' Problem 03
+3x3
+2
+A
+	A
+		shape:square
+		fill:no
+B
+	B
+		shape:square
+		fill:top-left
+C
+	C
+		shape:square
+		fill:top-left,top-right
+D
+	D
+		shape:square
+		fill:top-left
+E
+	E
+		shape:square
+		fill:top-left
+F
+	F
+		shape:square
+		fill:top-left,top-right
+G
+	G
+		shape:square
+		fill:top-left,bottom-left
+H
+	H
+		shape:square
+		fill:top-left,bottom-left
+1
+	I
+		shape:square
+		fill:top-right,bottom-right,bottom-left
+2
+	J
+		shape:square
+		fill:top-left,top-right,bottom-left
+3
+	K
+		shape:square
+		fill:top-left,top-right
+4
+	L
+		shape:square
+		fill:top-left,bottom-left,bottom-right
+5
+	M
+		shape:square
+		fill:top-left,top-right,bottom-right
+6
+	N
+		shape:square
+		fill:top-left,bottom-left

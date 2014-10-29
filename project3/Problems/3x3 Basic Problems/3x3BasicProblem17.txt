@@ -1,0 +1,127 @@
+3x3 Basic Problem 17
+3x3
+1
+A
+	A
+		shape:triangle
+		angle:0
+		left-of:B,C
+	B
+		shape:triangle
+		angle:180
+		left-of:C
+	C
+		shape:triangle
+		angle:0
+B
+	D
+		shape:triangle
+		angle:180
+		left-of:E,F
+	E
+		shape:triangle
+		angle:180
+		left-of:F
+	F
+		shape:triangle
+		angle:180
+C
+	G
+		shape:triangle
+		angle:180
+		left-of:H
+	H
+		shape:triangle
+		angle:180
+D
+	I
+		shape:triangle
+		angle:0
+		left-of:J,K
+	J
+		shape:triangle
+		angle:180
+		left-of:K
+	K
+		shape:triangle
+		angle:0
+E
+	L
+		shape:triangle
+		angle:0
+		left-of:M
+	M
+		shape:triangle
+		angle:0
+F
+	N
+		shape:triangle
+		angle:0
+		left-of:O,P
+	O
+		shape:triangle
+		angle:0
+		left-of:P
+	P
+		shape:triangle
+		angle:0
+G
+	Q
+		shape:triangle
+		angle:0
+		left-of:R
+	R
+		shape:triangle
+		angle:0
+H
+	S
+		shape:triangle
+		angle:180
+1
+	T
+		shape:triangle
+		angle:0
+2
+	U
+		shape:triangle
+		angle:180
+3
+	V
+		shape:triangle
+		angle:0
+		left-of:W
+	W
+		shape:triangle
+		angle:0
+4
+	X
+		shape:triangle
+		angle:180
+		left-of:Y
+	Y
+		shape:triangle
+		angle:180
+5
+	Z
+		shape:triangle
+		angle:0
+		left-of:1,2
+	1
+		shape:triangle
+		angle:0
+		left-of:2
+	2
+		shape:triangle
+		angle:0
+6
+	3
+		shape:triangle
+		angle:180
+		left-of:4,5
+	4
+		shape:triangle
+		angle:180
+		left-of:5
+	5
+		shape:triangle
+		angle:180

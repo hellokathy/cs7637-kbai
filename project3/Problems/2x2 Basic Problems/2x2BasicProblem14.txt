@@ -1,0 +1,111 @@
+2x2 Basic Problem 14
+2x2
+2
+A
+	A
+		shape:circle
+		fill:no
+		left-of:B,C
+	B
+		shape:triangle
+		fill:no
+		left-of:C
+	C
+		shape:square
+		fill:no
+B
+	D
+		shape:triangle
+		fill:no
+		left-of:E,F
+	E
+		shape:circle
+		fill:no
+		left-of:F
+	F
+		shape:square
+		fill:no
+C
+	G
+		shape:circle
+		fill:no
+		left-of:H,I
+	H
+		shape:triangle
+		fill:no
+		left-of:I
+	I
+		shape:square
+		fill:yes
+1
+	J
+		shape:triangle
+		fill:no
+		left-of:K,L
+	K
+		shape:circle
+		fill:no
+		left-of:L
+	L
+		shape:square
+		fill:no
+2
+	M
+		shape:triangle
+		fill:no
+		left-of:N,O
+	N
+		shape:circle
+		fill:no
+		left-of:O
+	O
+		shape:square
+		fill:yes
+3
+	P
+		shape:triangle
+		fill:no
+		left-of:Q,R
+	Q
+		shape:circle
+		fill:yes
+		left-of:R
+	R
+		shape:square
+		fill:yes
+4
+	S
+		shape:circle
+		fill:no
+		left-of:T,U
+	T
+		shape:triangle
+		fill:no
+		left-of:U
+	U
+		shape:square
+		fill:no
+5
+	V
+		shape:circle
+		fill:no
+		left-of:W,X
+	W
+		shape:triangle
+		fill:no
+		left-of:X
+	X
+		shape:square
+		fill:yes
+6
+	Y
+		shape:circle
+		fill:yes
+		left-of:Z,1
+	Z
+		shape:triangle
+		fill:no
+		left-of:1
+	1
+		shape:square
+		fill:yes

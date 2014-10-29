@@ -1,0 +1,75 @@
+2x2 Challenge Problem 05
+2x2
+6
+A
+	A
+		shape:Pac-Man
+		angle:0
+		above:B
+	B
+		shape:Pac-Man
+		angle:180
+B
+	C
+		shape:Pac-Man
+		angle:90
+		above:D
+	D
+		shape:Pac-Man
+		angle:270
+C
+	E
+		shape:Pac-Man
+		angle:180
+		above:F
+	F
+		shape:Pac-Man
+		angle:0
+1
+	G
+		shape:Pac-Man
+		angle:180
+		above:H
+	H
+		shape:Pac-Man
+		angle:180
+2
+	I
+		shape:Pac-Man
+		angle:0
+		above:J
+	J
+		shape:Pac-Man
+		angle:180
+3
+	K
+		shape:Pac-Man
+		angle:90
+		above:L
+	L
+		shape:Pac-Man
+		angle:270
+4
+	M
+		shape:Pac-Man
+		angle:0
+		above:N
+	N
+		shape:Pac-Man
+		angle:0
+5
+	O
+		shape:Pac-Man
+		angle:180
+		above:P
+	P
+		shape:Pac-Man
+		angle:0
+6
+	Q
+		shape:Pac-Man
+		angle:270
+		above:R
+	R
+		shape:Pac-Man
+		angle:90

@@ -1,0 +1,81 @@
+2x1 Classmates Problem 05
+2x1
+1
+A
+	Z
+		shape:plus
+		fill:no
+	Y
+		shape:plus
+		fill:no
+		above:Z
+B
+	Z
+		shape:plus
+		fill:no
+	Y
+		shape:plus
+		fill:yes
+		above:Z
+C
+	Z
+		shape:square
+		fill:no
+	Y
+		shape:square
+		fill:no
+		above:Z
+1
+	Z
+		shape:square
+		fill:no
+		angle:90
+	Y
+		shape:square
+		fill:yes
+		above:Z
+		angle:90
+2
+	Z
+		shape:square
+		fill:no
+	Y
+		shape:square
+		fill:no
+		above:Z
+3
+	Z
+		shape:square
+		fill:yes
+	Y
+		shape:square
+		fill:no
+		above:Z
+4
+	Z
+		shape:square
+		fill:yes
+	Y
+		shape:square
+		fill:yes
+		above:Z
+5
+	Z
+		shape:square
+		fill:no
+		angle:45
+	Y
+		shape:square
+		fill:yes
+		above:Z
+		angle:45
+6
+	Z
+		shape:square
+		fill:yes
+		angle:45
+	Y
+		shape:square
+		fill:no
+		angle:45
+		above:Z

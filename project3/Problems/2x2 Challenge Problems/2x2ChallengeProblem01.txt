@@ -1,0 +1,48 @@
+2x2 Challenge Problem 01
+2x2
+5
+A
+	A
+		shape:half-arrow
+		angle:0
+		vertical-flip:no
+B
+	B
+		shape:half-arrow
+		angle:180
+		vertical-flip:yes
+C
+	C
+		shape:half-arrow
+		angle:0
+		vertical-flip:yes
+1
+	D
+		shape:half-arrow
+		angle:0
+		vertical-flip:no
+2
+	E
+		shape:half-arrow
+		angle:0
+		vertical-flip:yes
+3
+	F
+		shape:half-arrow
+		angle:270
+		vertical-flip:yes
+4
+	G
+		shape:half-arrow
+		angle:180
+		vertical-flip:yes
+5
+	H
+		shape:half-arrow
+		angle:180
+		vertical-flip:no
+6
+	I
+		shape:half-arrow
+		angle:270
+		vertical-flip:no

@@ -1,0 +1,116 @@
+2x2 Basic Problem 20
+2x2
+4
+A
+	A
+		shape:triangle
+		above:B,C
+		angle:0
+	B
+		shape:triangle
+		left-of:C
+		angle:0
+	C
+		shape:triangle
+		angle:0
+B
+	D
+		shape:triangle
+		above:E
+		left-of:F
+		angle:90
+	E
+		shape:triangle
+		left-of:F
+		angle:90
+	F
+		shape:triangle
+		angle:90
+C
+	G
+		shape:triangle
+		above:H,I
+		angle:90
+	H
+		shape:triangle
+		left-of:I
+		angle:90
+	I
+		shape:triangle
+		angle:90
+1
+	J
+		shape:triangle
+		left-of:K
+		above:L
+		angle:180
+	K
+		shape:triangle
+		above:L
+		angle:180
+	L
+		shape:triangle
+		angle:180
+2
+	M
+		shape:triangle
+		left-of:N,O
+		angle:270
+	N
+		shape:triangle
+		above:O
+		angle:270
+	O
+		shape:triangle
+		angle:270
+3
+	P
+		shape:triangle
+		above:Q,R
+		angle:0
+	Q
+		shape:triangle
+		left-of:R
+		angle:0
+	R
+		shape:triangle
+		angle:0
+4
+	S
+		shape:triangle
+		above:T
+		left-of:U
+		angle:180
+	T
+		shape:triangle
+		left-of:U
+		angle:180
+	U
+		shape:triangle
+		angle:180
+5
+	V
+		shape:triangle
+		left-of:X
+		above:W
+		angle:270
+	W
+		shape:triangle
+		left-of:X
+		angle:270
+	X
+		shape:triangle
+		angle:270
+6
+	Y
+		shape:triangle
+		left-of:1
+		above:Z
+		angle:0
+	Z
+		shape:triangle
+		left-of:1
+		angle:0
+	1
+		shape:triangle
+		angle:0

@@ -1,0 +1,73 @@
+2x2 Basic Problem 07
+2x2
+5
+A
+	A
+		shape:square
+		fill:no
+		angle:0
+B
+	B
+		shape:square
+		fill:no
+		angle:0
+	C
+		shape:circle
+		fill:yes
+		angle:0
+		inside:B
+C
+	D
+		shape:square
+		fill:no
+		angle:45
+1
+	E
+		shape:square
+		fill:no
+		angle:0
+2
+	F
+		shape:square
+		fill:no
+		angle:45
+3
+	G
+		shape:circle
+		fill:yes
+		angle:0
+4
+	H
+		shape:square
+		fill:no
+		angle:0
+	I
+		shape:circle
+		fill:yes
+		angle:0
+		inside:H
+5
+	J
+		shape:square
+		fill:no
+		angle:45
+	K
+		shape:circle
+		fill:yes
+		angle:0
+		inside:J
+6
+	L
+		shape:square
+		fill:no
+		angle:45
+	M
+		shape:square
+		fill:no
+		angle:0
+		overlaps:L
+	N
+		shape:circle
+		fill:yes
+		angle:0
+		inside:M,L

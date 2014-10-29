@@ -1,0 +1,115 @@
+3x3 Classmates' Problem 02
+3x3
+2
+A
+	A
+		shape:triangle
+		angle:0
+		above:B,C
+	B
+		shape:triangle
+		angle:0
+		left-of:C
+	C
+		shape:triangle
+		angle:0
+B
+	D
+		shape:triangle
+		angle:0
+		left-of:E
+	E
+		shape:triangle
+		angle:0
+C
+	F
+		shape:triangle
+		angle:0
+D
+	G
+		shape:triangle
+		angle:0
+		left-of:H
+	H
+		shape:triangle
+		angle:0
+E
+	I
+		shape:triangle
+		angle:0
+F
+	J
+		shape:triangle
+		angle:0
+		above:K,L
+	K
+		shape:triangle
+		angle:0
+		left-of:L
+	L
+		shape:triangle
+		angle:0
+G
+	M
+		shape:triangle
+		angle:0
+H
+	N
+		shape:triangle
+		angle:0
+		above:O,P
+	O
+		shape:triangle
+		angle:0
+		left-of:P
+	P
+		shape:triangle
+		angle:0
+1
+	Q
+		shape:triangle
+		angle:0
+2
+	R
+		shape:triangle
+		angle:0
+		left-of:S
+	S
+		shape:triangle
+		angle:0
+3
+	T
+		shape:triangle
+		angle:0
+		above:U,V
+	U
+		shape:triangle
+		angle:0
+		left-of:V
+	V
+		shape:triangle
+		angle:0
+4
+	W
+		shape:triangle
+		angle:180
+5
+	X
+		shape:triangle
+		angle:180
+		left-of:Y
+	Y
+		shape:triangle
+		angle:180
+6
+	Z
+		shape:triangle
+		angle:180
+		above:1,2
+	1
+		shape:triangle
+		angle:180
+		left-of:2
+	2
+		shape:triangle
+		angle:180

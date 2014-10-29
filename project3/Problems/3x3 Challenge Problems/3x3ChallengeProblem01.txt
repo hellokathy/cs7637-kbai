@@ -1,0 +1,95 @@
+3x3 Challenge Problem 01
+3x3
+5
+A
+	A
+		shape:square
+B
+	B
+		shape:square
+		above:C
+	C
+		shape:square
+		left-of:B
+	D
+		shape:square
+		above:C
+		left-of:B
+C
+	E
+		shape:square
+	F
+		shape:square
+		above:E
+D
+	G
+		shape:square
+E
+	H
+		shape:square
+	I
+		shape:square
+		left-of:H
+	J
+		shape:square
+		left-of:H
+		above:H,I
+F
+	K
+		shape:square
+		above:L
+		left-of:L
+	L
+		shape:square	
+G
+	M
+		shape:square
+		above:N
+	N
+		shape:square
+		left-of:M
+H
+	O
+		shape:square
+		above:P
+	P
+		shape:square
+1
+	Q
+		shape:square
+	R
+		shape:square
+		above:Q
+2
+	S
+		shape:square
+		above:T
+		left-of:T
+	T
+		shape:square
+3
+	U
+		shape:square
+	V
+		shape:square
+		left-of:U
+	W
+		shape:square
+		left-of:U
+		above:V,U
+4
+	X
+		shape:square
+5
+	Y
+		shape:square
+	Z
+		shape:square
+		left-of:Y
+6
+	1
+		shape:square
+		left-of:2
+	2
+		shape:square
+		above:1

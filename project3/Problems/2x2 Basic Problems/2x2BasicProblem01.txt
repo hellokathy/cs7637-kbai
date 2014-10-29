@@ -1,0 +1,39 @@
+2x2 Basic Problem 01
+2x2
+5
+A
+	A
+		shape:Pac-Man
+		angle:45
+B
+	B
+		shape:Pac-Man
+		angle:135
+C
+	C
+		shape:Pac-Man
+		angle:315
+1
+	D
+		shape:Pac-Man
+		angle:315
+2
+	E
+		shape:Pac-Man
+		angle:45
+3
+	F
+		shape:Pac-Man
+		angle:135
+4
+	G
+		shape:Pac-Man
+		angle:0
+5
+	H
+		shape:Pac-Man
+		angle:225
+6
+	I
+		shape:Pac-Man
+		angle:180

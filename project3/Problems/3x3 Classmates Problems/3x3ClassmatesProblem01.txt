@@ -1,0 +1,174 @@
+3x3 Classmates' Problem 01
+3x3
+4
+A
+	A
+		shape:triangle
+		fill:yes
+		angle:90
+		size:large
+B
+	B
+		shape:triangle
+		angle:0
+		fill:no
+		above:C,D
+	C
+		shape:triangle
+		angle:0
+		fill:no
+		left-of:D
+	D
+		shape:triangle
+		angle:0
+		fill:no
+C
+	E
+		shape:triangle
+		angle:90
+		above:F
+		left-of:G
+	F
+		shape:triangle
+		angle:90
+		left-of:G
+	G
+		shape:triangle
+		angle:90
+D
+	H
+		shape:triangle
+		fill:yes
+		angle:270
+		size:large
+E
+	I
+		shape:triangle
+		angle:0
+		fill:no
+		above:J,K
+	J
+		shape:triangle
+		angle:0
+		fill:no
+		left-of:K
+	K
+		shape:triangle
+		angle:0
+		fill:no
+F
+	L
+		shape:triangle
+		angle:270
+		left-of:M,N
+	M
+		shape:triangle
+		angle:270
+		above:N
+	N
+		shape:triangle
+		angle:270
+G
+	O
+		shape:triangle
+		fill:yes
+		angle:180
+		size:large
+H
+	P
+		shape:triangle
+		angle:0
+		fill:no
+		above:Q,R
+	Q
+		shape:triangle
+		angle:0
+		fill:no
+		left-of:R
+	R
+		shape:triangle
+		angle:0
+		fill:no
+1
+	S
+		shape:triangle
+		angle:0
+		fill:no
+		above:T,U
+	T
+		shape:triangle
+		angle:0
+		fill:no
+		left-of:U
+	U
+		shape:triangle
+		angle:0
+		fill:no
+2
+	V
+		shape:triangle
+		angle:90
+		above:W
+		left-of:X
+	W
+		shape:triangle
+		angle:90
+		left-of:X
+	X
+		shape:triangle
+		angle:90
+3
+	Y
+		shape:triangle
+		angle:90
+		fill:no
+		above:Z,1
+	Z
+		shape:triangle
+		angle:90
+		fill:no
+		left-of:1
+	1
+		shape:triangle
+		angle:90
+		fill:no
+4
+	2
+		shape:triangle
+		angle:180
+		left-of:3
+		above:4
+	3
+		shape:triangle
+		angle:180
+		above:4
+	4
+		shape:triangle
+		angle:180
+5
+	5
+		shape:triangle
+		angle:270
+		left-of:6,7
+	6
+		shape:triangle
+		angle:270
+		above:7
+	7
+		shape:triangle
+		angle:270
+6
+	8
+		shape:triangle
+		angle:180
+		fill:no
+		above:9,0
+	9
+		shape:triangle
+		angle:180
+		fill:no
+		left-of:0
+	0
+		shape:triangle
+		angle:180
+		fill:no

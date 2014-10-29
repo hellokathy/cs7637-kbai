@@ -1,0 +1,36 @@
+2x1 Classmates Problem 06
+2x1
+5
+A
+	Z
+		shape:triangle
+		left-of:Y
+	Y
+		shape:triangle
+B
+	Z
+		shape:hexagon
+C
+	Z
+		shape:square
+		left-of:Y
+	Y
+		shape:triangle
+1
+	Z
+		shape:triangle
+2
+	Z
+		shape:square
+3
+	Z
+		shape:pentagon
+4
+	Z
+		shape:hexagon
+5
+	Z
+		shape:heptagon
+6
+	Z
+		shape:octagon

@@ -1,0 +1,152 @@
+3x3 Basic Problem 06
+3x3
+5
+A
+	A
+		shape:circle
+		fill:yes
+B
+	B
+		shape:circle
+		fill:yes
+	C
+		shape:circle
+		fill:yes
+		above:B
+C
+	D
+		shape:circle
+		fill:yes
+	E
+		shape:circle
+		fill:yes
+		above:D
+	F
+		shape:circle
+		fill:yes
+		above:D,E
+D
+	G
+		shape:circle
+		fill:yes
+	H
+		shape:circle
+		fill:yes
+		above:G
+E
+	I
+		shape:circle
+		fill:yes
+	J
+		shape:circle
+		fill:yes
+		above:I
+	K
+		shape:circle
+		fill:yes
+		above:I,J
+F
+	L
+		shape:circle
+		fill:yes
+	M
+		shape:circle
+		fill:yes
+		above:L
+	N
+		shape:circle
+		fill:yes
+		above:L,M
+	O
+		shape:circle
+		fill:yes
+		above:L,M,N
+G
+	P
+		shape:circle
+		fill:yes
+	Q
+		shape:circle
+		fill:yes
+		above:P
+	R
+		shape:circle
+		fill:yes
+		above:P,Q
+H
+	S
+		shape:circle
+		fill:yes
+	T
+		shape:circle
+		fill:yes
+		above:S
+	U
+		shape:circle
+		fill:yes
+		above:S,T
+	V
+		shape:circle
+		fill:yes
+		above:S,T,U
+1
+	W
+		shape:circle
+		fill:yes
+2
+	X
+		shape:circle
+		fill:yes
+	Y
+		shape:circle
+		fill:yes
+		above:X
+3
+	Z
+		shape:circle
+		fill:yes
+	1
+		shape:circle
+		fill:yes
+		above:Z
+	2
+		shape:circle
+		fill:yes
+		above:Z,1
+4
+	3
+		shape:circle
+		fill:yes
+	4
+		shape:circle
+		fill:yes
+		above:3
+	5
+		shape:circle
+		fill:yes
+		above:3,4
+	6
+		shape:circle
+		fill:yes
+		above:3,4,5
+5
+	7
+		shape:circle
+		fill:yes
+	8
+		shape:circle
+		fill:yes
+		above:7
+	9
+		shape:circle
+		fill:yes
+		above:7,8
+	0
+		shape:circle
+		fill:yes
+		above:7,8,9
+	!
+		shape:circle
+		fill:yes
+		above:7,8,9,0
+6

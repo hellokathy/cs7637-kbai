@@ -1,0 +1,144 @@
+3x3 Challenge Problem 05
+3x3
+1
+A
+	A
+		shape:triangle
+		left-of:B
+		above:C
+		fill:no
+		angle:90
+	B
+		shape:triangle
+		angle:90
+		fill:no
+	C
+		shape:triangle
+		angle:90
+		left-of:B
+		fill:no
+B
+	D
+		shape:triangle
+		angle:0
+		fill:yes
+		left-of:E
+	E
+		shape:triangle
+		angle:0
+		fill:yes
+C
+	F
+		shape:triangle
+		angle:0
+		fill:no
+D
+	G
+		shape:triangle
+		angle:0
+		left-of:H
+		fill:no
+	H
+		shape:triangle
+		angle:0
+		fill:no
+E
+	I
+		shape:triangle
+		angle:90
+		fill:no
+F
+	J
+		shape:triangle
+		fill:yes
+		angle:0
+		above:K,L
+	K
+		shape:triangle
+		fill:yes
+		angle:0
+		left-of:L
+	L
+		shape:triangle
+		fill:yes
+		angle:0
+G
+	M
+		shape:triangle
+		fill:yes
+		angle:0
+H
+	N
+		shape:triangle
+		fill:no
+		angle:0
+		above:O,P
+	O
+		shape:triangle
+		fill:no
+		angle:0
+		left-of:P
+	P
+		shape:triangle
+		fill:no
+		angle:0
+1
+	Q
+		shape:triangle
+		fill:no
+		angle:90
+		above:R
+	R
+		shape:triangle
+		fill:no
+		angle:90
+2
+	S
+		shape:triangle
+		fill:no
+		left-of:T
+		angle:90
+	T
+		shape:triangle
+		fill:no
+		angle:90
+3
+	U
+		shape:triangle
+		angle:0
+		fill:no
+		left-of:V
+	V
+		shape:triangle
+		angle:0
+		fill:no
+4
+	W
+		shape:triangle
+		angle:90
+		fill:yes
+		above:X
+	X
+		shape:triangle
+		angle:90
+		fill:yes
+5
+	Y
+		shape:triangle
+		angle:90
+		fill:yes
+		left-of:Z
+	Z
+		shape:triangle
+		angle:90
+		fill:yes
+6
+	1
+		shape:triangle
+		angle:0
+		fill:yes
+		left-of:2
+	2
+		shape:triangle
+		angle:0
+		fill:yes

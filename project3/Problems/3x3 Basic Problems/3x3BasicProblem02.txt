@@ -1,0 +1,73 @@
+3x3 Basic Problem 02
+3x3
+3
+A
+	A
+		shape:circle
+		fill:yes
+		size:large
+B
+	B
+		shape:circle
+		fill:yes
+		size:large
+C
+	C
+		shape:circle
+		fill:yes
+		size:large
+D
+	D
+		shape:plus
+		fill:yes
+		size:large
+E
+	E
+		shape:plus
+		fill:yes
+		size:large
+F
+	F
+		shape:plus
+		fill:yes
+		size:large
+G
+	G
+		shape:square
+		fill:yes
+		size:large
+H
+	H
+		shape:square
+		fill:yes
+		size:large
+1
+	I
+		shape:plus
+		fill:yes
+		size:large
+2
+	J
+		shape:circle
+		fill:yes
+		size:large
+3
+	K
+		shape:square
+		fill:yes
+		size:large
+4
+	L
+		shape:plus
+		fill:no
+		size:large
+5
+	M
+		shape:circle
+		fill:no
+		size:large
+6
+	N
+		shape:square
+		fill:no
+		size:large

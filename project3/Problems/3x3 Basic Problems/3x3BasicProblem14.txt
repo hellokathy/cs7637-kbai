@@ -1,0 +1,59 @@
+3x3 Basic Problem 14
+3x3
+1
+A
+	A
+		shape:right-triangle
+		angle:135
+B
+	B
+		shape:right-triangle
+		angle:180
+C
+	C
+		shape:right-triangle
+		angle:225
+D
+	D
+		shape:right-triangle
+		angle:90
+E
+	E
+		shape:right-triangle
+		angle:135
+F
+	F
+		shape:right-triangle
+		angle:180
+G
+	G
+		shape:right-triangle
+		angle:45
+H
+	H
+		shape:right-triangle
+		angle:90
+1
+	I
+		shape:right-triangle
+		angle:135
+2
+	J
+		shape:right-triangle
+		angle:180
+3
+	K
+		shape:right-triangle
+		angle:225
+4
+	L
+		shape:right-triangle
+		angle:270
+5
+	M
+		shape:right-triangle
+		angle:315
+6
+	N
+		shape:right-triangle
+		angle:0

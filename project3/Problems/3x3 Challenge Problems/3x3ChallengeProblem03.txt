@@ -1,0 +1,91 @@
+3x3 Challenge Problem 03
+3x3
+3
+A
+	A
+		shape:triangle
+B
+	B
+		shape:square
+C
+	C
+		shape:triangle
+		left-of:D
+	D
+		shape:square
+D
+	E
+		shape:triangle
+		left-of:F
+	F
+		shape:triangle
+E
+	G
+		shape:triangle
+F
+	H
+		shape:pentagon
+		left-of:I
+	I
+		shape:square
+G
+	J
+		shape:triangle
+		above:K,L
+	K
+		shape:triangle
+		left-of:L
+	L
+		shape:triangle
+H
+	M
+		shape:septagon
+1
+	N
+		shape:pentagon
+		left-of:O
+	O
+		shape:octagon
+2
+	P
+		shape:triangle
+		above:Q,R
+	Q
+		shape:triangle
+		left-of:R
+	R
+		shape:triangle
+3
+	S
+		shape:square
+		above:T,U
+	T
+		shape:octagon
+		left-of:U
+	U
+		shape:octagon
+4
+	V
+		shape:octagon
+5
+	W
+		shape:square
+		above:X,Y
+	X
+		shape:pentagon
+		left-of:Y
+	Y
+		shape:square
+6
+	Z
+		shape:square
+	1
+		shape:square
+		above:Z
+	2
+		shape:square
+		left-of:Z,1
+	3
+		shape:square
+		left-of:Z,1
+		above:Z,2
