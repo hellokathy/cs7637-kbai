@@ -1,5 +1,18 @@
 package project3;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.TreeMap;
+
+import project3.OntologySet;
+import project3.SemanticNet;
+import project3.RavensAttribute;
+import project3.RavensFigure;
+import project3.RavensObject;
+
+
 /**
  * Your Agent for solving Raven's Progressive Matrices. You MUST modify this
  * file.
@@ -13,7 +26,8 @@ package project3;
  * These methods will be necessary for the project's main method to run.
  * 
  */
-public class Agent {
+public class Agent 
+{
     /**
      * The default constructor for your Agent. Make sure to execute any
      * processing necessary before your Agent starts solving problems here.
@@ -22,8 +36,33 @@ public class Agent {
      * main().
      * 
      */
-    public Agent() {
+	private PrintStream logFile = null;
+	private OntologySet ontologySet = null; 
+	
+    public Agent() 
+    {
+    	
+
+		try {
+			logFile = new PrintStream(new File("agent.log"));
+			
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		}
+		// redirect all output to System.out to logfile instead
+		System.setOut(new PrintStream(logFile));
         
+    	// ensure that ontologies.txt is present   
+    	// and readable in the program directory
+    	try 
+    	{
+			ontologySet = new OntologySet();
+		} catch (Exception e) 
+    	{
+			// TODO Auto-generated catch block
+			e.printStackTrace();;
+		}
+    	
     }
     /**
      * The primary method for solving incoming Raven's Progressive Matrices.
@@ -51,6 +90,69 @@ public class Agent {
      * @return your Agent's answer to this problem
      */
     public String Solve(RavensProblem problem) {
+    	
+    	System.out.println("------------------------------------------------------");
+    	System.out.println("\n..solving problem: "+problem.getName());
+    	
+    	SemanticNet semanticNet = new SemanticNet(problem.getProblemType());
+    	int objCtr = 0;
+    	
+    	TreeMap<String,RavensFigure> ravensFiguresSorted = new TreeMap<String,RavensFigure>();
+    	ravensFiguresSorted.putAll(problem.getFigures());
+    	
+    	for ( RavensFigure rf : ravensFiguresSorted.values()) 
+    	{
+    		System.out.println("\n   >Figure: "+rf.getName());
+    		
+    		//Const.collecter = Const.collecter + rf.getName().trim();    	
+    				
+    		ArrayList<RavensObject> ravensObjects = rf.getObjects();
+    		
+    		ObjectCounterMap objCtrMap = new ObjectCounterMap();
+
+    		for ( int i = 0; i < ravensObjects.size(); i++)
+    		{
+    			RavensObject ro = ravensObjects.get(i);
+    			objCtr = i+1;
+    			
+    			//String roName = ro.getName().trim();
+    			
+    			// use numerical key for object instead of label .. same labels 
+    			// between figures may not necessarily refer to same object
+    			// and same object can have different labels between figures :(
+    			    			
+    			Frame f = new Frame();
+    			
+    			for ( RavensAttribute ra : ro.getAttributes())
+    			{
+    				// read attribute, convert to numericalValue using ontology and add to  frame
+    				
+	    			// get slots containing ontology keys and values for this attribute name
+	    	    	ArrayList<NameValuePair> slots = ontologySet.getFrameDataSet(ra);
+	    	    	
+    	    		
+	    	    	f.addSlots(slots);  				
+    				
+    			}
+    			
+    			// need to add a frameLabel to the frame
+    			Tuple tp = objCtrMap.addObjectHash(f.getObjectHash(), objCtr);
+    			
+    			f.setFrameLabel(Integer.toString(tp.index));
+    			
+    			NameValuePair pair = new NameValuePair("ctr", tp.count );
+    			f.addSlot(pair);
+    			    			
+    			// add frame to semantic network
+    			semanticNet.addFrameToNode( f, rf.getName().trim() );
+    		}
+    		
+			System.out.println("           >Frames:");
+			semanticNet.getNode(rf.getName().trim()).printFrames();
+
+    		
+    	}
+    	//semanticNet.debugPrintNetwork();
         return "1";
     }
 }

@@ -58,17 +58,17 @@ public class Project3 {
                 results.println("-----------");                         // Problem sets will be individually categorized in the results file.
                 
                 for(RavensProblem problem : set.getProblems()) {        // Your agent will solve one problem at a time.
-                    try {
+              //      try {
                         problem.setAnswerReceived(agent.Solve(problem));// The problem will be passed to your agent as a RavensProblem object as a parameter to the Solve method
                                                                         // Your agent should return its answer at the conclusion of the execution of Solve.
                                                                         // Note that if your agent makes use of RavensProblem.check to check its answer, the answer passed to check() will be used.
                                                                         // Your agent cannot change its answer once it has checked its answer.
                     
                         results.println(problem.getName() + ": " + problem.getGivenAnswer() + " " + problem.getCorrect() + " (Correct Answer: " + problem.checkAnswer("") + ")");
-                    } catch(Exception ex) {
-                        System.out.println("Error encountered in " + set.getName() + " problem " + problem.getName());
-                        results.println(problem.getName() + ": Error; no answer given.");
-                    }
+             //       } catch(Exception ex) {
+             //           System.out.println("Error encountered in " + set.getName() + " problem " + problem.getName());
+             //           results.println(problem.getName() + ": Error; no answer given.");
+             //       }
                 }
                 results.println("");
             }
