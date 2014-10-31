@@ -153,6 +153,19 @@ public class Agent
     		
     	}
     	//semanticNet.debugPrintNetwork();
-        return "1";
+            	
+    	AnalogicalRPMSolver solver = new AnalogicalRPMSolver(semanticNet);
+    	
+		String answerCalculated = solver.computeSolution();
+
+		String correctAnswer = problem.checkAnswer(answerCalculated);
+
+    	System.out.println("\n\nAnswer Figure:\n");
+
+		semanticNet.getNode(correctAnswer).printFrames();
+
+    	return answerCalculated;
+    	
+
     }
 }

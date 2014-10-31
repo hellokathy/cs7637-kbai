@@ -60,12 +60,12 @@ public class Frame
 			slots.put(pair.getName(), pair.getValueInt());
 	}
 	
-	public Integer getSlot(String attributeName)
+	public Integer getSlot(String attributeStrName)
 	{
 		/* get slot using attributeName as a key 
 		 * 
 		 */
-		Integer slotValue = slots.get(attributeName);
+		Integer slotValue = slots.get(attributeStrName);
 		if ( slotValue != null) 
 		{
 			return slotValue;

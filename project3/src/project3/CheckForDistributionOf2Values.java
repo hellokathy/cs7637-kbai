@@ -2,14 +2,15 @@ package project3;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class CheckForDistributionOf2Values 
 {
 
-	private ArrayList<Integer> list1Sorted = new ArrayList<Integer>();
-	private ArrayList<Integer> list2Sorted = new ArrayList<Integer>();
+	private List<Integer> list1Sorted = new ArrayList<Integer>();
+	private List<Integer> list2Sorted = new ArrayList<Integer>();
 	
-	public CheckForDistributionOf2Values(ArrayList<Integer> list1, ArrayList<Integer> list2)
+	public CheckForDistributionOf2Values(List<Integer> list1, List<Integer> list2)
 	{
 		if (list1.size() != 3 || list2.size() != 3)
 		{
@@ -34,7 +35,7 @@ public class CheckForDistributionOf2Values
 				&& (list1Sorted.get(0) == list1Sorted.get(1) || list1Sorted.get(1) == list1Sorted.get(2));
 	}
 	
-	public boolean isPartOfDistribution(ArrayList<Integer> listOf2)
+	public boolean isPartOfDistribution(List<Integer> listOf2)
 	{
 		if (listOf2.size() != 2 )
 		{
@@ -54,7 +55,7 @@ public class CheckForDistributionOf2Values
 		
 	}
 	
-	public int getMissingValue(ArrayList<Integer> listOf2)
+	public int getMissingValue(List<Integer> listOf2)
 	{
 		if (listOf2.size() != 2 )
 		{
@@ -78,7 +79,7 @@ public class CheckForDistributionOf2Values
 		}
 		else
 		{
-			return -999;
+			return Const.NEGATIVE_INFINITY;
 		}
 	}
 }

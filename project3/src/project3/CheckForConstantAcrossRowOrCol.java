@@ -1,14 +1,15 @@
 package project3;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CheckForConstantAcrossRowOrCol 
 {
 	
 	private int a,b,c = 0;
-	private ArrayList<Integer> list = new ArrayList<Integer>();
+	private List<Integer> list = new ArrayList<Integer>();
 	
-	public CheckForConstantAcrossRowOrCol(ArrayList<Integer> list)
+	public CheckForConstantAcrossRowOrCol(List<Integer> list)
 	{
 		if (list.size() != 3 )
 		{
@@ -27,12 +28,5 @@ public class CheckForConstantAcrossRowOrCol
 		return ( (b  == c ) && (b == a) && (c == a ) );
 	}
 	
-	public int getConstant()
-	{
-		if (this.isConstantAcrossRowOrCol())
-		{
-			return a;		
-		}
-		return -999;
-	}
+
 }

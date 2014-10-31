@@ -2,6 +2,7 @@ package project3;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
@@ -21,22 +22,22 @@ public class SemanticNet
 	public Node getHorizontalTestOriginNode() {
 		return horizontalTestOriginNode;
 	}
-	public void setHorizontalTestOriginNode(Node _horizontalTestOriginNode) {
-		this.horizontalTestOriginNode = _horizontalTestOriginNode;
+	public void setHorizontalTestOriginNode(Node horizontalTestOriginNode) {
+		this.horizontalTestOriginNode = horizontalTestOriginNode;
 	}
 
 	public Node getVerticalTestOriginNode() {
 		return verticalTestOriginNode;
 	}
-	public void setVerticalTestOriginNode(Node _verticalTestOriginNode) {
-		this.verticalTestOriginNode = _verticalTestOriginNode;
+	public void setVerticalTestOriginNode(Node verticalTestOriginNode) {
+		this.verticalTestOriginNode = verticalTestOriginNode;
 	}
 
 	public Node getStartNode() {
 		return startNode;
 	}
-	public void setStartNode(Node _startNode) {
-		this.startNode = _startNode;
+	public void setStartNode(Node startNode) {
+		this.startNode = startNode;
 	}
 	
 	public SemanticNet(String _rpmType)
@@ -169,6 +170,49 @@ public class SemanticNet
 		return null;
 
 	}
+	
+	public ArrayList<String> getAllSlots()
+	{
+		// returns a list of all the slot names across all the frames contained within "nodes"
+		ArrayList<String> slotNames = new ArrayList<String>();
+		LinkedHashSet<String> setWithoutDupes = new LinkedHashSet<String>();
+		
+		for (Entry<String,Node> nodeEntry: this.nodes.entrySet())
+		{			
+			Node node = nodeEntry.getValue();
+			for (Frame f : node.getFrameListValues())
+			{
+				setWithoutDupes.addAll(f.slots.keySet() );
+			}
+			
+			
+		}
+		slotNames.addAll(setWithoutDupes);
+		
+		return slotNames;
+	}
+
+	public ArrayList<String> getAllFrameLabels()
+	{
+		// returns a list of all the frame labels across all the frames contained within "nodes"
+		ArrayList<String> frameLabels = new ArrayList<String>();
+		LinkedHashSet<String> setWithoutDupes = new LinkedHashSet<String>();
+		
+		for (Entry<String,Node> nodeEntry: this.nodes.entrySet())
+		{			
+			Node node = nodeEntry.getValue();
+			for (Frame f : node.getFrameListValues())
+			{
+				setWithoutDupes.add(f.getFrameLabel());
+			}
+			
+			
+		}
+		frameLabels.addAll(setWithoutDupes);
+		
+		return frameLabels;
+	}		
+	
 	
 	public void debugPrintNetwork()
 	{

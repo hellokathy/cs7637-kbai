@@ -1,14 +1,15 @@
 package project3;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CheckForArithmeticSeries 
 {
 	
 	private int a,b,c = 0;
-	private ArrayList<Integer> list = new ArrayList<Integer>();
+	private List<Integer> list = new ArrayList<Integer>();
 	
-	public CheckForArithmeticSeries(ArrayList<Integer> list)
+	public CheckForArithmeticSeries(List<Integer> list)
 	{
 		if (list.size() != 3 )
 		{
@@ -35,11 +36,31 @@ public class CheckForArithmeticSeries
 		{
 			return b - a;		
 		}
-		return -999;
+		return Const.NEGATIVE_INFINITY;
 	}
 	
-	public boolean isProportionalTo(CheckForArithmeticSeries chk2)
+	public boolean isAnalogousTo(CheckForArithmeticSeries chk2)
 	{
-		return (this.getConstant() == chk2.getConstant() && this.getConstant() != -999 );	
+		return (this.getConstant() == chk2.getConstant() && this.getConstant() != Const.NEGATIVE_INFINITY );	
+	}
+	
+	public int getMissingValue(List<Integer> listOf2)
+	{
+		if (listOf2.size() != 2 )
+		{
+			throw new RuntimeException ("List must contain 2 values");
+		}
+		
+		int constant = this.getConstant();
+		
+		if (listOf2.get(1) - listOf2.get(0) == constant)
+		{
+			// find missing value from listOf2
+			return listOf2.get(1) + constant;
+		}
+		else
+		{
+			return Const.NEGATIVE_INFINITY;
+		}
 	}
 }

@@ -1,7 +1,7 @@
-vertical-flip,verticalFlip
+angle,angle
 
-verticalFlip,yes,1
-verticalFlip,no,0
+vertical-flip,yes,1
+vertical-flip,no,0
 
 shape,circle,1
 shape,Pac-Man,2
@@ -32,9 +32,20 @@ fill,top-right,3
 fill,no,0
 fill,yes,15
 
-size,small,1
-size,medium,2
-size,large,3
+size,very-small,1
+size,small,2
+size,medium,3
+size,large,4
+size,very-large,5
 
+angle,0,0
+angle,45,45
+angle,90,90
+angle,135,135
+angle,180,180
+angle,225,225
+angle,270,270
+angle,315,315
+angle,360,0
 
 
