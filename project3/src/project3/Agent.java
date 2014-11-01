@@ -140,7 +140,7 @@ public class Agent
     			
     			f.setFrameLabel(Integer.toString(tp.index));
     			
-    			NameValuePair pair = new NameValuePair("ctr", tp.count );
+    			NameValuePair pair = new NameValuePair("shape-count", tp.count );
     			f.addSlot(pair);
     			    			
     			// add frame to semantic network
@@ -160,7 +160,7 @@ public class Agent
 
 		String correctAnswer = problem.checkAnswer(answerCalculated);
 
-    	System.out.println("\n\nAnswer Figure:\n");
+    	System.out.println("\n\nAnswer Figure: Correct Answer is "+correctAnswer+"\n");
 
 		semanticNet.getNode(correctAnswer).printFrames();
 

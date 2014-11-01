@@ -171,7 +171,7 @@ public class SemanticNet
 
 	}
 	
-	public ArrayList<String> getAllSlots()
+	public ArrayList<String> getAllSlotsFromNodes()
 	{
 		// returns a list of all the slot names across all the frames contained within "nodes"
 		ArrayList<String> slotNames = new ArrayList<String>();
@@ -192,6 +192,27 @@ public class SemanticNet
 		return slotNames;
 	}
 
+	public ArrayList<String> getAllSlotsFromCandidateNodes()
+	{
+		// returns a list of all the slot names across all the frames contained within "candidate nodes"
+		ArrayList<String> slotNames = new ArrayList<String>();
+		LinkedHashSet<String> setWithoutDupes = new LinkedHashSet<String>();
+		
+		for (Entry<String,Node> nodeEntry: this.candidateNodes.entrySet())
+		{			
+			Node node = nodeEntry.getValue();
+			for (Frame f : node.getFrameListValues())
+			{
+				setWithoutDupes.addAll(f.slots.keySet() );
+			}
+			
+			
+		}
+		slotNames.addAll(setWithoutDupes);
+		
+		return slotNames;
+	}
+	
 	public ArrayList<String> getAllFrameLabels()
 	{
 		// returns a list of all the frame labels across all the frames contained within "nodes"

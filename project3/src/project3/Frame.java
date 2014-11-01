@@ -2,6 +2,7 @@ package project3;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 import java.util.TreeMap;
 
 public class Frame 
@@ -74,6 +75,11 @@ public class Frame
 			return 0;
 			
 		}
+	}
+	
+	public Set<String> getSlotNames()
+	{
+		return slots.keySet();
 	}
 	
 	@Override

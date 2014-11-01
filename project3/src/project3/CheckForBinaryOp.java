@@ -29,7 +29,7 @@ public class CheckForBinaryOp
 		
 		try 
 		{
-			return ( Double.compare( c, a + b ) == 0  );
+			return ( Double.compare( c, a + b ) == 0   );
 		}
 		catch (Exception e)
 		{
@@ -57,7 +57,7 @@ public class CheckForBinaryOp
 		
 		try 
 		{
-			return ( Double.compare( c, b - a ) == 0  );
+			return ( Double.compare( c, b - a ) == 0   );
 		}
 		catch (Exception e)
 		{
@@ -71,7 +71,7 @@ public class CheckForBinaryOp
 		
 		try 
 		{
-			return ( Double.compare( c, a / b ) == 0 && a != 0 && b != 0  );
+			return ( Double.compare( c, a / b ) == 0 && a != 0 && b != 0 && c != 0  );
 		}
 		catch (Exception e)
 		{
@@ -85,7 +85,7 @@ public class CheckForBinaryOp
 		
 		try 
 		{
-			return ( Double.compare( c, b / a ) == 0 && a != 0 && b != 0 );
+			return ( Double.compare( c, b / a ) == 0 && a != 0 && b != 0 && c != 0  );
 		}
 		catch (Exception e)
 		{
@@ -99,7 +99,7 @@ public class CheckForBinaryOp
 		
 		try 
 		{
-			return ( Double.compare( c, a * b ) == 0  );
+			return ( Double.compare( c, a * b ) == 0 && a != 0 && b != 0 && c != 0  );
 		}
 		catch (Exception e)
 		{

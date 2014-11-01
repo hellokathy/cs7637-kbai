@@ -1,5 +1,6 @@
 angle,angle
-
+shape,shape
+shape,num-sides
 vertical-flip,yes,1
 vertical-flip,no,0
 
@@ -17,9 +18,29 @@ shape,heptagon,10
 shape,octagon,11
 shape,nonogon,12
 shape,decagon,13
-shape,arrow,14
-shape,half-arrow,15
-shape,plus,16
+shape,dodecagon,14
+shape,arrow,15
+shape,half-arrow,16
+shape,plus,17
+
+num-sides,circle,0
+num-sides,Pac-Man,0
+num-sides,arrow,0
+num-sides,half-arrow,0
+num-sides,plus,0
+num-sides,triangle,3
+num-sides,right-triangle,3
+num-sides,square,4
+num-sides,diamond,4
+num-sides,rectangle,4
+num-sides,pentagon,5
+num-sides,hexagon,6
+num-sides,septagon,7
+num-sides,heptagon,7
+num-sides,octagon,8
+num-sides,nonogon,9
+num-sides,decagon,10
+num-sides,dodecagon,12
 
 fill,bottom-half,11
 fill,bottom-left,6
@@ -46,6 +67,5 @@ angle,180,180
 angle,225,225
 angle,270,270
 angle,315,315
-angle,360,0
 
 

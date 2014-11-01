@@ -127,16 +127,16 @@ public class Test1 {
 		
 		ArrayList<Integer> list2 = new ArrayList<Integer>();
 		list2.add(4);
-		list2.add(1);
 		list2.add(6);
+		list2.add(1);
 		
 		ArrayList<Integer> listOf2 = new ArrayList<Integer>();
 		listOf2.add(6);
 		listOf2.add(1);
 		
-		CheckForDistributionOf3Values chk = new CheckForDistributionOf3Values(list1, list2);
-		System.out.println("Returned "+chk.getMissingValue(listOf2));
-		assertEquals (chk.getMissingValue(listOf2), 4);
+		CheckForDistributionOf3Values chk = new CheckForDistributionOf3Values(list1, list2, listOf2);
+		System.out.println("Returned "+chk.getMissingValue());
+		assertEquals (chk.getMissingValue(), 4);
 	}
 	
 	@Test
@@ -156,9 +156,9 @@ public class Test1 {
 		listOf2.add(6);
 		listOf2.add(1);
 		
-		CheckForDistributionOf3Values chk = new CheckForDistributionOf3Values(list1, list2);
-		System.out.println("Returned "+chk.getMissingValue(listOf2));
-		assertEquals (chk.getMissingValue(listOf2), Const.NEGATIVE_INFINITY);
+		CheckForDistributionOf3Values chk = new CheckForDistributionOf3Values(list1, list2, listOf2);
+		System.out.println("Returned "+chk.getMissingValue());
+		assertEquals (chk.getMissingValue(), Const.NEGATIVE_INFINITY);
 	}
 	
 	@Test
@@ -178,31 +178,54 @@ public class Test1 {
 		listOf2.add(6);
 		listOf2.add(4);
 		
-		CheckForDistributionOf2Values chk = new CheckForDistributionOf2Values(list1, list2);
-		System.out.println("Returned "+chk.getMissingValue(listOf2));
-		assertEquals (chk.getMissingValue(listOf2), 4);
+		CheckForDistributionOf2Values chk = new CheckForDistributionOf2Values(list1, list2, listOf2);
+		System.out.println("Returned "+chk.getMissingValue());
+		assertEquals (chk.getMissingValue(), 4);
 	}
-	
+
 	@Test
 	public void test_CheckForDistributionOf2Values_2() {
 		
 		ArrayList<Integer> list1 = new ArrayList<Integer>();
-		list1.add(1);
+		list1.add(6);
+		list1.add(4);
+		list1.add(4);
+		
+		ArrayList<Integer> list2 = new ArrayList<Integer>();
+		list2.add(4);
+		list2.add(6);
+		list2.add(4);
+		
+		ArrayList<Integer> listOf2 = new ArrayList<Integer>();
+		listOf2.add(4);
+		listOf2.add(4);
+		
+		CheckForDistributionOf2Values chk = new CheckForDistributionOf2Values(list1, list2, listOf2);
+		System.out.println("Returned "+chk.getMissingValue());
+		assertEquals (chk.getMissingValue(), 6);
+	}
+	
+	@Test
+	public void test_CheckForDistributionOf2Values_3() {
+		
+		ArrayList<Integer> list1 = new ArrayList<Integer>();
+		list1.add(4);
 		list1.add(4);
 		list1.add(6);
 		
 		ArrayList<Integer> list2 = new ArrayList<Integer>();
-		list2.add(5);
-		list2.add(1);
 		list2.add(6);
+		list2.add(4);
+		list2.add(4);
 		
 		ArrayList<Integer> listOf2 = new ArrayList<Integer>();
 		listOf2.add(6);
-		listOf2.add(1);
+		listOf2.add(4);
 		
-		CheckForDistributionOf3Values chk = new CheckForDistributionOf3Values(list1, list2);
-		System.out.println("Returned "+chk.getMissingValue(listOf2));
-		assertEquals (chk.getMissingValue(listOf2), Const.NEGATIVE_INFINITY);
+		CheckForDistributionOf2Values chk = new CheckForDistributionOf2Values(list1, list2, listOf2);
+		System.out.println("Returned "+chk.getMissingValue());
+		assertEquals (chk.getMissingValue(), Const.NEGATIVE_INFINITY);
 	}
+	
 }
 
