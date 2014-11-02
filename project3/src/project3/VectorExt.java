@@ -26,6 +26,8 @@ public class VectorExt<E> extends Vector<E> {
 			{
 				sum = sum + (double)this.get(i);
 			}
+			
+			if (Double.isNaN(sum)) sum = 0;
 			return sum;
 		}
 		catch (Exception e)

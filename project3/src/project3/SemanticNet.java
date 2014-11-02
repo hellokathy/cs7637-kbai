@@ -14,31 +14,8 @@ public class SemanticNet
 	public TreeMap<String,Node> nodes = null;
 	public TreeMap<String,Node> candidateNodes = null;
 	public String rpmType = null;
-	private Node horizontalTestOriginNode = null;  // horizontal node to be tested against solution candidates
-	private Node verticalTestOriginNode = null; // vertical node to be tested against solution candidates
-	private Node startNode = null;
 
 	
-	public Node getHorizontalTestOriginNode() {
-		return horizontalTestOriginNode;
-	}
-	public void setHorizontalTestOriginNode(Node horizontalTestOriginNode) {
-		this.horizontalTestOriginNode = horizontalTestOriginNode;
-	}
-
-	public Node getVerticalTestOriginNode() {
-		return verticalTestOriginNode;
-	}
-	public void setVerticalTestOriginNode(Node verticalTestOriginNode) {
-		this.verticalTestOriginNode = verticalTestOriginNode;
-	}
-
-	public Node getStartNode() {
-		return startNode;
-	}
-	public void setStartNode(Node startNode) {
-		this.startNode = startNode;
-	}
 	
 	public SemanticNet(String _rpmType)
 	{
@@ -58,10 +35,6 @@ public class SemanticNet
 				// link nodes
 				this.nodes.get("A").setNextHorizontalNode(this.nodes.get("B"));
 				
-				// set test origin nodes
-				this.setHorizontalTestOriginNode(this.nodes.get("C"));
-				this.setVerticalTestOriginNode(null);
-				
 				break;
 			case "2x2":
 				
@@ -74,8 +47,7 @@ public class SemanticNet
 				this.nodes.get("A").setNextVerticalNode(this.nodes.get("C"));
 				
 				// set test origin nodes
-				this.setHorizontalTestOriginNode(this.nodes.get("C"));
-				this.setVerticalTestOriginNode (this.nodes.get("B"));	
+	
 				
 				break; 
 			case "3x3":
@@ -96,18 +68,13 @@ public class SemanticNet
  				this.nodes.get("B").setNextVerticalNode(this.nodes.get("E"));
  				this.nodes.get("E").setNextVerticalNode(this.nodes.get("H"));
  				this.nodes.get("C").setNextVerticalNode(this.nodes.get("F"));
-
-				this.setHorizontalTestOriginNode(this.nodes.get("H"));
-				this.setVerticalTestOriginNode(this.nodes.get("F"));
 				
 				break; 
 			default:
 				throw new IllegalArgumentException(
 						"Please specify rpmType as; 2x1, 2x2 or 3x3");
 		}
-		
-		this.setStartNode(this.nodes.get("A"));
-		
+				
 	}
 	
 	private void createNodes(String[] _labels)

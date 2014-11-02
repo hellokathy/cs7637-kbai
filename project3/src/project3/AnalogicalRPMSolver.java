@@ -17,7 +17,56 @@ public class AnalogicalRPMSolver {
 		this.semanticNet = semanticNet;
 	}
 	
-	private int getMissingValue(List<Integer> values)
+	private int getMissing2x2Value(List<Integer> values, String slotName)
+	{
+		if (values.size() != 3)
+		{
+			throw new RuntimeException ("List must contain 3 values");
+		}
+		
+		CheckFor2x2Pattern chk2x2p1 = new CheckFor2x2Pattern(values);
+		
+		// check for 1111 pattern
+		if (chk2x2p1.isPattern1111())
+		{
+			System.out.print(" via check for 1111 pattern");
+			return chk2x2p1.getMissingValueFromPattern1111();
+		}
+
+		// check for 0101 pattern
+		if (chk2x2p1.isPattern0101())
+		{
+			System.out.print(" via check for 0101 pattern");
+			return chk2x2p1.getMissingValueFromPattern0101();
+		}
+
+		// check for 0011 pattern
+		if (chk2x2p1.isPattern0011())
+		{
+			System.out.print(" via check for 0011 pattern");
+			return chk2x2p1.getMissingValueFromPattern0011();
+		}
+
+		// check for 0111 pattern
+		if (chk2x2p1.isPattern0111())
+		{
+			System.out.print(" via check for 0111 pattern");
+			return chk2x2p1.getMissingValueFromPattern0111();
+		}
+
+		// check for possible addition pattern
+		if (chk2x2p1.isPossibleAdditionPattern() )
+		{
+			System.out.print(" via check for possible addition pattern");
+			return chk2x2p1.getMissingValueFromAdditionPattern();
+		}
+		
+		System.out.print(" (no pattern found)");
+		
+		return 0;
+	}
+	
+	private int getMissing3x3Value(List<Integer> values)
 	{
 		if (values.size() != 8)
 		{
@@ -168,61 +217,81 @@ public class AnalogicalRPMSolver {
     	
     	Node generatedNode = new Node("?");
     	
-		if (this.semanticNet.rpmType.compareTo("3x3") == 0 )
+    	List<String> labels = null;
+    	
+    	boolean is3x3RPM = this.semanticNet.rpmType.compareTo("3x3") == 0;
+		if (is3x3RPM )
 		{
-			List<String> labels = Arrays.asList("A","B","C","D","E","F","G","H");
-
-	    	for (String frameLabel : frameLabelList)
-	    	{
-    			Frame generatedFrame = new Frame(frameLabel);
-    			
-	    		for (String slotName : slotNameList)
-	    		{
-	    			List<Integer> values = new ArrayList<Integer>();
-	    			
-	    			for (String l : labels)
-	    			{
-		    			values.add( this.semanticNet.getNode(l).getFrame(frameLabel).getSlot(slotName) );
-	    			}
-
-	    			System.out.print("\nGetting missing value for ["+slotName +"]");
-	    			
-	    			int missingValue = getMissingValue(values);
-	    			
-	    			// need to transpose missingValue where required e.g. for angle > 360
-	    			int transposedValue = transpose(slotName, missingValue);
-	    			System.out.println("\nFrame "+frameLabel+" | "+slotName+"| a:"+values.get(0)+", b:"+values.get(1)+", c:"+values.get(2)+", d:"+values.get(3)+", e:"+values.get(4)+", f:"+values.get(5)+", g:"+values.get(6)+", h:"+values.get(7)+", ?:"+transposedValue);
-  			
-
-	    			
-	    			NameValuePair pair = new NameValuePair(slotName,transposedValue);
-	    			generatedFrame.addSlot(pair);
-	    		}
-	    		
-    			generatedNode.addFrame(generatedFrame);
-
-	    	}		
-	    	
-	    	// test generatedNode against the possible solutions 1 - 6
-	    	System.out.println("\n\nGenerated Figure:\n");
-	    	generatedNode.printFrames();
-	    	
-	    	String computedAnswer = testGeneratedSolution(generatedNode);
-	    	return computedAnswer;
-		}
+			labels = Arrays.asList("A","B","C","D","E","F","G","H");
+		} 
 		else
 		{
-			// 2x1 and 2x2 problems
-			return "1";		
+			labels = Arrays.asList("A","B","C");				
 		}
+	    	
+		for (String frameLabel : frameLabelList)
+	    {
+    		Frame generatedFrame = new Frame(frameLabel);
+    			
+	    	for (String slotName : slotNameList)
+	    	{
+	    		List<Integer> values = new ArrayList<Integer>();
+	    			
+	    		for (String l : labels)
+	    		{
+		    		values.add( this.semanticNet.getNode(l).getFrame(frameLabel).getSlot(slotName) );
+	    		}
 
+	    		System.out.print("\nGetting missing value for ["+slotName +"]");
+	    		
+	    		int missingValue = 0;
+	    		if (is3x3RPM)
+	    		{
+	    			missingValue = getMissing3x3Value(values);
+	    		}
+	    		else
+	    		{
+	    			missingValue = getMissing2x2Value(values,slotName);
+	    		}
+	    		
+	    		// need to transpose missingValue where required e.g. for angle > 360
+	    		int transposedValue = transpose(slotName, missingValue);
+	    		
+	    		if (is3x3RPM )
+	    		{
+	    			System.out.println("\nFrame "+frameLabel+" | "+slotName+"| a:"+values.get(0)+", b:"+values.get(1)+", c:"+values.get(2)+", d:"+values.get(3)+", e:"+values.get(4)+", f:"+values.get(5)+", g:"+values.get(6)+", h:"+values.get(7)+", ?:"+transposedValue);
+	    		}
+	    		else
+	    		{
+	    			System.out.println("\nFrame "+frameLabel+" | "+slotName+"| a:"+values.get(0)+", b:"+values.get(1)+", c:"+values.get(2)+", ?:"+transposedValue);	    			
+	    		}
+  			
+		
+	    		NameValuePair pair = new NameValuePair(slotName,transposedValue);
+	    		generatedFrame.addSlot(pair);
+	    		
+	    	}
+	    		
+    		generatedNode.addFrame(generatedFrame);
+
+	    }		
+	    	
+	    // test generatedNode against the possible solutions 1 - 6
+	    System.out.println("\n\nGenerated Figure:\n");
+	    generatedNode.printFrames();
+	    	
+	    String computedAnswer = testGeneratedSolution(generatedNode);
+	    return computedAnswer;
+	
 	}
+
+	
 	
 	public String testGeneratedSolution(Node generatedNode)
 	{
 		String currAnswer = null;
 		Map<String, VectorExt<Double>> mapOfDistanceVectors = new HashMap<String, VectorExt<Double>>();
-		
+					
 		for (int i = 1 ; i <= 6 ; i++ )
 		{
 			Node candidateNode = this.semanticNet.getNode(String.valueOf(i));
@@ -245,11 +314,16 @@ public class AnalogicalRPMSolver {
 					candidateVector.add(currCandidateFrame.getSlot(slotName).doubleValue());
 					
 				}
+				
 				// get cosine difference between vectors
 				System.out.println("frame "+currFrameLabel+": generated vector "+ generatedVector);
 				System.out.println("frame "+currFrameLabel+": candidate vector "+candidateVector);
-				Double cosDiff = VectorExt.cosineSimilarity(generatedVector, candidateVector);
 				
+				Double cosDiff = 0.0;
+				
+				// if there are no shapes in generated frame then leave cosDiff at 0
+				if (currGeneratedFrame.getSlot("shape-count")>0)
+					cosDiff = VectorExt.cosineSimilarity(generatedVector, candidateVector);
 				
 				// add cosine diff to distance vector
 				distanceVector.add(cosDiff);
@@ -298,7 +372,6 @@ public class AnalogicalRPMSolver {
 		return currAnswer;
 	}
 
-	
 	public void setDistanceForBlankFigures(Node generatedNode, Node candidateNode, VectorExt<Double> distanceVector)
 	{
 		if (candidateNode.getFrameListKeys().isEmpty())
@@ -311,7 +384,7 @@ public class AnalogicalRPMSolver {
 			}
 			else 
 			{
-				// check whether all frames in generatedNode have num-shapes = 0
+				// check whether all frames in generatedNode have shape-count = 0
 				for (Frame f : generatedNode.getFrameListValues())
 				{
 					if (f.getSlot("shape-count") != 0 )
@@ -321,12 +394,9 @@ public class AnalogicalRPMSolver {
 					}
 				}
 				distanceVector.add(1.0);
-				return;
 			}
 			
 		}
-		distanceVector.add(0.0);
-		return;
 	}
 	
 	public int transpose(String slotName, int missingValue)

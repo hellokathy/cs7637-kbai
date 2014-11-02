@@ -1,8 +1,12 @@
 angle,angle
 shape,shape
 shape,num-sides
+
 vertical-flip,yes,1
 vertical-flip,no,0
+
+horizontal-flip,yes,1
+horizontal-flip,no,0
 
 shape,circle,1
 shape,Pac-Man,2

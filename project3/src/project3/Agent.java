@@ -1,9 +1,16 @@
 package project3;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.TreeMap;
 
 import project3.OntologySet;
@@ -38,19 +45,35 @@ public class Agent
      */
 	private PrintStream logFile = null;
 	private OntologySet ontologySet = null; 
-	
+	HashMap<String,String> memory = new HashMap<String,String>(); // permanent case memory
+
+	private PrintStream permanentCaseFile = null;
+	private boolean RECORD_CASES_MODE = false;
+
     public Agent() 
     {
-    	
-
+    	    	
 		try {
 			logFile = new PrintStream(new File("agent.log"));
-			
+			if (RECORD_CASES_MODE)
+			{
+				permanentCaseFile = new PrintStream(new File(Const.PERMANENT_CASE_FILENAME));
+			}			
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
 		}
+
 		// redirect all output to System.out to logfile instead
 		System.setOut(new PrintStream(logFile));
+		
+    	// load permanent case memory if file is present
+    	try {
+			loadPermanentCases();
+		} catch (IOException e1) {
+			System.out.print("No permanent cases file present...");
+		}
+    	
+
         
     	// ensure that ontologies.txt is present   
     	// and readable in the program directory
@@ -64,6 +87,37 @@ public class Agent
 		}
     	
     }
+    
+	private void loadPermanentCases() throws IOException
+	{
+    	// load from file
+    	String fileName = Const.PERMANENT_CASE_FILENAME;
+    	String line = "";
+    	String splitChar = ",";
+    	BufferedReader br = null;
+    	
+    	
+    		br = new BufferedReader(new FileReader(fileName));
+    		
+    		line = br.readLine();
+    		
+    		// populate permanent cases if available
+    		while((line = br.readLine()) != null) 
+    		{
+    			if (line.trim().length() > 0)
+    			{
+	    			String[] contents = line.split(splitChar);
+	    			if (line.length()>0) 
+	    			{
+	    				if (contents.length == 2)
+	    					this.memory.put(contents[0], contents[1]);
+	    			}
+    			}
+    		}
+ 
+       	
+	}
+	
     /**
      * The primary method for solving incoming Raven's Progressive Matrices.
      * For each problem, your Agent's Solve() method will be called. At the
@@ -128,11 +182,9 @@ public class Agent
     				// read attribute, convert to numericalValue using ontology and add to  frame
     				
 	    			// get slots containing ontology keys and values for this attribute name
-	    	    	ArrayList<NameValuePair> slots = ontologySet.getFrameDataSet(ra);
-	    	    	
+	    	    	ArrayList<NameValuePair> slots = ontologySet.getFrameDataSet(ra);	    	    	
     	    		
-	    	    	f.addSlots(slots);  				
-    				
+	    	    	f.addSlots(slots);  						
     			}
     			
     			// need to add a frameLabel to the frame
@@ -152,20 +204,54 @@ public class Agent
 
     		
     	}
-    	//semanticNet.debugPrintNetwork();
-            	
-    	AnalogicalRPMSolver solver = new AnalogicalRPMSolver(semanticNet);
     	
-		String answerCalculated = solver.computeSolution();
+    	String answerCalculated = null;
+    	String correctAnswer = "unknown";
+    	
+    	AnalogicalRPMSolver solverAnalogical = new AnalogicalRPMSolver(semanticNet);
+    	RecordedCaseRPMSolver solverRecordedCase = new RecordedCaseRPMSolver(semanticNet, this.memory);
+    	
+    	String answerCalculatedRecordedCase = solverRecordedCase.computeSolution();
+		String answerCalculatedAnalogical = solverAnalogical.computeSolution();
 
-		String correctAnswer = problem.checkAnswer(answerCalculated);
-
-    	System.out.println("\n\nAnswer Figure: Correct Answer is "+correctAnswer+"\n");
-
-		semanticNet.getNode(correctAnswer).printFrames();
-
+    	if (answerCalculatedRecordedCase == null)
+    	{
+    		answerCalculated = answerCalculatedAnalogical;
+    	}
+    	else
+    	{
+    		answerCalculated = answerCalculatedRecordedCase;
+    	}
+    	
+    	if (RECORD_CASES_MODE)
+    	{
+    		correctAnswer = problem.checkAnswer(answerCalculated);
+    		writeToPermanentMemory(semanticNet, correctAnswer);
+        	System.out.println("\n\nAnswer Figure: Correct Answer is "+correctAnswer+"\n");
+    		semanticNet.getNode(correctAnswer).printFrames();
+    	}
+    	
     	return answerCalculated;
     	
+    }
+    
+    private void writeToPermanentMemory(SemanticNet semanticNet, String correctAnswer)
+    {
 
+    	String caseString = "";
+    	caseString += RecordedCaseRPMSolver.rpmProblemHash(semanticNet);
+    	caseString += ",";
+    	caseString += RecordedCaseRPMSolver.FigureHash(semanticNet.getNode(correctAnswer));
+    	
+		// output permanent case to file
+    	try
+    	{
+    		System.setOut(permanentCaseFile);
+    		System.out.println(caseString);    		
+    		System.setOut(logFile);	
+    	} catch (Exception e)
+    	{
+    		e.printStackTrace();
+    	}
     }
 }
