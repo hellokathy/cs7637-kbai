@@ -1,5 +1,6 @@
 package project4;
 
+import java.awt.Graphics2D;
 import java.awt.color.ColorSpace;
 import java.awt.image.BufferedImage;
 import java.awt.image.BufferedImageOp;
@@ -24,13 +25,13 @@ public class ImageDiffAnalyser
 	int length = 0;
 
 	
-	public ImageDiffAnalyser(File url1, File url2) 
+	public ImageDiffAnalyser(File file1, File file2) 
 	{
     
 		try 
 		{
-			this.img1 = convertToBW(ImageIO.read(url1));
-			this.img2 = convertToBW(ImageIO.read(url2));
+			this.img1 = ImageIO.read(file1);
+			this.img2 = ImageIO.read(file2);
 			
 			this.width1 = img1.getWidth(null);
 			this.width2 = img2.getWidth(null);
@@ -54,7 +55,7 @@ public class ImageDiffAnalyser
 			
 			this.length = this.height1 * this.width1;
 		} 
-		catch (IOException e) 
+		catch (Exception e) 
 		{
 			e.printStackTrace();
 		}
@@ -85,7 +86,7 @@ public class ImageDiffAnalyser
 		}
 		double n = width1 * height1 * 3;
 		double p = diff / n / 255.0;
-		return (p * 100.0);
+		return p*100;
 		
 	}
 	
@@ -104,7 +105,25 @@ public class ImageDiffAnalyser
 			}
 		}
 		
-		return VectorExt.getCosineSimilarity(v1, v2);
+		return (1 - VectorExt.getCosineSimilarity(v1, v2))*100;
+	}
+	
+	public double getEuclidianDiff()
+	// returns difference between two images in terms of Euclidean Difference
+	{
+		VectorExt<Double> v1 = new VectorExt<Double>();
+		VectorExt<Double> v2 = new VectorExt<Double>();
+		
+		for (int i = 0 ; i<this.height1 ; i++)
+		{
+			for (int j = 0; j<this.width1; j++) 
+			{
+				v1.add((double) this.img1.getRGB(i,j));
+				v2.add((double) this.img2.getRGB(i,j));
+			}
+		}
+		
+		return VectorExt.getEuclidianDist(v1, v2);
 	}
 	
 	public static BufferedImage convertToGrayscale(BufferedImage source) 
@@ -114,11 +133,37 @@ public class ImageDiffAnalyser
 	     return op.filter(source, null);
 	}
 	
-	public static BufferedImage convertToBW(BufferedImage source) 
+	public static BufferedImage convertToBW(File source) 
 	{ 
-		 BufferedImage blackAndWhiteImage =
-				              new BufferedImage(source.getWidth(null),
-				  source.getHeight(null), BufferedImage.TYPE_BYTE_BINARY);
-		 return blackAndWhiteImage;
+        try
+        {
+            //colored image path
+            BufferedImage image = ImageIO.read(source);
+            
+        	//getting width and height of image
+            double image_width = image.getWidth();
+            double image_height = image.getHeight();
+
+            BufferedImage bimg = null;
+            BufferedImage img = image;
+
+            //drawing a new image      
+            bimg = new BufferedImage((int)image_width, (int)image_height, BufferedImage.TYPE_BYTE_BINARY);
+            Graphics2D gg = bimg.createGraphics();
+            gg.drawImage(img, 0, 0, img.getWidth(null), img.getHeight(null), null);
+
+            //saving black and white image onto drive
+            String temp = "_bw";
+            File fi = new File(source.getPath()+temp);
+            ImageIO.write(bimg, "png", fi);
+            
+            BufferedImage retimg = ImageIO.read(fi);
+            return retimg;
+        }
+        catch (Exception e)
+        {
+        	System.out.println(e);
+        	return null;
+        }
 	}
 }

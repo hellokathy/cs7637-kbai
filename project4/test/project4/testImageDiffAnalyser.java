@@ -24,10 +24,13 @@ public class testImageDiffAnalyser {
 		
 		File url1 = null;
 		File url2 = null;
-		try {
-			url1 = new File("testimages\\circle_fill_yes.png");
-			url2 = new File("testimages\\circle_fill_no.png");
-		} catch (Exception e) {
+		try 
+		{
+			url1 = new File("testimages/_fill_no.png");
+			url2 = new File("testimages/cir_fill_nocopy.png");
+		} 
+		catch (Exception e) 
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -39,7 +42,10 @@ public class testImageDiffAnalyser {
 		
 		System.out.println("% diff : "+analyser.getRGBPercDiff());
 		System.out.println("Cos diff : "+analyser.getCosDiff());
+		System.out.println("Ecl diff : "+analyser.getEuclidianDiff());
 		assertTrue(analyser.getCosDiff() > 90);
+		
+	
 	}
 
 }
