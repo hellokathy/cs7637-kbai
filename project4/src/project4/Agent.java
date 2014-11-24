@@ -22,8 +22,10 @@ public class Agent {
      * main().
      * 
      */
+	PrepositionalAgent prepositionalAgent = null; // previous agent from Project3
+	
     public Agent() {
-        
+        this.prepositionalAgent = new PrepositionalAgent();
     }
     /**
      * The primary method for solving incoming Raven's Progressive Matrices.
@@ -31,7 +33,7 @@ public class Agent {
      * conclusion of Solve(), your Agent should return a String representing its
      * answer to the question: "1", "2", "3", "4", "5", or "6". These Strings
      * are also the Names of the individual RavensFigures, obtained through
-     * RavensFigure.getName().
+     * TextRavensFigure.getName().
      * 
      * In addition to returning your answer at the end of the method, your Agent
      * may also call problem.checkAnswer(String givenAnswer). The parameter
@@ -51,6 +53,20 @@ public class Agent {
      * @return your Agent's answer to this problem
      */
     public String Solve(VisualRavensProblem problem) {
-        return "1";
+    	
+    	// step 1 : generate equivalent TextRavensProbem
+    	TextRavensProblemCreator trpCreator = new TextRavensProblemCreator(problem);
+    	TextRavensProblem  trp = trpCreator.getTextRavensProblem();
+    	
+    	// step 2 : get answer from prepositional agent (have it return a confidence% along with answer)
+    	String answer1 = this.prepositionalAgent.Solve(trp);
+    	System.out.println(answer1);
+    	
+    	// step 3 : attempt to get an answer via visual reasoning
+    	
+    	// step 4 : if both answers match then return answer else return one with higher confidence%
+    	
+    	
+        return answer1;
     }
 }

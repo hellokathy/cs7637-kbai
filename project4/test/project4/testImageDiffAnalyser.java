@@ -26,7 +26,7 @@ public class testImageDiffAnalyser {
 		File url2 = null;
 		try 
 		{
-			url1 = new File("testimages/_fill_no.png");
+			url1 = new File("testimages/cir_fill_no.png");
 			url2 = new File("testimages/cir_fill_nocopy.png");
 		} 
 		catch (Exception e) 

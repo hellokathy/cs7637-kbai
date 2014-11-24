@@ -28,7 +28,7 @@ public class Project4 {
     /**
      * The main method of Project4.
      */
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         // Loading problems from files
         ArrayList<VisualProblemSet> sets = new ArrayList<VisualProblemSet>();       // The variable 'sets' stores multiple problem sets.
                                                                         // Each problem set comes from a different folder in /Problems/
