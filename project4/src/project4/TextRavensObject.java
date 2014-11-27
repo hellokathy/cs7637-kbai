@@ -15,38 +15,37 @@ import java.util.ArrayList;
  * such as a triangle or a circle -- comprised of a list of RavensAttributes.
  * 
  */
-public class TextRavensObjectExtended {
+public class TextRavensObject {
     private String name;
     private ArrayList<TextRavensAttribute> attributes;
     
     /**
-     * Constructs a new TextRavensObjectExtended given a name.
+     * Constructs a new TextRavensObject given a name.
      * 
      * Your agent does not need to use this method.
      * 
      * @param name the name of the object
      */
-    public TextRavensObjectExtended(String name) {
+    public TextRavensObject(String name) {
         this.name=name;
         attributes=new ArrayList<>();
     }
 
     /**
-     * The name of this TextRavensObjectExtended. Names are assigned starting with the
-     * letter Z and proceeding backwards in the alphabet through the objects
-     * in the Frame. Names do not imply correspondence between shapes in
+     * The name of this TextRavensObject. 
+     * Names do not imply correspondence between shapes in
      * different frames. Names are simply provided to allow agents to organize
      * their reasoning over different figures.
      * 
-     * Within a TextRavensFigure, each TextRavensObjectExtended has a unique name.
+     * Within a TextRavensFigure, each TextRavensObject has a unique name.
      * 
-     * @return the name of the TextRavensObjectExtended
+     * @return the name of the TextRavensObject
      */
     public String getName() {
         return name;
     }
     /**
-     * Returns an ArrayList of TextRavensAttribute characterizing this TextRavensObjectExtended.
+     * Returns an ArrayList of TextRavensAttribute characterizing this TextRavensObject.
      * 
      * @return an ArrayList of TextRavensAttribute
      * 

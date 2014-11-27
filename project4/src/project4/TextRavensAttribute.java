@@ -8,7 +8,7 @@
 package project4;
 
 /**
- * A single variable-value pair that describes some element of a TextRavensObjectExtended.
+ * A single variable-value pair that describes some element of a TextRavensObject.
  * For example, a circle might have the attributes shape:circle, size:large, and
  * filled:no.
  */
@@ -47,5 +47,13 @@ public class TextRavensAttribute {
      */
     public String getValue() {
         return value;
+    }
+    
+    public void setValue(String value)
+    {
+    	if (this.value != null || this.value.length() > 0)
+    	{
+    		this.value = this.value + "," + value;
+    	}
     }
 }

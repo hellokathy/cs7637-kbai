@@ -54,13 +54,13 @@ public class Agent {
      */
     public String Solve(VisualRavensProblem problem) {
     	
+    	String answer1 = null;
     	// step 1 : generate equivalent TextRavensProbem
     	TextRavensProblemCreator trpCreator = new TextRavensProblemCreator(problem);
     	TextRavensProblem  trp = trpCreator.getTextRavensProblem();
     	
     	// step 2 : get answer from prepositional agent (have it return a confidence% along with answer)
-    	String answer1 = this.prepositionalAgent.Solve(trp);
-    	System.out.println(answer1);
+    	answer1 = this.prepositionalAgent.Solve(trp);
     	
     	// step 3 : attempt to get an answer via visual reasoning
     	

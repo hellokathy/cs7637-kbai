@@ -17,8 +17,8 @@ import java.util.HashMap;
  */
 public class TextRavensFigure {
     private String name;
-    private ArrayList<TextRavensObjectExtended> objects;
-    private HashMap<String, TextRavensObjectExtended> objectsMap;
+    private ArrayList<TextRavensObject> objects;
+    private HashMap<String, TextRavensObject> objectsMap;
     
     /**
      * Creates a new figure for a Raven's Progressive Matrix given a name.
@@ -54,9 +54,9 @@ public class TextRavensFigure {
     /**
      * Returns an ArrayList of RavensObjects from the figure.
      * 
-     * @return an ArrayList of TextRavensObjectExtended
+     * @return an ArrayList of TextRavensObject
      */
-    public ArrayList<TextRavensObjectExtended> getObjects() {
+    public ArrayList<TextRavensObject> getObjects() {
         return objects;
     }
 }

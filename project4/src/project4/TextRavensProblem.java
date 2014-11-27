@@ -20,7 +20,7 @@ public class TextRavensProblem {
     private String name;
 //    private String correctAnswer;
 //    private String givenAnswer;
-    private boolean answerReceived=false;
+//    private boolean answerReceived=false;
     
     /**
      * Initializes a new Raven's Progressive Matrix problem given a name, a

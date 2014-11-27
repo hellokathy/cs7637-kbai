@@ -154,13 +154,13 @@ public class PrepositionalAgent
     		
     		//Const.collecter = Const.collecter + rf.getName().trim();    	
     				
-    		ArrayList<TextRavensObjectExtended> ravensObjects = rf.getObjects();
+    		ArrayList<TextRavensObject> ravensObjects = rf.getObjects();
     		
     		ObjectCounterMap objCtrMap = new ObjectCounterMap();
 
     		for ( int i = 0; i < ravensObjects.size(); i++)
     		{
-    			TextRavensObjectExtended ro = ravensObjects.get(i);
+    			TextRavensObject ro = ravensObjects.get(i);
     			objCtr = i+1;
     			
     			//String roName = ro.getName().trim();
