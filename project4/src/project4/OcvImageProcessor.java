@@ -165,7 +165,7 @@ public class OcvImageProcessor {
 
 		
 		Double x = outer.x - (diff.x); 
-		Double y = outer.y - (diff.y);
+		Double y = outer.y - (diff.y/2);
 		
 		int xi = x.intValue();
 		int yi = y.intValue();
@@ -235,7 +235,7 @@ public class OcvImageProcessor {
 		return targetPt;
 	}
 	
-    public static Point computeCenterPoint(List<Point> contourAsPts) 
+    public static Point computeCenterPointxxx(List<Point> contourAsPts) 
     { 
     	double x = 0d;
     	double y = 0d; 
@@ -249,7 +249,30 @@ public class OcvImageProcessor {
     	approxCenter.x = x / contourAsPts.size(); 
     	approxCenter.y = y / contourAsPts.size(); 
     	
-    	//System.out.println("center : " +approxCenter);
+    	System.out.println("center : " +approxCenter);
     	return approxCenter;
     }   
+    
+    public static Point computeCenterPoint(List<Point> contourAsPts) 
+    { 
+    	double highX = Const.NEGATIVE_INFINITY;
+    	double lowX = Const.POSITIVE_INFINITY;
+    	double highY = Const.NEGATIVE_INFINITY;
+    	double lowY = Const.POSITIVE_INFINITY;
+    	
+    	for (Point p : contourAsPts) 
+    	{ 
+    		if (p.x < lowX) lowX = p.x;
+    		if (p.x > highX) highX = p.x;
+    		if (p.y < lowY) lowY = p.y;
+    		if (p.y > highY) highY = p.y;  		
+    	} 
+    	Point approxCenter = new Point(); 
+    	
+    	approxCenter.x = lowX + (highX - lowX)/2; 
+    	approxCenter.y = lowY + (highY - lowY)/2; 
+    	
+    	System.out.println("center : " +approxCenter);
+    	return approxCenter;
+    } 
 }
