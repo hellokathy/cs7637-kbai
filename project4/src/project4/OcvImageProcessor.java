@@ -183,10 +183,9 @@ public class OcvImageProcessor {
 		{
 			filled = false;
 		}
-		
-		System.out.println("fill between "+outer+" and "+inner+" = "+filled);
-
 		return filled;
+		
+
 	}
 	
 	private Point getDiff(Point outer, Point inner)
@@ -322,11 +321,11 @@ public class OcvImageProcessor {
         return 360 - angle / Math.PI * 180;
     }
 
-    static double dist(Point p1, Point p2) {
+   public  static double dist(Point p1, Point p2) {
         return Math.sqrt((p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y));
     }
 
-    static double cos(Point p1, Point p2, Point p3) {
+    public static double cos(Point p1, Point p2, Point p3) {
         return ((p3.x - p1.x) * (p2.x - p1.x) + (p3.y - p1.y) * (p2.y - p1.y))
                 / dist(p3, p1) / dist(p2, p1);
     }

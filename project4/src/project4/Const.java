@@ -31,7 +31,9 @@ public class Const {
 		  dodecagon,
 		  arrow,
 		  half_arrow,
-		  plus;
+		  polygon,
+		  plus,
+		  quadrilateral;
 	}
 
 	public static enum Size 

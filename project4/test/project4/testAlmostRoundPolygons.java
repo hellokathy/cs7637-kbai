@@ -20,7 +20,7 @@ import org.opencv.core.Scalar;
 import org.opencv.highgui.Highgui; 
 import org.opencv.imgproc.Imgproc;
 
-public class testTextRavensFigureCreator {
+public class testAlmostRoundPolygons {
 
 	@Test
 	public void testTextRavensProblemCreator_1() {
@@ -36,14 +36,16 @@ public class testTextRavensFigureCreator {
 			e.printStackTrace();
 		}
 		
-		for (int x=0 ; x<=45 ; x+=45)
-		{
-			System.out.println("------angle "+x+"---------------------------");
-		
-			trfCreator = new TextRavensFigureCreator("testimages/plus/ang"+x+".png");
-			trf = trfCreator.getTextRavensFigure();
-		}
+			System.out.println("------hexagon---------------------------");
 
+			for (int x=0 ; x<=315 ; x+=45)
+			{
+				System.out.println("------angle "+x+"---------------------------");		
+
+			
+				trfCreator = new TextRavensFigureCreator("testimages/hexagon/ang"+x+".png");
+				trf = trfCreator.getTextRavensFigure();
+			}
 		
 		assertTrue(true);
 	}

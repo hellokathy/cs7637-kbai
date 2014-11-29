@@ -1,5 +1,7 @@
 package project4;
 
+import java.util.List;
+
 import org.opencv.core.Point;
 import org.opencv.core.RotatedRect;
 
@@ -13,7 +15,7 @@ public class ObjectRec
 	private String fill = "";
 	private String shape = "";
 	private double angleOfRect = 0.0;
-	private double angle = 0.0;
+	private int angle = 0;
 	private String size = "";
 	private String right_of = "";
 	private String above = "";
@@ -28,7 +30,18 @@ public class ObjectRec
 	private String left_of = "";
 	private String below = "";
 	private Point center = null;
+	private List<Point> objAsPoints = null;
+	
+	public List<Point> getObjAsPoints()
+	{
+		return this.objAsPoints;
+	}
 
+	public void setObjAsPoints(List<Point> objAsPoints)
+	{
+		this.objAsPoints = objAsPoints;
+	}
+	
 	@Override
 	public String toString()
 	{
@@ -64,7 +77,7 @@ public class ObjectRec
 		return this.angle;
 	}
 	
-	public void setAngle(double angle) {
+	public void setAngle(int angle) {
 
 		this.angle = angle;
 	}

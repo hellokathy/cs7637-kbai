@@ -20,7 +20,7 @@ import org.opencv.core.Scalar;
 import org.opencv.highgui.Highgui; 
 import org.opencv.imgproc.Imgproc;
 
-public class testTextRavensFigureCreator {
+public class testTextRavensFigureCreator_square_detection {
 
 	@Test
 	public void testTextRavensProblemCreator_1() {
@@ -36,15 +36,20 @@ public class testTextRavensFigureCreator {
 			e.printStackTrace();
 		}
 		
-		for (int x=0 ; x<=45 ; x+=45)
-		{
-			System.out.println("------angle "+x+"---------------------------");
-		
-			trfCreator = new TextRavensFigureCreator("testimages/plus/ang"+x+".png");
-			trf = trfCreator.getTextRavensFigure();
-		}
 
+			System.out.println("---------------------------------");
 		
+			trfCreator = new TextRavensFigureCreator("testimages/square/2.png");
+			trf = trfCreator.getTextRavensFigure();
+		
+			System.out.println("---------------------------------");
+			
+			trfCreator = new TextRavensFigureCreator("testimages/square/6 5.png");
+			trf = trfCreator.getTextRavensFigure();
+
+			System.out.println("---------------------------------");
+
+			
 		assertTrue(true);
 	}
 
