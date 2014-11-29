@@ -1,9 +1,11 @@
 package project4;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.opencv.core.Core;
+import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.MatOfPoint2f;
@@ -44,9 +46,12 @@ public class OcvImageProcessor {
 		hierarchy = new Mat();
 		
 		Imgproc.cvtColor(source, grayImage, Imgproc.COLOR_RGBA2GRAY);
-        Imgproc.threshold(grayImage, bwImage, 127, 255, Imgproc.THRESH_BINARY);
+        Imgproc.threshold(grayImage, bwImage, 155, 255, Imgproc.THRESH_BINARY);
+        
 	}
-
+	
+ 
+	
 	public Mat getGrayScale()
 	{
         return this.grayImage;
@@ -54,13 +59,18 @@ public class OcvImageProcessor {
 
 	public Mat getBwThreshold()
 	{ 
+		
+		System.loadLibrary(Core.NATIVE_LIBRARY_NAME); // this is required to workaround a known bug
+
         return this.bwImage;
 	}
 	
 	private void findContours()
 	{
+		Mat copyOfBwImage = this.bwImage.clone(); // required since openCV findContours method modifies the original image
+		
 		this.contours = new ArrayList<MatOfPoint>();
-	    Imgproc.findContours(bwImage, contours, hierarchy, Imgproc.RETR_TREE , Imgproc.CHAIN_APPROX_SIMPLE);
+	    Imgproc.findContours(copyOfBwImage, contours, hierarchy, Imgproc.RETR_TREE , Imgproc.CHAIN_APPROX_SIMPLE);
 	    this.foundContours = true;
 	}
 	
@@ -110,8 +120,6 @@ public class OcvImageProcessor {
 	
 	public boolean hasCloseProximity (Point outer, Point inner, int o, int i)
 	{
-		// at the moment this check is quite weak - only checks a single point. 
-		// 
 		boolean retVal = false;
 		double tolerance = 9.0;
 		
@@ -130,20 +138,55 @@ public class OcvImageProcessor {
 
 	}
 	
-	public boolean isFilledBetween(Point outer, Point inner ,int o, int i)
+	public boolean isFilledBetween(Point outer, Point inner)
 	{
-		System.out.println("..checking fill between points "+outer.toString()+" and "+inner.toString());
-		if ( Double.compare( getBWPixelValueBetween(outer,inner),0.0) > 0 )
+		double x = outer.x;
+		double y1 = outer.y;
+		double y2 = inner.y;
+		
+		double threshold = 0.55 ; // threshold % used to determine whether there is a fill or not 
+		
+		double ctr = 0;
+		double countOfBlackPix = 0;
+		
+		//System.out.println("bwImage : "+this.bwImage.dump());
+
+		for (double yi=y1; yi<=y2 ; yi=yi+1.0 )
 		{
-			// black
-			System.out.println(" is filled between "+o+" and "+i);
-			return true;
+			ctr++;
+			if ( getPixelValAtPoint(new Point(x,yi)) == 0 ) 
+			{
+				countOfBlackPix++;
+
+			}
+			
+		}
+		
+		System.out.println("sum of black pix "+countOfBlackPix);
+		System.out.println("total count of pix "+ctr);
+
+		double perc = countOfBlackPix / ctr;
+		System.out.println("perc : "+perc);
+		
+		boolean filled = false;
+		
+		if (perc >= threshold)
+		{
+			filled = true;
+		}
+		else if (perc >= 0.5)
+		{
+			// check middle pixel
+			filled =  ( getPixelValAtPoint (new Point(x, y1+((y2-y1)/2) ) ) == 0  ) ;
 		}
 		else
 		{
-			System.out.println(" is NOT filled between "+o+" and "+i);
-			return false;
+			filled = false;
 		}
+		
+		System.out.println("fill between "+outer+" and "+inner+" = "+filled);
+
+		return filled;
 	}
 	
 	private Point getDiff(Point outer, Point inner)
@@ -158,29 +201,18 @@ public class OcvImageProcessor {
 		
 	}
 	
-	public double getBWPixelValueBetween(Point outer, Point inner)
+	
+	public double getPixelValAtPoint(Point p)
 	{
-		double pixelVal = 0.0;
+		int xi = Double.valueOf(p.x).intValue();
+		int yi = Double.valueOf(p.y).intValue();
 		
-		Point diff = new Point();
-		diff = this.getDiff(outer, inner);
+		
+		double retVal =  this.bwImage.get(yi, xi)[0]; // why on earth did openCV reverse the X,Y order for the get method ????!!!!!!
+		
+		System.out.println("pixel val at "+p.toString()+" is "+retVal);
+		return retVal;
 
-		
-		Double x = outer.x - (diff.x); 
-		Double y = outer.y - (diff.y/2);
-		
-		int xi = x.intValue();
-		int yi = y.intValue();
-
-		//System.out.println("outer:"+outer.toString());
-		//System.out.println("inner:"+inner.toString());
-		System.out.println("diff:"+diff.toString());
-		
-		pixelVal = this.bwImage.get(xi, yi)[0];
-		
-		System.out.println("pixel value at "+xi+","+yi+" is "+pixelVal);
-		return pixelVal;
-		
 	}
 
 
@@ -192,12 +224,23 @@ public class OcvImageProcessor {
 //		double lowX = Const.POSITIVE_INFINITY;
 //		double highY = Const.NEGATIVE_INFINITY;
 		
+		List<Point> contourAsPtsSrc = new ArrayList<Point>();
+		Converters.Mat_to_vector_Point(contour, contourAsPtsSrc);
+		
+		System.out.println("extracted : "+contourAsPtsSrc);
+
+		// use interpolation to increase resolution of contour
 		List<Point> contourAsPts = new ArrayList<Point>();
-		Converters.Mat_to_vector_Point(contour, contourAsPts);
+		contourAsPts = enhanceContourRes(contourAsPtsSrc);
+
+		System.out.println("res enh : "+ contourAsPts);
+		
+		//List<Point> contourAsPts = new ArrayList<Point>();
+		//Converters.Mat_to_vector_Point(contour, contourAsPts);
 		
 		double midX = computeCenterPoint(contour).x;
 		
-		// aim is to find 4 points in the contour with x values closest to midX
+		// aim is to find  points in the contour with x values closest to midX
 		// then we take the lowest y value from this set to approximate y value 
 		// at mid pt on upper surface
 		
@@ -205,34 +248,12 @@ public class OcvImageProcessor {
 		List<Point> contourAsPtsCopy = new ArrayList<Point>();
 		contourAsPtsCopy.addAll(contourAsPts);
 		
-		// initialize list for closest points found
+		// initialize list for points with same X value as mid
 		List<Point> closestPoints = new ArrayList<Point>();
 		
-		int limit = Math.min(5, contourAsPtsCopy.size() );
-		for (int x=0 ; x < limit ; x++)
+		for (Point p : contourAsPtsCopy)
 		{
-			int idx = -1;
-			double currDiff = 0.0;
-			double diff = Const.POSITIVE_INFINITY;
-			
-			for (int i=0 ; i<contourAsPtsCopy.size() ; i++)
-			{
-				Point p = contourAsPtsCopy.get(i);
-				currDiff = Math.abs(p.x - midX);
-			
-				if (currDiff < diff)
-				{
-					//System.out.println("(p.x="+p.x+" p:y="+p.y+") midX="+midX+" >>>>"+Math.abs(p.x - midX));
-					idx = i;
-					diff = currDiff;
-				}
-				
-			}
-
-
-			closestPoints.add(contourAsPtsCopy.get(idx));
-			contourAsPtsCopy.remove(idx);
-			
+			if ( Math.abs( p.x - midX ) <= 1.0  ) closestPoints.add(p);
 		}
 		
 		System.out.println("take smallest y from " +closestPoints.toString());
@@ -309,4 +330,76 @@ public class OcvImageProcessor {
         return ((p3.x - p1.x) * (p2.x - p1.x) + (p3.y - p1.y) * (p2.y - p1.y))
                 / dist(p3, p1) / dist(p2, p1);
     }
+    
+    private static List<Point> enhanceContourRes(List<Point> contourAsPts)
+    {
+    	// enhance contour resolution .. we assume its a closed polygon for now and 
+    	// interpolate the line across the last and first points
+    	// so we add the first point to the end of the list
+    	
+    	contourAsPts.add(contourAsPts.get(0));
+    	
+    	List<Point> newContourAsPts = new ArrayList<Point>();
+    	Point newPt = null;
+    	
+    	for (int i=0 ; i < contourAsPts.size()-1 ; i++)
+    	{
+    		Point p1 = contourAsPts.get(i);
+    		Point p2 = contourAsPts.get(i+1);
+    		double resolution = 2.0;
+    		
+    		newContourAsPts.add(p1);
+
+    		if (Math.abs(p2.x - p1.x) > resolution )
+    		{
+    			Point first = null;
+    			Point second = null;
+    			boolean ascend = true;
+    			
+    			if (p1.x <= p2.x)
+    			{
+    				first = p1;
+    				second = p2;
+    			}
+    			else
+    			{
+    				first = p2;
+    				second = p1;
+    				ascend = false;
+    			}
+    			
+    			List<Point> newPts = new ArrayList<Point>();
+    			for (double xi=first.x ; xi<second.x ; xi+=resolution)
+    			{
+    				newPt = interpolate(first, second, xi);
+    	    		newPts.add(newPt);
+    			}
+    			
+    			if (!ascend) Collections.reverse(newPts);
+    			
+    			newContourAsPts.addAll(newPts);
+    		}
+    		    		
+
+    	}
+    	System.out.println(contourAsPts.size());
+    	newContourAsPts.add(contourAsPts.get(contourAsPts.size()-1));
+    	
+
+    	return newContourAsPts;
+    }
+    
+    private static Point interpolate(Point p1, Point p2, double xi) 
+    {
+    	 //Pre conditions
+    	assert p1.x<xi;
+    	assert xi<p2.x;
+    	    	
+    	//Calculate y position of x
+    	double yi = p1.y + ( (xi - p1.x)*(p2.y - p1.y)/(p2.x - p1.x) );
+    	//create new point
+    	 	
+    	return new Point(xi,yi);
+    }
+    
 }

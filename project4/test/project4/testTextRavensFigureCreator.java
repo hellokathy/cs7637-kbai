@@ -2,6 +2,9 @@ package project4;
 
 import static org.junit.Assert.*;
 
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+
 import org.junit.Test;
 import org.opencv.core.Core; 
 import org.opencv.core.CvType; 
@@ -25,11 +28,19 @@ public class testTextRavensFigureCreator {
 		TextRavensFigureCreator trfCreator = null;
 		TextRavensFigure trf = null;
 		
+		// redirect all output to System.out to logfile instead
+		try {
+			System.setOut(new PrintStream("test.log"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		for (int x=0 ; x<=315 ; x+=45)
 		{
 			System.out.println("------angle "+x+"---------------------------");
 		
-			trfCreator = new TextRavensFigureCreator("testimages/rtri/ang"+x+".png");
+			trfCreator = new TextRavensFigureCreator("testimages/pac/ang"+x+".png");
 			trf = trfCreator.getTextRavensFigure();
 		}
 

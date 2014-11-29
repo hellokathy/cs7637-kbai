@@ -78,7 +78,6 @@ public class ShapeAnalyser {
 			
 			Converters.Mat_to_vector_Point(contoursCopy.get(i), outerAsPoints);
 						
-			System.out.println(outerAsPoints);
 
 			// get mid pt on upper surface of this shape
 			Point outerMidPtUpperSurf = ocvImgProc.computeMidPointOfUpperSurf(contoursCopy.get(i));
@@ -95,10 +94,12 @@ public class ShapeAnalyser {
 					// get first point of this shape
 					Point innerMidPtUpperSurf = this.ocvImgProc.computeMidPointOfUpperSurf(contoursCopy.get(i+1));
 					
+					System.out.println("contour "+(i+1)+" midPtUppSurf: "+innerMidPtUpperSurf.toString());
+
 					if (this.ocvImgProc.hasCloseProximity(outerMidPtUpperSurf,innerMidPtUpperSurf, i, i+1))
 					{
 						// check whether there is a fill between them
-						if (this.ocvImgProc.isFilledBetween(outerMidPtUpperSurf, innerMidPtUpperSurf, i, i+1))
+						if (this.ocvImgProc.isFilledBetween(outerMidPtUpperSurf, innerMidPtUpperSurf))
 						{
 							// mark inner edge for removal
 							objTable.get(i+1).setKeep(false);
@@ -111,9 +112,9 @@ public class ShapeAnalyser {
 						// to determine whether there is a fill or not (for nested figures with a mix of 
 						// fill and no fill)
 						System.out.println("set yes chkpt 1");				
-						Point testForFillPt = new Point(outerMidPtUpperSurf.x, outerMidPtUpperSurf.y + 4);
+						Point testForFillPt = new Point(outerMidPtUpperSurf.x, outerMidPtUpperSurf.y + 4.0);
 												
-						if (this.ocvImgProc.isFilledBetween(outerMidPtUpperSurf, testForFillPt, i, i*100))
+						if (this.ocvImgProc.isFilledBetween(outerMidPtUpperSurf, testForFillPt))
 						{
 							objTable.get(i).setFill(Const.Fill.yes.toString());	
 						}
