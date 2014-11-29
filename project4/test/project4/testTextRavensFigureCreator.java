@@ -21,9 +21,19 @@ public class testTextRavensFigureCreator {
 
 	@Test
 	public void testTextRavensProblemCreator_1() {
+		
+		TextRavensFigureCreator trfCreator = null;
+		TextRavensFigure trf = null;
+		
+		for (int x=0 ; x<=315 ; x+=45)
+		{
+			System.out.println("------angle "+x+"---------------------------");
+		
+			trfCreator = new TextRavensFigureCreator("testimages/rtri/ang"+x+".png");
+			trf = trfCreator.getTextRavensFigure();
+		}
 
-		TextRavensFigureCreator trfCreator = new TextRavensFigureCreator("testimages/A 4.png");
-		TextRavensFigure trf = trfCreator.getTextRavensFigure();
+		
 		assertTrue(true);
 	}
 

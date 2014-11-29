@@ -9,6 +9,8 @@ import java.util.TreeMap;
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
+import org.opencv.core.MatOfInt;
+import org.opencv.core.MatOfInt4;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.MatOfPoint2f;
 import org.opencv.core.Point;
@@ -68,6 +70,7 @@ public class ShapeAnalyser {
 		
 		List<Point> outerAsPoints = null;
 		List<Point> innerAsPoints = null;
+		List<Point> objectAsPoints = null;
 		
 		for (int i=0; i<contoursCopy.size() ; i++)
 		{	
@@ -78,7 +81,7 @@ public class ShapeAnalyser {
 			System.out.println(outerAsPoints);
 
 			// get mid pt on upper surface of this shape
-			Point outerMidPtUpperSurf = ocvImgProc.computeMidPointOfUpperSurf(outerAsPoints);
+			Point outerMidPtUpperSurf = ocvImgProc.computeMidPointOfUpperSurf(contoursCopy.get(i));
 			
 			System.out.println("contour "+i+" midPtUppSurf: "+outerMidPtUpperSurf.toString());
 			
@@ -90,7 +93,7 @@ public class ShapeAnalyser {
 					
 					Converters.Mat_to_vector_Point(contoursCopy.get(i+1), innerAsPoints);
 					// get first point of this shape
-					Point innerMidPtUpperSurf = this.ocvImgProc.computeMidPointOfUpperSurf(innerAsPoints);
+					Point innerMidPtUpperSurf = this.ocvImgProc.computeMidPointOfUpperSurf(contoursCopy.get(i+1));
 					
 					if (this.ocvImgProc.hasCloseProximity(outerMidPtUpperSurf,innerMidPtUpperSurf, i, i+1))
 					{
@@ -170,11 +173,16 @@ public class ShapeAnalyser {
 		String shape;
 		boolean closed = true;
 		List<MatOfPoint2f> contoursCopy2f = null;
-
+		
+		objectAsPoints = new ArrayList<Point>();
+		
 		// identify shape, area and spatial relationships
 		for (int i=0; i<objTable.size() ; i++)
 		{	
 			contoursCopy2f = this.convertToMatOfPoint2f(contoursCopy);
+			
+			Converters.Mat_to_vector_Point(objectsCopy.get(i), objectAsPoints);
+			Converters.Mat_to_vector_Point(contoursCopy.get(i), outerAsPoints); // reusing outerAsPoints ptr here
 
 			ObjectRec objRec = objTable.get(i);
 			objRec.setContourArea(Imgproc.contourArea(this.contoursCopy.get(i)));
@@ -185,7 +193,56 @@ public class ShapeAnalyser {
 			RotatedRect minAreaRec = Imgproc.minAreaRect(contoursCopy2f.get(i));
 			objRec.setMinAreaRect(minAreaRec);
 			objRec.setShape(identifyShape(i));
-			//shape = identifyShape(i);
+			objRec.setAngle(computeAngle(i));
+			objRec.setCenter(ocvImgProc.computeCenterPoint(contoursCopy.get(i)));
+			objRec.setContourArea(Imgproc.contourArea(this.contoursCopy.get(i), true));
+			
+			MatOfPoint contour = this.contoursCopy.get(i);
+			MatOfInt hull = new MatOfInt();
+			
+			Imgproc.convexHull(contour, hull);
+			
+			List<Point> farthestPoints = new ArrayList<Point>();
+			
+
+//			if (hull.rows() <= 3)
+//			{ continue; 
+//			}
+//			MatOfInt4 defects = new MatOfInt4();
+//			
+//			Imgproc.convexityDefects(contour, hull, defects);
+//			
+//			int[] indexs = defects.toArray();
+//			Point p = new Point();
+//			for (int j = 0; j * 4 < indexs.length; j++)
+//			{ 
+//				if (indexs[j*4 + 3] > objRec.getContourArea() / 10)
+//				{ 
+//					p = contour.toArray()[indexs[j*4+2]];
+//					// System.out.println("x: " + String.format("%.2f", p.x) + " y: " + String.format("%.2f", p.y)); vro.farthestNonConvexPoints.add(p);
+//					farthestPoints.add(p);
+//				}
+//			}			
+//			
+//			System.out.println("farthest pt: "+farthestPoints.toString());
+
+//			Double d  = ocvImgProc.angle(objRec.getCenter(), p);
+			//System.out.println(d.intValue());
+			
+
+			int sum = 0;
+			for (Point pt : objectAsPoints)
+			{
+				Double d = ocvImgProc.angle(objRec.getCenter(), pt);
+				
+				sum+=d.intValue();
+				System.out.println(d.intValue());
+			}
+			System.out.println("---");
+			System.out.println(sum);
+
+
+			
 		}
 		
 		System.out.println("after removing unwanted contours");
@@ -204,6 +261,12 @@ public class ShapeAnalyser {
 //
 //		tro.getAttributes().add(tra);
 
+	}
+	
+	private int computeAngle(int i)
+	{
+		
+		return 0;
 	}
 	
 	private String identifyShape(int i)

@@ -12,6 +12,7 @@ public class ObjectRec
 	private boolean keep = true;
 	private String fill = "";
 	private String shape = "";
+	private double angleOfRect = 0.0;
 	private double angle = 0.0;
 	private String size = "";
 	private String right_of = "";
@@ -26,7 +27,8 @@ public class ObjectRec
 	private RotatedRect minAreaRect = null;
 	private String left_of = "";
 	private String below = "";
-	
+	private Point center = null;
+
 	@Override
 	public String toString()
 	{
@@ -36,15 +38,37 @@ public class ObjectRec
 	public ObjectRec() 
 	{
 	}
-		
+
+	public Point getCenter() {
+		return center;
+	}
+	public void setCenter(Point center) {
+		this.center = center;
+	}
+
+	public double getAngleOfRect() {
+		return this.angleOfRect;
+	}
+	
 	public RotatedRect getMinAreaRect() {
 		return minAreaRect;
 	}
 	public void setMinAreaRect(RotatedRect minAreaRect) {
 		this.minAreaRect = minAreaRect;
-		this.angle = this.minAreaRect.angle;
+		this.angleOfRect = this.minAreaRect.angle;
 
 	}
+	
+	public double getAngle() {
+
+		return this.angle;
+	}
+	
+	public void setAngle(double angle) {
+
+		this.angle = angle;
+	}
+	
 	public String getLeft_of() {
 		return left_of;
 	}
@@ -105,6 +129,7 @@ public class ObjectRec
 	}
 
 	public double getContourArcLength() {
+		
 		return contourArcLength;
 	}
 
@@ -138,11 +163,6 @@ public class ObjectRec
 
 	public void setShape(String shape) {
 		this.shape = shape;
-	}
-
-	public double getAngle() {
-
-		return this.angle;
 	}
 
 	public String getSize() {
@@ -202,38 +222,16 @@ public class ObjectRec
 
 	private double isoperimetricQuotient(double area, double length)
 	{
-		//The "compactness" or "isoperimetric quotient" Q is a shape metric, equal
+		//The "compactness" or "isoperimetric quotient" IQ is a shape metric, equal
 		//to  (4*pi*A)/(L*L).
 		//     http://en.wikipedia.org/wiki/Isoperimetric_quotient
-		//Circles are the most compact shape, with a Q of 1. Everything else has a lower compactness.		
+		//Circles are the most compact shape, with  IQ of 1. Everything else has a lower compactness.		
 		
 		return (4* Math.PI * area)/(length*length);
 
 	}
 	
-    public static double angle(Point center, Point p) {
-        double angle = Math.atan((center.y - p.y) / (p.x - center.x));
-        if (angle < 0) {
-            angle += Math.PI;
-        }
-        if (Math.abs(center.y - p.y) > Math.abs(center.x - p.x)) {
-            if (center.y < p.y) {
-                angle += Math.PI;
-            }
-        } else if ((center.x < p.x && angle > Math.PI / 2) || (center.x > p.x && angle < Math.PI / 2)) {
-            angle += Math.PI;
-        }
-        return 360 - angle / Math.PI * 180;
-    }
 
-    static double dist(Point p1, Point p2) {
-        return Math.sqrt((p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y));
-    }
-
-    static double cos(Point p1, Point p2, Point p3) {
-        return ((p3.x - p1.x) * (p2.x - p1.x) + (p3.y - p1.y) * (p2.y - p1.y))
-                / dist(p3, p1) / dist(p2, p1);
-    }
     
  
 }

@@ -10,6 +10,8 @@ import org.opencv.core.MatOfPoint2f;
 import org.opencv.core.Point;
 import org.opencv.highgui.Highgui;
 import org.opencv.imgproc.Imgproc;
+import org.opencv.imgproc.Moments;
+import org.opencv.utils.Converters;
 
 public class OcvImageProcessor {
 	
@@ -180,15 +182,20 @@ public class OcvImageProcessor {
 		return pixelVal;
 		
 	}
-	
-	public static Point computeMidPointOfUpperSurf(List<Point> contourAsPts)
+
+
+    
+	public static Point computeMidPointOfUpperSurf(MatOfPoint contour)
 	{
 		
 //		double highX = Const.NEGATIVE_INFINITY;
 //		double lowX = Const.POSITIVE_INFINITY;
 //		double highY = Const.NEGATIVE_INFINITY;
-			
-		double midX = computeCenterPoint(contourAsPts).x;
+		
+		List<Point> contourAsPts = new ArrayList<Point>();
+		Converters.Mat_to_vector_Point(contour, contourAsPts);
+		
+		double midX = computeCenterPoint(contour).x;
 		
 		// aim is to find 4 points in the contour with x values closest to midX
 		// then we take the lowest y value from this set to approximate y value 
@@ -201,7 +208,8 @@ public class OcvImageProcessor {
 		// initialize list for closest points found
 		List<Point> closestPoints = new ArrayList<Point>();
 		
-		for (int x=0 ; x < 3 ; x++)
+		int limit = Math.min(5, contourAsPtsCopy.size() );
+		for (int x=0 ; x < limit ; x++)
 		{
 			int idx = -1;
 			double currDiff = 0.0;
@@ -220,13 +228,14 @@ public class OcvImageProcessor {
 				}
 				
 			}
-			
+
+
 			closestPoints.add(contourAsPtsCopy.get(idx));
 			contourAsPtsCopy.remove(idx);
 			
 		}
 		
-		//System.out.println("take smallest y from " +closestPoints.toString());
+		System.out.println("take smallest y from " +closestPoints.toString());
 		double lowestY = Const.POSITIVE_INFINITY;
 		for (Point p : closestPoints)
 			if (p.y < lowestY) lowestY = p.y;
@@ -235,44 +244,69 @@ public class OcvImageProcessor {
 		return targetPt;
 	}
 	
-    public static Point computeCenterPointxxx(List<Point> contourAsPts) 
-    { 
-    	double x = 0d;
-    	double y = 0d; 
-    	
-    	for (Point p : contourAsPts) 
-    	{ x += p.x; 
-    	  y += p.y; 
-    	} 
-    	Point approxCenter = new Point(); 
-    	
-    	approxCenter.x = x / contourAsPts.size(); 
-    	approxCenter.y = y / contourAsPts.size(); 
-    	
-    	System.out.println("center : " +approxCenter);
-    	return approxCenter;
-    }   
+  
+//    
+//    public static Point computeCenterPoint(MatOfPoint contour) 
+//    { 
+//    	double highX = Const.NEGATIVE_INFINITY;
+//    	
+//    	double lowX = Const.POSITIVE_INFINITY;
+//    	double highY = Const.NEGATIVE_INFINITY;
+//    	double lowY = Const.POSITIVE_INFINITY;
+//    	
+//    	List<Point> contourAsPts = new ArrayList<Point>();
+//    	Converters.Mat_to_vector_Point(contour, contourAsPts);
+//    	
+//    	for (Point p : contourAsPts) 
+//    	{ 
+//    		if (p.x < lowX) lowX = p.x;
+//    		if (p.x > highX) highX = p.x;
+//    		if (p.y < lowY) lowY = p.y;
+//    		if (p.y > highY) highY = p.y;  		
+//    	} 
+//    	Point approxCenter = new Point(); 
+//    	
+//    	approxCenter.x = lowX + (highX - lowX)/2; 
+//    	approxCenter.y = lowY + (highY - lowY)/2; 
+//    	
+//    	System.out.println("center : " +approxCenter);
+//    	return approxCenter;
+//    } 
     
-    public static Point computeCenterPoint(List<Point> contourAsPts) 
-    { 
-    	double highX = Const.NEGATIVE_INFINITY;
-    	double lowX = Const.POSITIVE_INFINITY;
-    	double highY = Const.NEGATIVE_INFINITY;
-    	double lowY = Const.POSITIVE_INFINITY;
-    	
-    	for (Point p : contourAsPts) 
-    	{ 
-    		if (p.x < lowX) lowX = p.x;
-    		if (p.x > highX) highX = p.x;
-    		if (p.y < lowY) lowY = p.y;
-    		if (p.y > highY) highY = p.y;  		
-    	} 
-    	Point approxCenter = new Point(); 
-    	
-    	approxCenter.x = lowX + (highX - lowX)/2; 
-    	approxCenter.y = lowY + (highY - lowY)/2; 
-    	
-    	System.out.println("center : " +approxCenter);
-    	return approxCenter;
-    } 
+    public static  Point computeCenterPoint(MatOfPoint contour)
+    {
+    	// uses hu moments to compute mass center 
+    	Moments m = new Moments();
+
+    	m = Imgproc.moments(contour, false);
+        
+        int x = (int) (m.get_m10() / m.get_m00());
+        int y = (int) (m.get_m01() / m.get_m00());
+        
+        return new Point(x, y);
+    }
+    
+    public static double angle(Point center, Point p) {
+        double angle = Math.atan((center.y - p.y) / (p.x - center.x));
+        if (angle < 0) {
+            angle += Math.PI;
+        }
+        if (Math.abs(center.y - p.y) > Math.abs(center.x - p.x)) {
+            if (center.y < p.y) {
+                angle += Math.PI;
+            }
+        } else if ((center.x < p.x && angle > Math.PI / 2) || (center.x > p.x && angle < Math.PI / 2)) {
+            angle += Math.PI;
+        }
+        return 360 - angle / Math.PI * 180;
+    }
+
+    static double dist(Point p1, Point p2) {
+        return Math.sqrt((p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y));
+    }
+
+    static double cos(Point p1, Point p2, Point p3) {
+        return ((p3.x - p1.x) * (p2.x - p1.x) + (p3.y - p1.y) * (p2.y - p1.y))
+                / dist(p3, p1) / dist(p2, p1);
+    }
 }
