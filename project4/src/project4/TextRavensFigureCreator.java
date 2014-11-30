@@ -37,8 +37,6 @@ public class TextRavensFigureCreator {
 		// for each vertex
 		// 		identify shape, fill, size, angle and spatial relationships 
 		
-
-		
 		ShapeAnalyser sa = new ShapeAnalyser(ocvImgProc);
 		//this.trf.getObjects().addAll(sa.getTextRavensObjects);
 		

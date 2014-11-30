@@ -3,6 +3,7 @@ package project4;
 import java.util.List;
 
 import org.opencv.core.Point;
+import org.opencv.core.Rect;
 import org.opencv.core.RotatedRect;
 
 /*
@@ -17,8 +18,6 @@ public class ObjectRec
 	private double angleOfRect = 0.0;
 	private int angle = 0;
 	private String size = "";
-	private String right_of = "";
-	private String above = "";
 	private double contourArea = 0.0;
 	private double objectArea = 0.0;
 	private double objectArcLength = 0.0;
@@ -27,10 +26,72 @@ public class ObjectRec
 	private int numObjectVertices = 0; 
 	private int numContourVertices = 0;
 	private RotatedRect minAreaRect = null;
-	private String left_of = "";
+	private Rect boundingRect = new Rect();
+	private String rightOf = "";
+	private String leftOf = "";
+	private String above = "";
 	private String below = "";
+	private String overlaps = "";
+	private String inside = "";
 	private Point center = null;
 	private List<Point> objAsPoints = null;
+	private List<Point> contourAsPoints = null;
+	private double highX = Const.NEGATIVE_INFINITY;   	
+	private double lowX = Const.POSITIVE_INFINITY;
+	private double highY = Const.NEGATIVE_INFINITY;
+	private double lowY = Const.POSITIVE_INFINITY;
+
+	@Override
+	public String toString()
+	{
+		return (" shape: "+shape+" ,keep:"+keep+" ,numObjVertices: "+numObjectVertices+" ,fill: "+fill+" ,angle: "+angle+" ,size: "+size+" ,left_of: "+leftOf+" ,right_of: "+rightOf+" ,above: "+above+" ,below: "+below+" ,inside: "+inside+" , overlaps: "+overlaps+" ,contourArea: "+contourArea+" ,objectArea: "+objectArea+" ,bRectArea:"+String.valueOf(boundingRect.area())+" ,objectArcLength: "+objectArcLength+" ,isopQ: "+isopQuotient);
+
+	}
+	public ObjectRec() 
+	{
+	}
+	
+	public double getHighX() {
+		return highX;
+	}
+
+	public void setHighX(double highX) {
+		this.highX = highX;
+	}
+
+	public double getLowX() {
+		return lowX;
+	}
+
+	public void setLowX(double lowX) {
+		this.lowX = lowX;
+	}
+
+	public double getHighY() {
+		return highY;
+	}
+
+	public void setHighY(double highY) {
+		this.highY = highY;
+	}
+
+	public double getLowY() {
+		return lowY;
+	}
+
+	public void setLowY(double lowY) {
+		this.lowY = lowY;
+	}
+	
+	public List<Point> getContourAsPoints()
+	{
+		return this.objAsPoints;
+	}
+
+	public void setContourAsPoints(List<Point> contourjAsPoints)
+	{
+		this.contourAsPoints = contourAsPoints;
+	}
 	
 	public List<Point> getObjAsPoints()
 	{
@@ -42,15 +103,6 @@ public class ObjectRec
 		this.objAsPoints = objAsPoints;
 	}
 	
-	@Override
-	public String toString()
-	{
-		return (" shape: "+shape+" ,keep:"+keep+" ,numObjVertices: "+numObjectVertices+" ,fill: "+fill+" ,angle: "+angle+" ,size: "+size+" ,left_of: "+left_of+" ,right_of: "+right_of+" ,above: "+above+" ,below: "+below+" ,contourArea: "+contourArea+" ,objectArea: "+objectArea+" ,objectArcLength: "+objectArcLength+" ,isopQ: "+isopQuotient);
-
-	}
-	public ObjectRec() 
-	{
-	}
 
 	public Point getCenter() {
 		return center;
@@ -72,6 +124,15 @@ public class ObjectRec
 
 	}
 	
+	public Rect getBoundingRect() {
+		return boundingRect;
+	}
+	
+	public void setBoundingRect(Rect rect) {
+		this.boundingRect = rect;
+
+	}
+	
 	public double getAngle() {
 
 		return this.angle;
@@ -82,17 +143,18 @@ public class ObjectRec
 		this.angle = angle;
 	}
 	
-	public String getLeft_of() {
-		return left_of;
+	public String getLeftOf() {
+		return leftOf;
 	}
-	public void setLeft_of(String left_of) {
-		if (this.left_of.length() > 0)
+	
+	public void setLeftOf(String leftOf) {
+		if (this.leftOf.length() > 0)
 		{
-			this.left_of = this.left_of + "," + left_of;
+			this.leftOf = this.leftOf + "," + leftOf;
 		}
 		else
 		{
-			this.left_of = left_of;
+			this.leftOf = leftOf;
 		}
 	}
 	public String getBelow() {
@@ -161,6 +223,10 @@ public class ObjectRec
 
 	}
 
+	public double getMinAreaRectArea() {
+		return 0.0;
+	}
+	
 	public double getObjectArea() {
 		return objectArea;
 	}
@@ -186,18 +252,18 @@ public class ObjectRec
 		this.size = size;
 	}
 
-	public String getRight_of() {
-		return right_of;
+	public String getRightOf() {
+		return rightOf;
 	}
 
-	public void setRight_of(String right_of) {
-		if (this.right_of.length() > 0)
+	public void setRightOf(String rightOf) {
+		if (this.rightOf.length() > 0)
 		{
-			this.right_of = this.right_of + "," + right_of;
+			this.rightOf = this.rightOf + "," + rightOf;
 		}
 		else
 		{
-			this.right_of = right_of;
+			this.rightOf = rightOf;
 		}
 	}
 
@@ -213,6 +279,30 @@ public class ObjectRec
 		else
 		{
 			this.above = above;
+		}
+			
+	}
+
+	public void setInside(String inside) {
+		if (this.inside.length() > 0)
+		{
+			this.inside = this.inside + "," + inside;
+		}
+		else
+		{
+			this.inside = inside;
+		}
+			
+	}
+
+	public void setOverlaps(String overlaps) {
+		if (this.overlaps.length() > 0)
+		{
+			this.overlaps = this.overlaps + "," + overlaps;
+		}
+		else
+		{
+			this.overlaps = overlaps;
 		}
 			
 	}

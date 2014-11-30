@@ -3,10 +3,6 @@ shape,shape
 shape,num_sides
 
 vertical_flip,yes,1
-vertical_flip,no,0
-
-horizontal_flip,yes,1
-horizontal_flip,no,0
 
 shape,circle,1
 shape,Pac_Man,2

@@ -264,7 +264,7 @@ public class OcvImageProcessor {
 		return targetPt;
 	}
 	
-  
+	
 //    
 //    public static Point computeCenterPoint(MatOfPoint contour) 
 //    { 

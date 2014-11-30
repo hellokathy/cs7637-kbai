@@ -181,24 +181,48 @@ public class ShapeAnalyser {
 		for (int i=0; i<objTable.size() ; i++)
 		{	
 			contoursCopy2f = this.convertToMatOfPoint2f(contoursCopy);
-			
+		
 			Converters.Mat_to_vector_Point(objectsCopy.get(i), objectAsPoints);
 			Converters.Mat_to_vector_Point(contoursCopy.get(i), outerAsPoints); // reusing outerAsPoints ptr here
+			
 
 			ObjectRec objRec = objTable.get(i);
+
+			// build list of objects excluding this one - used to derive spatial relationships
+			List<MatOfPoint2f> otherObjects = new ArrayList<MatOfPoint2f>();
+			otherObjects.addAll(objectsCopy);
+			otherObjects.remove(i);
+			
 			objRec.setObjAsPoints(objectAsPoints);
-			objRec.setContourArea(Imgproc.contourArea(this.contoursCopy.get(i)));
+			objRec.setContourAsPoints(outerAsPoints);
+			objRec.setContourArea(Math.abs(Imgproc.contourArea(this.contoursCopy.get(i))) );
 			objRec.setObjectArea(Imgproc.contourArea(this.objectsCopy.get(i)));
 			objRec.setObjectArcLength(Imgproc.arcLength(objectsCopy.get(i), closed));
 			objRec.setContourArcLength(Imgproc.arcLength(contoursCopy2f.get(i), closed));
 			objRec.setNumObjectVertices((int)this.objectsCopy.get(i).total());
 			RotatedRect minAreaRec = Imgproc.minAreaRect(contoursCopy2f.get(i));
+			Rect rect = Imgproc.boundingRect(contoursCopy.get(i));
+			objRec.setBoundingRect(rect);
 			objRec.setMinAreaRect(minAreaRec);
 			objRec.setShape(identifyShape(i));
 			objRec.setCenter(ocvImgProc.computeCenterPoint(contoursCopy.get(i)));
 			objRec.setContourArea(Imgproc.contourArea(this.contoursCopy.get(i), true));
 			objRec.setAngle(Util.roundToNearestMultipleOfN(computeAngleOfRotation(i),45) % 360);
-			
+			objRec.setSize(this.approximateSize(i));
+			computeLowsAndHighs(objRec);
+		}
+		// iterate through object table again to set spatial attributes - dependent on computeLowsAndHighs(objRec);
+
+		for (int i=0; i<objTable.size() ; i++)
+		{
+			setSpatialAttributes(i);
+
+		}
+
+		// iterate through object table again to debug print angles
+		for (int i=0; i<objTable.size() ; i++)
+		{
+			ObjectRec objRec = this.objTable.get(i);
 			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 			int sum = 0;
 			for (Point pt : objectAsPoints)
@@ -211,12 +235,9 @@ public class ShapeAnalyser {
 			System.out.println("---");
 			System.out.println(sum);
 			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-
-			
-			
+				
 		}
-		
-		System.out.println("after removing unwanted contours");
+		System.out.println("final snapshot of object table");
 		this.dumpObjTable();
 		
 //		TextRavensObject tro = null;
@@ -233,7 +254,95 @@ public class ShapeAnalyser {
 //		tro.getAttributes().add(tra);
 
 	}
+
+	public void computeLowsAndHighs(ObjectRec objRec)
+	{
+    	double highX = Const.NEGATIVE_INFINITY;   	
+    	double lowX = Const.POSITIVE_INFINITY;
+    	double highY = Const.NEGATIVE_INFINITY;
+    	double lowY = Const.POSITIVE_INFINITY;
+    	
+    	List<Point> contourAsPts = objRec.getContourAsPoints();
+    	for (Point p : contourAsPts) 
+    	{ 
+    		if (p.x < lowX) lowX = p.x;
+    		if (p.x > highX) highX = p.x;
+    		if (p.y < lowY) lowY = p.y;
+    		if (p.y > highY) highY = p.y;  		
+    	}   	
+    	
+    	objRec.setLowX(lowX);
+    	objRec.setHighX(highX);
+    	objRec.setLowY(lowY);
+    	objRec.setHighY(highY);
+
+	}
 	
+	private void setSpatialAttributes(int i)
+	{ 
+		 ObjectRec objRec = this.objTable.get(i);
+		 
+		for (int j=0 ; j<this.objTable.size() ; j++)
+		{
+			if ( j != i)
+			{
+				String otherObjName = "O"+j;
+				
+				// want to compare object i against all other objects in the table
+				ObjectRec otherObject = this.objTable.get(j);
+				
+				boolean left = false; 
+				boolean right = false;
+				boolean below =false;
+				boolean above = false;
+				boolean  inside = false;
+				
+				System.out.println("\n objRec O"+i+"  ,otherObject O"+j);
+				System.out.println("\n objRec low x:"+objRec.getLowX()+"  ,otherObject low x"+otherObject.getLowX());
+				System.out.println(" objRec high x:"+objRec.getHighX()+"  ,otherObject high x"+otherObject.getHighX());
+				System.out.println(" objRec low y:"+objRec.getLowY()+"  ,otherObject low y"+otherObject.getLowY());
+				System.out.println(" objRec high y:"+objRec.getHighY()+"  ,otherObject high y"+otherObject.getHighY());
+				
+				if (objRec.getLowX() > otherObject.getLowX() && objRec.getHighX() < otherObject.getHighX() && objRec.getLowY() > otherObject.getLowY() && objRec.getHighY()< otherObject.getHighY())
+				{
+					objRec.setInside(otherObjName);
+					inside = true;
+				} 
+				
+				if (!inside)
+				{
+					if (objRec.getHighX() <= otherObject.getLowX())
+					{
+						objRec.setLeftOf(otherObjName);
+						left = true;                                           
+					} 
+					else if (objRec.getLowX() >= otherObject.getHighX())
+					{
+						objRec.setRightOf(otherObjName);
+						right = true;                                                        
+					}
+		
+					if (objRec.getHighY() <= otherObject.getLowY())
+					{
+						objRec.setBelow(otherObjName);
+						below = true;
+					}
+					else if (objRec.getLowY() >= otherObject.getHighY())
+					{
+						objRec.setAbove(otherObjName);
+						above = true;
+		
+					}
+		
+					if ( !left && !right && !above && !below && !inside )
+					{
+						objRec.setOverlaps(otherObjName);
+					}
+				}
+			}
+		}
+
+	}
 	private List<Point> findConvexityDefects(int i )
 	{
 		// find convexity defects
@@ -471,6 +580,36 @@ public class ShapeAnalyser {
 			sum += Double.valueOf(ocvImgProc.angle(objRec.getCenter(), p)).intValue();
 		}
 		return sum;
+	}
+	
+	private String approximateSize(int i)
+	{
+		ObjectRec objRec = this.objTable.get(i);
+		
+		int area = Double.valueOf(Math.abs(objRec.getBoundingRect().area())).intValue();
+		
+		if (area <= 4200 )
+		{
+			return Const.Size.very_small.toString();
+		} 
+		else if (area <= 8000)
+		{
+			return Const.Size.small.toString();
+		}
+		else if (area <= 13800)
+		{
+			return Const.Size.medium.toString();
+		}
+		else if (area <= 21000) 	
+		{
+			return Const.Size.large.toString();
+		}
+		else
+		{
+			return Const.Size.very_large.toString();
+		}
+		
+		
 	}
 	
 	private String identifyShape(int i)
