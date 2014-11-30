@@ -141,7 +141,7 @@ public class PrepositionalAgent
     	
     	System.out.println("------------------------------------------------------");
     	System.out.println("\n..solving problem: "+problem.getName());
-    	
+
     	SemanticNet semanticNet = new SemanticNet(problem.getProblemType());
     	int objCtr = 0;
     	
@@ -186,7 +186,7 @@ public class PrepositionalAgent
     			
     			f.setFrameLabel(Integer.toString(tp.index));
     			
-    			NameValuePair pair = new NameValuePair("shape-count", tp.count );
+    			NameValuePair pair = new NameValuePair(Const.Attr.shape_count.toString(), tp.count );
     			f.addSlot(pair);
     			    			
     			// add frame to semantic network
@@ -198,6 +198,8 @@ public class PrepositionalAgent
 
     		
     	}
+    	
+    	//semanticNet.debugPrintNetwork();
     	
     	String answerCalculated = null;
     	String correctAnswer = "unknown";

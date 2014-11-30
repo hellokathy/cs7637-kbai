@@ -34,6 +34,7 @@ public class TextRavensProblemCreator {
         	TextRavensFigureCreator trfCreator = new TextRavensFigureCreator(this.vrp.getFigures().get(figureLabel));
         	TextRavensFigure trf = trfCreator.getTextRavensFigure();
         	
+        	
             this.trp.getFigures().put(figureLabel,trf);
     
         }

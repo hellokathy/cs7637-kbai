@@ -1,5 +1,8 @@
 package project4;
 
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+
 /**
  * Your Agent for solving Raven's Progressive Matrices. You MUST modify this
  * file.
@@ -25,6 +28,14 @@ public class Agent {
 	PrepositionalAgent prepositionalAgent = null; // previous agent from Project3
 	
     public Agent() {
+		// redirect all output to System.out to logfile instead
+		try {
+			System.setOut(new PrintStream("agent.log"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
         this.prepositionalAgent = new PrepositionalAgent();
     }
     /**
@@ -58,11 +69,12 @@ public class Agent {
     	// step 1 : generate equivalent TextRavensProbem
     	TextRavensProblemCreator trpCreator = new TextRavensProblemCreator(problem);
     	TextRavensProblem  trp = trpCreator.getTextRavensProblem();
-    	
-    	// step 2 : get answer from prepositional agent (have it return a confidence% along with answer)
+
+    	// step 2 : attempt to get an answer via visual reasoning
+
+    	// step 3 : get answer from prepositional agent (have it return a confidence% along with answer)
     	answer1 = this.prepositionalAgent.Solve(trp);
     	
-    	// step 3 : attempt to get an answer via visual reasoning
     	
     	// step 4 : if both answers match then return answer else return one with higher confidence%
     	

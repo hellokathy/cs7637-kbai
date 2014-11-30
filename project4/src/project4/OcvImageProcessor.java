@@ -103,12 +103,7 @@ public class OcvImageProcessor {
 		}
 		
 		this.foundRawObjects = this.rawObjects.size() > 0;
-		
-		for (int i=0; i<rawObjects.size() ; i++)
-		{
-	    	//System.out.println("Contour "+i +"\n"+contours.get(i).dump()+"\n");
-		}
-    	//System.out.println("Hierarchy \n"+hierarchy.dump()+"\n\n");				
+						
 
 		
 	}
@@ -130,10 +125,10 @@ public class OcvImageProcessor {
 				retVal = true;
 		}
 		
-		System.out.println("diff.x "+ String.valueOf(diff.x) + " <= tolerance "+String.valueOf(tolerance));
-		System.out.println("diff.y "+ String.valueOf(diff.y) + " <= tolerance "+String.valueOf(tolerance));
+		if (Const.DEBUG_OPENCV) System.out.println("diff.x "+ String.valueOf(diff.x) + " <= tolerance "+String.valueOf(tolerance));
+		if (Const.DEBUG_OPENCV) System.out.println("diff.y "+ String.valueOf(diff.y) + " <= tolerance "+String.valueOf(tolerance));
 
-		System.out.println("hasCloseProximity is "+retVal+"\n");
+		if (Const.DEBUG_OPENCV) System.out.println("hasCloseProximity is "+retVal+"\n");
 		return retVal;
 
 	}
@@ -149,8 +144,6 @@ public class OcvImageProcessor {
 		double ctr = 0;
 		double countOfBlackPix = 0;
 		
-		//System.out.println("bwImage : "+this.bwImage.dump());
-
 		for (double yi=y1; yi<=y2 ; yi=yi+1.0 )
 		{
 			ctr++;
@@ -162,11 +155,11 @@ public class OcvImageProcessor {
 			
 		}
 		
-		System.out.println("sum of black pix "+countOfBlackPix);
-		System.out.println("total count of pix "+ctr);
+		if (Const.DEBUG_OPENCV) System.out.println("sum of black pix "+countOfBlackPix);
+		if (Const.DEBUG_OPENCV) System.out.println("total count of pix "+ctr);
 
 		double perc = countOfBlackPix / ctr;
-		System.out.println("perc : "+perc);
+		if (Const.DEBUG_OPENCV) System.out.println("perc : "+perc);
 		
 		boolean filled = false;
 		
@@ -209,7 +202,7 @@ public class OcvImageProcessor {
 		
 		double retVal =  this.bwImage.get(yi, xi)[0]; // why on earth did openCV reverse the X,Y order for the get method ????!!!!!!
 		
-		System.out.println("pixel val at "+p.toString()+" is "+retVal);
+		if (Const.DEBUG_OPENCV) System.out.println("pixel val at "+p.toString()+" is "+retVal);
 		return retVal;
 
 	}
@@ -226,13 +219,13 @@ public class OcvImageProcessor {
 		List<Point> contourAsPtsSrc = new ArrayList<Point>();
 		Converters.Mat_to_vector_Point(contour, contourAsPtsSrc);
 		
-		System.out.println("extracted : "+contourAsPtsSrc);
+		if (Const.DEBUG_OPENCV) System.out.println("extracted : "+contourAsPtsSrc);
 
 		// use interpolation to increase resolution of contour
 		List<Point> contourAsPts = new ArrayList<Point>();
 		contourAsPts = enhanceContourRes(contourAsPtsSrc);
 
-		System.out.println("res enh : "+ contourAsPts);
+		if (Const.DEBUG_OPENCV) System.out.println("res enh : "+ contourAsPts);
 		
 		//List<Point> contourAsPts = new ArrayList<Point>();
 		//Converters.Mat_to_vector_Point(contour, contourAsPts);
@@ -255,7 +248,7 @@ public class OcvImageProcessor {
 			if ( Math.abs( p.x - midX ) <= 1.0  ) closestPoints.add(p);
 		}
 		
-		System.out.println("take smallest y from " +closestPoints.toString());
+		if (Const.DEBUG_OPENCV) System.out.println("take smallest y from " +closestPoints.toString());
 		double lowestY = Const.POSITIVE_INFINITY;
 		for (Point p : closestPoints)
 			if (p.y < lowestY) lowestY = p.y;
@@ -381,7 +374,7 @@ public class OcvImageProcessor {
     		    		
 
     	}
-    	System.out.println(contourAsPts.size());
+    	if (Const.DEBUG_OPENCV) System.out.println(contourAsPts.size());
     	newContourAsPts.add(contourAsPts.get(contourAsPts.size()-1));
     	
 

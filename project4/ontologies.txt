@@ -1,8 +1,8 @@
-angle,angle
 shape,shape
 shape,num_sides
 
 vertical_flip,yes,1
+
 
 shape,circle,1
 shape,Pac_Man,2
@@ -57,13 +57,6 @@ size,medium,3
 size,large,4
 size,very_large,5
 
-angle,0,0
-angle,45,45
-angle,90,90
-angle,135,135
-angle,180,180
-angle,225,225
-angle,270,270
-angle,315,315
+
 
 

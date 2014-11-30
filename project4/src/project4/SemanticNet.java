@@ -28,7 +28,7 @@ public class SemanticNet
 		
 		switch (rpmType) 
 		{
-			case "2x1":
+			case "2x1 (Image)" :
 				String[] labels_2x1 = {"A","B","C"};
 				createNodes(labels_2x1);
 
@@ -36,7 +36,7 @@ public class SemanticNet
 				this.nodes.get("A").setNextHorizontalNode(this.nodes.get("B"));
 				
 				break;
-			case "2x2":
+			case "2x2 (Image)":
 				
  				String[] labels_2x2 = {"A","B","C"};
 				
@@ -50,7 +50,7 @@ public class SemanticNet
 	
 				
 				break; 
-			case "3x3":
+			case "3x3 (Image)":
 
 				String[] labels_3x3 = {"A","B","C","D","E","F","G","H"};
 				

@@ -226,7 +226,7 @@ public class AnalogicalRPMSolver {
     	
     	List<String> labels = null;
     	
-    	boolean is3x3RPM = this.semanticNet.rpmType.compareTo("3x3") == 0;
+    	boolean is3x3RPM = this.semanticNet.rpmType.compareTo(Const.RPM_TYPE_3x3) == 0;
 		if (is3x3RPM )
 		{
 			labels = Arrays.asList("A","B","C","D","E","F","G","H");
@@ -329,7 +329,7 @@ public class AnalogicalRPMSolver {
 				Double cosDiff = 0.0;
 				
 				// if there are no shapes in generated frame then leave cosDiff at 0
-				if (currGeneratedFrame.getSlot("shape-count")>0)
+				if (currGeneratedFrame.getSlot(Const.Attr.shape_count.toString())>0)
 					cosDiff = VectorExt.getCosineSimilarity(generatedVector, candidateVector);
 				
 				// add cosine diff to distance vector
@@ -394,7 +394,7 @@ public class AnalogicalRPMSolver {
 				// check whether all frames in generatedNode have shape-count = 0
 				for (Frame f : generatedNode.getFrameListValues())
 				{
-					if (f.getSlot("shape-count") != 0 )
+					if (f.getSlot(Const.Attr.shape_count.toString()) != 0 )
 					{
 						distanceVector.add(0.0);
 						return;

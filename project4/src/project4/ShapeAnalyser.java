@@ -28,11 +28,11 @@ import org.opencv.utils.Converters;
  */
 public class ShapeAnalyser {
 	
-	OcvImageProcessor ocvImgProc = null;
+	private OcvImageProcessor ocvImgProc = null;
 	private ArrayList<TextRavensObject> trObjects = null;
-	List<MatOfPoint> contoursCopy = null;
-	List<MatOfPoint2f> objectsCopy = null;
-	List<ObjectRec> objTable = null; // temporary table for collating data
+	private List<MatOfPoint> contoursCopy = null;
+	private List<MatOfPoint2f> objectsCopy = null;
+	private List<ObjectRec> objTable = null; // temporary table for collating data
 
 	public ShapeAnalyser(OcvImageProcessor ocvImgProc) {
 		this.ocvImgProc = ocvImgProc;
@@ -141,10 +141,10 @@ public class ShapeAnalyser {
 	    	//System.out.println("raw objects "+i +"\n"+rawObjectsCopy.get(i).dump()+"\n");
 		}
 		
-		// before removing unwanted contours
-		System.out.println("before removing unwanted contours");
-		this.dumpObjTable();
-		System.out.println("\n");
+//		// before removing unwanted contours
+//		System.out.println("before removing unwanted contours");
+//		this.dumpObjTable();
+//		System.out.println("\n");
 		
 		// create temporary lists to store elements we need to keep
 		List<MatOfPoint> contoursToKeep = new ArrayList<MatOfPoint>();
@@ -210,35 +210,37 @@ public class ShapeAnalyser {
 			objRec.setAngle(Util.roundToNearestMultipleOfN(computeAngleOfRotation(i),45) % 360);
 			objRec.setSize(this.approximateSize(i));
 			computeLowsAndHighs(objRec);
+			objRec.setObjName("O"+i);
+			
+//			//debug print angles
+//			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+//			int sum = 0;
+//			for (Point pt : objectAsPoints)
+//			{
+//				Double d = ocvImgProc.angle(objRec.getCenter(), pt);
+//				
+//				sum+=d.intValue();
+//				System.out.println(d.intValue());
+//			}
+//			System.out.println("---");
+//			System.out.println(sum);
+//			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		}
-		// iterate through object table again to set spatial attributes - dependent on computeLowsAndHighs(objRec);
-
+		
+		// iterate through object table again to set spatial attributes - dependent on 
+		// computeLowsAndHighs(objRec) havng been run against entire table previously
 		for (int i=0; i<objTable.size() ; i++)
 		{
 			setSpatialAttributes(i);
 
 		}
-
-		// iterate through object table again to debug print angles
-		for (int i=0; i<objTable.size() ; i++)
-		{
-			ObjectRec objRec = this.objTable.get(i);
-			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-			int sum = 0;
-			for (Point pt : objectAsPoints)
-			{
-				Double d = ocvImgProc.angle(objRec.getCenter(), pt);
-				
-				sum+=d.intValue();
-				System.out.println(d.intValue());
-			}
-			System.out.println("---");
-			System.out.println(sum);
-			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-				
-		}
+		
+		// debug print table
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		System.out.println("final snapshot of object table");
 		this.dumpObjTable();
+		
+	
 		
 //		TextRavensObject tro = null;
 //		TextRavensAttribute tra = null;
@@ -254,8 +256,13 @@ public class ShapeAnalyser {
 //		tro.getAttributes().add(tra);
 
 	}
-
-	public void computeLowsAndHighs(ObjectRec objRec)
+	
+	public List<ObjectRec> getObtTable()
+	{
+		return this.objTable;
+	}
+	
+	private void computeLowsAndHighs(ObjectRec objRec)
 	{
     	double highX = Const.NEGATIVE_INFINITY;   	
     	double lowX = Const.POSITIVE_INFINITY;
@@ -286,22 +293,23 @@ public class ShapeAnalyser {
 		{
 			if ( j != i)
 			{
-				String otherObjName = "O"+j;
 				
 				// want to compare object i against all other objects in the table
 				ObjectRec otherObject = this.objTable.get(j);
+				String otherObjName = otherObject.getObjName();
 				
+
 				boolean left = false; 
 				boolean right = false;
 				boolean below =false;
 				boolean above = false;
 				boolean  inside = false;
 				
-				System.out.println("\n objRec O"+i+"  ,otherObject O"+j);
-				System.out.println("\n objRec low x:"+objRec.getLowX()+"  ,otherObject low x"+otherObject.getLowX());
-				System.out.println(" objRec high x:"+objRec.getHighX()+"  ,otherObject high x"+otherObject.getHighX());
-				System.out.println(" objRec low y:"+objRec.getLowY()+"  ,otherObject low y"+otherObject.getLowY());
-				System.out.println(" objRec high y:"+objRec.getHighY()+"  ,otherObject high y"+otherObject.getHighY());
+//				System.out.println("\n objRec O"+i+"  ,otherObject O"+j);
+//				System.out.println("\n objRec low x:"+objRec.getLowX()+"  ,otherObject low x"+otherObject.getLowX());
+//				System.out.println(" objRec high x:"+objRec.getHighX()+"  ,otherObject high x"+otherObject.getHighX());
+//				System.out.println(" objRec low y:"+objRec.getLowY()+"  ,otherObject low y"+otherObject.getLowY());
+//				System.out.println(" objRec high y:"+objRec.getHighY()+"  ,otherObject high y"+otherObject.getHighY());
 				
 				if (objRec.getLowX() > otherObject.getLowX() && objRec.getHighX() < otherObject.getHighX() && objRec.getLowY() > otherObject.getLowY() && objRec.getHighY()< otherObject.getHighY())
 				{
@@ -365,13 +373,10 @@ public class ShapeAnalyser {
 			if (indexs[j*4 + 3] > this.objTable.get(i).getContourArea() / 10)
 			{ 
 				p = contour.toArray()[indexs[j*4+2]];
-				// System.out.println("x: " + String.format("%.2f", p.x) + " y: " + String.format("%.2f", p.y)); vro.farthestNonConvexPoints.add(p);
 				furthestPoints.add(p);
 			}
 		}			
-		
-		System.out.println("farthest pt: "+furthestPoints.toString());
-		
+			
 		return furthestPoints;
 		
 	}
@@ -380,13 +385,15 @@ public class ShapeAnalyser {
 		int angleOfRotation = 0;
 		ObjectRec objRec = this.objTable.get(i);
 		
-		int tolerance = 10; // error tolerance for matching angles
+		int tolerance = 5; // error tolerance for matching angles
 		
 		if ( objRec.getShape().compareTo(Const.Shape.Pac_Man.toString()) == 0 )
 		{
 			// should have a single convexity defect
 			List<Point> cdPts = this.findConvexityDefects(i);
-			System.out.println("conv defects : "+cdPts);
+			
+			if (Const.DEBUG_OPENCV) System.out.println("conv defects : "+cdPts);
+			
 			if (cdPts.size() != 1 )
 			{
 				System.out.println("ERROR: shape incorrectly identified.");
@@ -600,7 +607,7 @@ public class ShapeAnalyser {
 		{
 			return Const.Size.medium.toString();
 		}
-		else if (area <= 21000) 	
+		else if (area <= 17500) 	
 		{
 			return Const.Size.large.toString();
 		}
@@ -648,9 +655,9 @@ public class ShapeAnalyser {
 					
 					int errTolerance = 3; // allowed diff between height and width
 					
-					System.out.println("rec angle :"+objRec.getMinAreaRect().angle);
-					System.out.println("height : "+ height);
-					System.out.println("width : "+ width);
+					if (Const.DEBUG_OPENCV) System.out.println("rec angle :"+objRec.getMinAreaRect().angle);
+					if (Const.DEBUG_OPENCV)System.out.println("height : "+ height);
+					if (Const.DEBUG_OPENCV)System.out.println("width : "+ width);
 					
 					if (Math.abs(height - width) <= errTolerance)
 					{
@@ -703,9 +710,7 @@ public class ShapeAnalyser {
 			side1 = ocvImgProc.dist(pts.get(0), pts.get(1));
 			side2 = ocvImgProc.dist(pts.get(1), pts.get(2));
 			side3 = ocvImgProc.dist(pts.get(2), pts.get(0));
-			
-			System.out.println("side1 "+side1+" side2 "+side2+" side3 "+side3);
-			
+						
 			if ( ( (side1 > side2 && side1 > side3 && Math.abs( side1*side1 - (side2*side2 + side3*side3) ) <= errTol )  || 
 				 (  side2 > side3 && side2 > side1 && Math.abs( side2*side2 - (side1*side1 + side3*side3) ) <= errTol )  ||
 				 (  side3 > side2 && side3 > side1 && Math.abs( side3*side3 - (side1*side1 + side2*side2) ) <= errTol ) ))

@@ -9,16 +9,18 @@ package project4;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.TreeMap;
 
 /**
  * A single figure in a Raven's Progressive Matrix problem, comprised of a name 
  * and a list of RavensObjects.
  * 
  */
-public class TextRavensFigure {
+public class TextRavensFigure 
+{
     private String name;
     private ArrayList<TextRavensObject> objects;
-    private HashMap<String, TextRavensObject> objectsMap;
+    private TreeMap<String, TextRavensObject> objectsMap;
     
     /**
      * Creates a new figure for a Raven's Progressive Matrix given a name.
@@ -27,9 +29,11 @@ public class TextRavensFigure {
      * 
      * @param name the name of the figure
      */
-    public TextRavensFigure(String name) {
+    public TextRavensFigure(String name) 
+    {
         this.name=name;
         objects=new ArrayList<>();
+        objectsMap = new TreeMap<String, TextRavensObject>();
     }
     /**
      * Returns the name of the figure. The name of the figure will always match
@@ -48,15 +52,34 @@ public class TextRavensFigure {
      * 
      * @return the name of this figure
      */
-    public String getName() {
+    public String getName() 
+    {
         return name;
+    }
+    public void setName(String name) 
+    {
+        this.name = name;
     }
     /**
      * Returns an ArrayList of RavensObjects from the figure.
      * 
      * @return an ArrayList of TextRavensObject
      */
-    public ArrayList<TextRavensObject> getObjects() {
+    public ArrayList<TextRavensObject> getObjects() 
+    {
         return objects;
     }
+    
+    public void setObjects(ArrayList<TextRavensObject> trfObjects)
+    {
+    	this.objects = trfObjects;
+    }
+    
+    public void addObject(TextRavensObject tro, String troName)
+    {
+    	objects.add(tro);
+    	objectsMap.put(troName, tro);
+    }
+    
+
 }

@@ -53,4 +53,9 @@ public class TextRavensObject {
     public ArrayList<TextRavensAttribute> getAttributes() {
         return attributes;
     }
+    
+    public void addAttrib(TextRavensAttribute tra)
+    {
+    	this.attributes.add(tra);
+    }
 }

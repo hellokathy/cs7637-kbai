@@ -1,10 +1,3 @@
-/*
- * DO NOT MODIFY THIS FILE.
- * 
- * Any modifications to this file will not be used when grading your project.
- * If you have any questions, please email the TAs.
- * 
- */
 package project4;
 
 import java.util.HashMap;

@@ -13,6 +13,7 @@
 package project4;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -27,8 +28,9 @@ import java.util.ArrayList;
 public class Project4 {
     /**
      * The main method of Project4.
+     * @throws FileNotFoundException 
      */
-    public static void main2(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         // Loading problems from files
         ArrayList<VisualProblemSet> sets = new ArrayList<VisualProblemSet>();       // The variable 'sets' stores multiple problem sets.
                                                                         // Each problem set comes from a different folder in /Problems/
@@ -48,7 +50,7 @@ public class Project4 {
                                                                         // You may modify the default constructor in Agent.java
         
         // Running agent against each problem set
-        try {
+       // try {
             PrintWriter results=new PrintWriter("Results.txt");         // Results will be written to Results.txt.
                                                                         // Note that each run of the program will overwrite the previous results.
                                                                         // Do not write anything else to Results.txt during execution of the program.
@@ -58,24 +60,24 @@ public class Project4 {
                 results.println("-----------");                         // Problem sets will be individually categorized in the results file.
                 
                 for(VisualRavensProblem problem : set.getProblems()) {        // Your agent will solve one problem at a time.
-                    try {
+//                    try {
                         problem.setAnswerReceived(agent.Solve(problem));// The problem will be passed to your agent as a VisualRavensProblem object as a parameter to the Solve method
                                                                         // Your agent should return its answer at the conclusion of the execution of Solve.
                                                                         // Note that if your agent makes use of VisualRavensProblem.check to check its answer, the answer passed to check() will be used.
                                                                         // Your agent cannot change its answer once it has checked its answer.
                     
                         results.println(problem.getName() + ": " + problem.getGivenAnswer() + " " + problem.getCorrect() + " (Correct Answer: " + problem.checkAnswer("") + ")");
-                    } catch(Exception ex) {
-                        System.out.println("Error encountered in " + set.getName() + " problem " + problem.getName());
-                        results.println(problem.getName() + ": Error; no answer given.");
-                    }
+//                    } catch(Exception ex) {
+//                        System.out.println("Error encountered in " + set.getName() + " problem " + problem.getName());
+//                        results.println(problem.getName() + ": Error; no answer given.");
+//                    }
                 }
                 results.println("");
             }
             results.close();
-        } catch(IOException ex) {
-            System.out.println("Unable to create results file:");
-            System.out.println(ex);
-        }
+//        } catch(IOException ex) {
+ //           System.out.println("Unable to create results file:");
+  //          System.out.println(ex);
+     //   }
     }
 }

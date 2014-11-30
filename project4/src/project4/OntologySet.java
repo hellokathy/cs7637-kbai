@@ -81,14 +81,25 @@ public class OntologySet
 	private boolean isSpatialAttribute(String attributeName)
 	{
 		ArrayList<String> spatials = new ArrayList<String>();
-		spatials.add("left-of");
-		spatials.add("right-of");
-		spatials.add("above");
-		spatials.add("below");
-		spatials.add("inside");
-		spatials.add("overlaps");
+		spatials.add(Const.Attr.left_of.toString());
+		spatials.add(Const.Attr.right_of.toString());
+		spatials.add(Const.Attr.above.toString());
+		spatials.add(Const.Attr.below.toString());
+		spatials.add(Const.Attr.inside.toString());
+		spatials.add(Const.Attr.overlaps.toString());
 		
 		return spatials.contains(attributeName.trim());
+	}
+	
+	private boolean isNonOntologyAttribute(String attributeName)
+	{
+		// attributes that we want to add directly instead of mapping to an integer
+		// namely angle
+		ArrayList<String> nonOntology = new ArrayList<String>();
+		nonOntology.add(Const.Attr.angle.toString());
+		
+		return nonOntology.contains(attributeName.trim());
+
 	}
 	
 	// getters and setters
@@ -216,6 +227,7 @@ public class OntologySet
     																	// in a separate element
     	String raName = ra.getName().trim();
     	boolean isSpatial = this.isSpatialAttribute(raName);
+    	boolean isNonOntology = this.isNonOntologyAttribute(raName);
     	
     	// first check whether this attribute needs to be split into multiple entries
     	// fill attributes can have multiple comma separated values so need to separate them out
@@ -243,9 +255,14 @@ public class OntologySet
     				{ 
     					addToFrameDataSet(frameData, keyMapPair.getValue(), "1" , false);
     				}
-    				else 
+    				else if (isNonOntology)
+    				{
+    					addToFrameDataSet(frameData, keyMapPair.getValue(), attrVal, false);
+    				} 
+    				else
     				{
     					addToFrameDataSet(frameData, keyMapPair.getValue(), attrVal, true);
+
     				}
     			}
 
@@ -260,8 +277,13 @@ public class OntologySet
     			if (isSpatial)
     			{
     				addToFrameDataSet(frameData, raName, "1" , false);
-    			} else
-    			{
+    			} 
+				else if (isNonOntology)
+				{
+					addToFrameDataSet(frameData, raName, attrVal, false);
+				} 
+				else
+				{
     				addToFrameDataSet(frameData,raName, attrVal ,true );
     			}
     		}

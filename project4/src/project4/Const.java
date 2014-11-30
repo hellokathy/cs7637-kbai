@@ -6,8 +6,14 @@ public class Const {
 	public static int POSITIVE_INFINITY = 999999999;
 	public static int MIN_SIMILARITY_WEIGHT = 1;
 
+	public static boolean DEBUG_OPENCV = false;
+	
 	public static String PERMANENT_CASE_FILENAME = "permanentmemory.db";
 	
+	public static String RPM_TYPE_3x3 = "3x3 (Image)";
+	public static String RPM_TYPE_2x1 = "2x1 (Image)";
+	public static String RPM_TYPE_2x2 = "2x2 (Image)";
+
 	public static enum Fill 
 	{
 		no, yes;
@@ -42,7 +48,23 @@ public class Const {
 		small,
 		medium,
 		large,
-		very_large,
+		very_large;
 	}	
+	
+	public static enum Attr
+	{
+		 shape,
+		 size,
+		 fill,
+		 angle,
+		 left_of,
+		 right_of,
+		 above,
+		 below,
+		 overlaps,
+		 inside,
+		 shape_count;
+		 
+	}
 }
 

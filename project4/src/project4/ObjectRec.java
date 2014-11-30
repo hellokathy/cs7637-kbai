@@ -40,7 +40,8 @@ public class ObjectRec
 	private double lowX = Const.POSITIVE_INFINITY;
 	private double highY = Const.NEGATIVE_INFINITY;
 	private double lowY = Const.POSITIVE_INFINITY;
-
+	private String objName = "";
+	
 	@Override
 	public String toString()
 	{
@@ -49,6 +50,14 @@ public class ObjectRec
 	}
 	public ObjectRec() 
 	{
+	}
+
+	public String getObjName() {
+		return objName;
+	}
+
+	public void setObjName(String objName) {
+		this.objName = objName;
 	}
 	
 	public double getHighX() {
@@ -133,7 +142,7 @@ public class ObjectRec
 
 	}
 	
-	public double getAngle() {
+	public int getAngle() {
 
 		return this.angle;
 	}
@@ -283,6 +292,10 @@ public class ObjectRec
 			
 	}
 
+	public String getInside() {
+		return inside;
+	}
+	
 	public void setInside(String inside) {
 		if (this.inside.length() > 0)
 		{
@@ -295,6 +308,10 @@ public class ObjectRec
 			
 	}
 
+	public String getOverlaps() {
+		return overlaps;
+	}
+	
 	public void setOverlaps(String overlaps) {
 		if (this.overlaps.length() > 0)
 		{
